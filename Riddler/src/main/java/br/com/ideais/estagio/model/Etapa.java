@@ -1,7 +1,6 @@
 package br.com.ideais.estagio.model;
 
 import java.io.Serializable;
-import br.com.ideais.estagio.model.Beneficio;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Etapa implements Serializable {
 
-	
 	private static final long serialVersionUID = 1L;
 	@Id
     @SequenceGenerator( name = "sequence", sequenceName = "sequence" )
@@ -24,15 +22,11 @@ public class Etapa implements Serializable {
 	private String nome;
 	private Integer ordem;
 	private Integer vencimento;
-	private Beneficio beneficioId;
-	
-	
+	private Integer id_beneficio;
 
 	private Etapa(){
 		
 	}
-	
-	
 	
 	public Long getId() {
 		return id;
@@ -69,8 +63,8 @@ public class Etapa implements Serializable {
 	}
 
 
-	public Beneficio getBeneficioId() {
-		return beneficioId;
+	public Integer getId_Beneficio() {
+		return id_beneficio;
 	}
 
 }

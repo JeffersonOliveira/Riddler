@@ -43,6 +43,4 @@ public class Funcionario implements Serializable{
 		this.dataDeAdmissao = dataDeAdmissao;
 	}
 	
-	
-	
 }
