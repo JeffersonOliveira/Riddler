@@ -22,7 +22,7 @@ public class Etapa implements Serializable {
 	private String nome;
 	private Integer ordem;
 	private Integer vencimento;
-	private Integer id_beneficio;
+	private Long idBeneficio;
 
 	private Etapa(){
 		
@@ -62,9 +62,10 @@ public class Etapa implements Serializable {
 		this.vencimento = vencimento;
 	}
 
-
-	public Integer getId_Beneficio() {
-		return id_beneficio;
+	public Long getIdBeneficio() {
+		return idBeneficio;
 	}
+
+
 
 }
