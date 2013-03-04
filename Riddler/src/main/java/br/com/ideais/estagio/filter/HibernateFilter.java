@@ -1,13 +1,13 @@
-package br.com.ideais.estagio.filter;
-
-import org.hibernate.FlushMode;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
-/**
- * Servlet Filter implementation class HibernateFilter
- */
+//package br.com.ideais.estagio.filter;
+//
+//import org.hibernate.FlushMode;
+//import org.hibernate.HibernateException;
+//import org.hibernate.Session;
+//import org.hibernate.SessionFactory;
+//
+///**
+// * Servlet Filter implementation class HibernateFilter
+// */
 //public class HibernateFilter extends OpenSessionInViewFilter{
 //       
 //	@Override

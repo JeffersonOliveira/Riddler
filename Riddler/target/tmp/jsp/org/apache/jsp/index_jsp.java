@@ -55,8 +55,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("    <!-- Le styles -->\n");
       out.write("    <link href=\"bootstrap/css/bootstrap.css\" rel=\"stylesheet\">\n");
-      out.write("        <link href=\"bootstrap/css/bootstrap-responsive.css\" rel=\"stylesheet\">\n");
-      out.write("         <link href=\"bootstrap/css/inpage.css\" rel=\"stylesheet\">\n");
+      out.write("    <link href=\"bootstrap/css/bootstrap-responsive.css\" rel=\"stylesheet\">\n");
+      out.write("    <link href=\"bootstrap/css/inpage.css\" rel=\"stylesheet\">\n");
       out.write("\n");
       out.write("    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->\n");
       out.write("    <!--[if lt IE 9]>\n");
