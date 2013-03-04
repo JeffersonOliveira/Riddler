@@ -39,6 +39,12 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>8.1.9.v20130131</version>
 			</plugin>
+			<plugin>
+				<groupId>com.oracle</groupId>
+				<artifactId>ojdbc14</artifactId>
+				<!-- use the 10g drivers which are surprisingly largely bug free -->
+				<version>10.0.2.0</version>
+			</plugin>
 		</plugins>
 	</build>
 </project>
