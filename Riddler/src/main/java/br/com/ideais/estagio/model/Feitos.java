@@ -9,10 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
-import org.springframework.stereotype.Component;
-
 @Entity
-@Component
 public class Feitos implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
