@@ -1,7 +1,5 @@
 package br.com.ideais.estagio.model;
 
-
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -12,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 import org.springframework.stereotype.Component;
-
-
 
 @Entity
 @Component
@@ -45,7 +41,5 @@ public class Beneficio implements Serializable{
 		public Long getId() {
 			return id;
 		}	
-		
-		
 		
 }
