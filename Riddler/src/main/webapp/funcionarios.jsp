@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Riddler</title>
+<title>Riddler - Funcion·rios</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -22,17 +22,17 @@
 	<div class="container">
 
 		<div class="masthead">
-			<h3 class="muted" align="center">Perfil RH</h3>&nbsp;
+			<h3 class="muted">Riddler</h3>
 			<div class="navbar">
 				<div class="tabbable">
 					<div class="container">
 						<ul class="nav">
 							<li class="active"><a href="paginaInicial.jsp">Tarefas
 									Urgentes</a></li>
-							<li><a href="cadastroFuncionario.jsp">Cadastro Funcion√°rio</a></li>
-							<li><a href="cadastroBeneficio.jsp">Cadastro Benef√≠cio</a></li>
+							<li><a href="cadastroFuncionario.jsp">Cadastro Funcion·rio</a></li>
+							<li><a href="cadastroBeneficio.jsp">Cadastro BenefÌcio</a></li>
 							<li><a href="#">Tarefas Pendentes</a></li>
-							<li><a href="funcionarios.jsp">Funcion√°rios </a></li>
+							<li><a href="#">Funcion·rios </a></li>
 						
 							<!-- Olhar pra fazer logout-->						
 						
@@ -51,22 +51,24 @@
 		&nbsp;
 		<div class="jumbotron">
 			<h1 align="center">
-				<font color="#8B0000">Alertas Urgentes</font>
+				Funcion·rios
 			</h1>
 			&nbsp;
 			<table class="table table-striped">
 				<thead align="center">
 					<tr>
 						<th>ID</th>
-						<th>Tarefa</th>
-						<th>Funcion√°rio</th>
+						<th>Funcion·rio</th>
+						<th>Data de Admiss„o</th>
 				</thead>
 				<tbody>
 					<tr class="warning">
 						<td>01</td>
-						<td>Tarefa 1</td>
-						<td>Lara</td>
-						<td><button class="btn btn-small btn-danger">Fazer</button></td>
+						<td>Larissa</td>
+						<td>01/10/2012</td>
+						<td><button class="btn btn-small btn-success">
+								<a href="paginaInicial.jsp"><font color="white">Verificar Tarefas</font></a>
+							</button></td>
 					</tr>
 
 				</tbody>
