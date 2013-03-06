@@ -88,8 +88,5 @@ public class FuncionarioAction implements CRUDAction{
 	public void setFuncionarios(List<Funcionario> funcionarios) {
 		this.funcionarios = funcionarios;
 	}
-
-	
-	
 	
 }
