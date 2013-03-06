@@ -13,7 +13,7 @@
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 
 <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-<link href="bootstrap/css/paginaInicial.css" rel="stylesheet">
+<link href="css/paginaInicial.css" rel="stylesheet">
 
 </head>
 

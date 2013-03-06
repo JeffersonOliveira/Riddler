@@ -55,7 +55,7 @@ public final class paginaInicial_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("<link href=\"bootstrap/css/bootstrap.css\" rel=\"stylesheet\">\n");
       out.write("\n");
       out.write("<link href=\"bootstrap/css/bootstrap-responsive.css\" rel=\"stylesheet\">\n");
-      out.write("<link href=\"bootstrap/css/paginaInicial.css\" rel=\"stylesheet\">\n");
+      out.write("<link href=\"css/paginaInicial.css\" rel=\"stylesheet\">\n");
       out.write("\n");
       out.write("</head>\n");
       out.write("\n");
@@ -74,8 +74,16 @@ public final class paginaInicial_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("\t\t\t\t\t\t\t<li><a href=\"cadastroFuncionario.jsp\">Cadastro Funcionário</a></li>\n");
       out.write("\t\t\t\t\t\t\t<li><a href=\"cadastroBeneficio.jsp\">Cadastro Benefício</a></li>\n");
       out.write("\t\t\t\t\t\t\t<li><a href=\"#\">Tarefas Pendentes</a></li>\n");
-      out.write("\t\t\t\t\t\t\t<li><a href=\"#\">Funcionários </a></li>\n");
+      out.write("\t\t\t\t\t\t\t<li><a href=\"funcionarios.jsp\">Funcionários </a></li>\n");
+      out.write("\t\t\t\t\t\t\n");
+      out.write("\t\t\t\t\t\t\t<!-- Olhar pra fazer logout-->\t\t\t\t\t\t\n");
+      out.write("\t\t\t\t\t\t\n");
+      out.write("\t\t\t\t\t\n");
+      out.write("\t\t\t\t\t\n");
       out.write("\t\t\t\t\t\t\t<li><a href=\"index.jsp\">Logout </a></li>\n");
+      out.write("\t\t\t\t\t\n");
+      out.write("\t\t\t\t\t\n");
+      out.write("\t\t\t\t\t\n");
       out.write("\t\t\t\t\t\t</ul>\n");
       out.write("\t\t\t\t\t</div>\n");
       out.write("\t\t\t\t</div>\n");
