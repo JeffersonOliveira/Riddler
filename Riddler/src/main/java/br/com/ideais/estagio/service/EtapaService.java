@@ -2,9 +2,10 @@ package br.com.ideais.estagio.service;
 import java.util.List;
 
 import br.com.ideais.estagio.model.Etapa;
+import br.com.ideais.estagio.dao.EtapaDao;
 
 public class EtapaService {
-
+	
 	private EtapaDao eDao;
 	
 	public void persist(Etapa etapa){
