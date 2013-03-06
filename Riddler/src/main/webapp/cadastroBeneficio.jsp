@@ -77,10 +77,11 @@
 					 -->
 				</div>
 
-				<div>
+				<div class="control-group" text-align : center>
 					<button type="submit" class="btn btn-success">Salvar</button>
 					<button type="button" class="btn">Cancelar</button>
 				</div>
+				
 			</form>
 		</div>
 
