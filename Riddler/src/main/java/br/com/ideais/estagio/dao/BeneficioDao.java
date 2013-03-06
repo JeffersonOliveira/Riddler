@@ -3,11 +3,12 @@ package br.com.ideais.estagio.dao;
 import java.util.List;
 
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.ideais.estagio.model.Beneficio;
 
-
-public class BeneficioDao {
+@Transactional
+public class BeneficioDao implements AbstractDao<Beneficio>{
 	
 	private HibernateTemplate hibernateTemplate;
 	
