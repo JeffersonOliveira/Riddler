@@ -2,11 +2,13 @@ package br.com.ideais.estagio.dao;
 
 import java.util.List;
 
+import org.springframework.orm.hibernate3.HibernateTemplate;
+
 import br.com.ideais.estagio.model.Funcionario;
 
 public class FuncionarioDao implements AbstractDao<Funcionario>{
 
-	private hibernateTemplate hibernateTemplate;
+	private HibernateTemplate hibernateTemplate;
 	
 	public FuncionarioDao(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;

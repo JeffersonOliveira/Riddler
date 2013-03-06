@@ -2,6 +2,7 @@ package br.com.ideais.estagio.service;
 
 import java.util.List;
 
+import br.com.ideais.estagio.dao.BeneficioDao;
 import br.com.ideais.estagio.model.Beneficio;
 
 public class BeneficioService {
@@ -35,9 +36,9 @@ public class BeneficioService {
 	}
 	
 	
-	public Beneficio findById(Long Id){
+	public Beneficio findById(Long id){
 		
-		return bDao.findById();
+		return bDao.findById(id);
 	}
 	
 	
