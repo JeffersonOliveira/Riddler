@@ -32,7 +32,7 @@
 							<li><a href="cadastroFuncionario.jsp">Cadastro Funcionário</a></li>
 							<li><a href="cadastroBeneficio.jsp">Cadastro Benefício</a></li>
 							<li><a href="#">Tarefas Pendentes</a></li>
-							<li><a href="#">Funcionários </a></li>
+							<li><a href="funcionarios.jsp">Funcionários </a></li>
 						
 							<!-- Olhar pra fazer logout-->						
 						
