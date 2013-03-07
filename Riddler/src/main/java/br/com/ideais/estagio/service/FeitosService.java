@@ -2,13 +2,14 @@ package br.com.ideais.estagio.service;
 
 import java.util.List;
 
+import br.com.ideais.estagio.dao.FeitosDao;
 import br.com.ideais.estagio.model.Feitos;
 
 public class FeitosService {
 
 	private FeitosDao ftDao;
 
-	public BeneficioService(FeitosDao ftDao) {
+	public FeitosService(FeitosDao ftDao) {
 
 		this.ftDao = ftDao;
 	}

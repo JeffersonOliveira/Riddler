@@ -30,7 +30,7 @@ public class UsuarioService {
 		return uDao.list();
 	}
 
-	public Usuario findById(Long id) {
+	public Usuario findbyId(Long id) {
 
 		return uDao.findById(id);
 	}
