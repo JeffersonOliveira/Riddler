@@ -26,8 +26,8 @@ public class FeitosAction implements CRUDAction{
 	}
 
 	public void prepare() throws Exception {
-		if(getBeneficioFromRequest()!=null){
-			beneficio = beneficioService.findById(getBeneficioFromRequest());
+		if(getFeitosFromRequest()!=null){
+			feitos = feitosService.findById(getFeitosFromRequest());
 	}
 
 	public String save() {
