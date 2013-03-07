@@ -13,13 +13,13 @@ public class FeitosService {
 		this.ftDao = ftDao;
 	}
 
-	public void persist(FeitosDao feitos) {
+	public void persist(Feitos feitos) {
 
 		ftDao.persist(feitos);
 
 	}
 
-	public void saveOrUpdate(FeitosDao feitos) {
+	public void saveOrUpdate(Feitos feitos) {
 
 		ftDao.saveOrUpdate(feitos);
 	}
@@ -34,7 +34,7 @@ public class FeitosService {
 		return ftDao.findById(id);
 	}
 
-	public boolean delete(FeitosDao feitos) {
+	public boolean delete(Feitos feitos) {
 
 		return ftDao.delete(feitos);
 	}
