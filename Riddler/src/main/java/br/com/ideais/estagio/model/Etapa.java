@@ -20,7 +20,7 @@ public class Etapa implements Serializable {
 	private Integer ordem;
 	private Integer vencimento;
 	private Long idBeneficio;
-
+	
 	private Etapa(){
 		
 	}
@@ -63,6 +63,11 @@ public class Etapa implements Serializable {
 		return idBeneficio;
 	}
 
+	
+	public void setIdBeneficio(Beneficio beneficio) {
+		this.idBeneficio = beneficio.getId();
+	}
 
+	
 
 }

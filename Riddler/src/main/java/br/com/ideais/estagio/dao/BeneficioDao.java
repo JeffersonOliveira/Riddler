@@ -46,6 +46,6 @@ public class BeneficioDao implements AbstractDao<Beneficio>{
 		return hibernateTemplate.get(Beneficio.class, id);
 	}
 
-	
+		
 }
 	

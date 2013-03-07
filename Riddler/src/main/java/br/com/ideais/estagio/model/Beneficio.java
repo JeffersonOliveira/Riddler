@@ -21,7 +21,7 @@ public class Beneficio implements Serializable{
 		
 		private String nome;
 		
-		List<Etapa> etapa;
+		private List<Etapa> etapas;
 
 		public Beneficio() {
 			
