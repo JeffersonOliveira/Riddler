@@ -18,26 +18,26 @@ public class Usuario implements Serializable {
 	@GeneratedValue(generator = "sequence", strategy = GenerationType.AUTO)
 	private Long id;
 	private String usuario;
-	private String password;
+	private String senha;
 
 	public Usuario() {
 	}
 
-	public Usuario(String usuario, String password) {
+	public Usuario(String usuario, String senha) {
 		this.usuario = usuario;
-		this.password = password;
+		this.senha = senha;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public String getUsuario() {
