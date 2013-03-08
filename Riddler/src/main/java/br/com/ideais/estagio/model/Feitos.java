@@ -49,5 +49,14 @@ public class Feitos implements Serializable{
 	public void setFeito(Boolean feito) {
 		this.feito = feito;
 	}
+
+	public void setId_funcionario(Funcionario funcionario) {
+		this.id_funcionario = funcionario.getId();
+	}
+
+	public void setId_etapa(Etapa etapa) {
+		this.id_etapa = etapa.getId();
+	}
+	 
 	
 }
