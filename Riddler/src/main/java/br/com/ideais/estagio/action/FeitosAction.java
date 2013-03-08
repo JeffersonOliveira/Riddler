@@ -22,7 +22,33 @@ public class FeitosAction implements CRUDAction{
 
 	
 	public String execute() throws Exception {
-		return SUCESS;
+		return SUCCESS;
+	}
+
+	
+	
+	public FeitosService getFeitosService() {
+		return feitosService;
+	}
+
+	public void setFeitosService(FeitosService feitosService) {
+		this.feitosService = feitosService;
+	}
+
+	public Feitos getFeitos() {
+		return feitos;
+	}
+
+	public void setFeitos(Feitos feitos) {
+		this.feitos = feitos;
+	}
+
+	public List<Feitos> getFeitos() {
+		return feitos;
+	}
+
+	public void setFeitos(List<Feitos> feitos) {
+		this.feitos = feitos;
 	}
 
 	public void prepare() throws Exception {
@@ -30,29 +56,36 @@ public class FeitosAction implements CRUDAction{
 			feitos = feitosService.findById(getFeitosFromRequest());
 	}
 
+
+		public String list() {
+			beneficios = beneficioService.list();
+			return SUCCESS;
+		}
+		
+		
+		
 	public String save() {
-		// TODO Auto-generated method stub
-		return null;
+		feitosService.saveOrUpdate(getFeitos());
+		return SUCCESS;
 	}
 
 	public String update() {
-		// TODO Auto-generated method stub
-		return null;
+		return SUCCESS;
 	}
 
 	public String delete() {
-		// TODO Auto-generated method stub
-		return null;
+		if(feitosService.delete(getFeitos));
+			return SUCCESS;
+		return ERROR;
 	}
 
 	public String create() {
-		// TODO Auto-generated method stub
-		return null;
+		return SUCCESS;
 	}
 
 	public String list() {
-		// TODO Auto-generated method stub
-		return null;
+		feitos = feitosService.list();
+		return SUCCESS;
 	}
 	
 
