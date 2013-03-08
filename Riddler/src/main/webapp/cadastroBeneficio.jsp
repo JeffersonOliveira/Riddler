@@ -55,7 +55,7 @@
 
 
 		<div>
-			<form class="form-horizontal">
+			<form class="form-horizontal" action="cadastrarBeneficio">
 				<div class="control-group">
 					<label class="control-label" for="inputNome">Nome:</label>
 					<div class="controls">

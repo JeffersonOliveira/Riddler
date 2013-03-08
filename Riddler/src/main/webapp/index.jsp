@@ -32,7 +32,7 @@
 
     <div class="container">
 
-      <form class="form-signin">
+      <form class="form-signin" action="login">
         <h2 class="form-signin-heading">Login</h2>
         <input type="text" class="input-block-level" placeholder="Login">
         <input type="password" class="input-block-level" placeholder="Senha">
