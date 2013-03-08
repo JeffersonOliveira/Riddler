@@ -11,22 +11,23 @@ import com.opensymphony.xwork2.ActionContext;
 import br.com.ideais.estagio.model.Usuario;
 import br.com.ideais.estagio.service.UsuarioService;
 
-public class UsuarioAction implements CRUDAction{
+public class UsuarioAction implements CRUDAction {
 
 	private UsuarioService usuarioService;
 	private Usuario usuario;
 	private List<Usuario> usuarios;
-	
+
 	public String execute() throws Exception {
-		
-		return SUCCESS;
+		if (usuarioService.validateUsuario(usuario)) {
+			ActionContext.getContext().getSession().put("usuario", usuario);
+			return SUCCESS;
+		}
+		return ERROR;
 	}
 
 	public void prepare() throws Exception {
-		if(getUsuarioFromRequest() != null)
+		if (getUsuarioFromRequest() != null)
 			usuario = usuarioService.findbyId(getUsuarioFromRequest());
-		
-		
 	}
 
 	public String save() {
@@ -35,20 +36,18 @@ public class UsuarioAction implements CRUDAction{
 	}
 
 	public String update() {
-		
 		return SUCCESS;
 	}
 
 	public String delete() {
-		if(usuarioService.delete(usuario)){
+		if (usuarioService.delete(usuario)) {
 			return SUCCESS;
 		}
 		return ERROR;
-
 	}
 
 	public String create() {
-		
+
 		return SUCCESS;
 	}
 
@@ -56,13 +55,14 @@ public class UsuarioAction implements CRUDAction{
 		usuarios = usuarioService.list();
 		return SUCCESS;
 	}
-	
+
 	private Long getUsuarioFromRequest() {
-		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		
-		if(request.getParameter("id") != null)
+		HttpServletRequest request = (HttpServletRequest) ActionContext
+				.getContext().get(ServletActionContext.HTTP_REQUEST);
+
+		if (request.getParameter("id") != null)
 			return Long.parseLong(request.getParameter("id"));
-		
+
 		return null;
 	}
 
