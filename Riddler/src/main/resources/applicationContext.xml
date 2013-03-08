@@ -36,11 +36,11 @@
 		<constructor-arg ref="beneficioDao" />
 	</bean>
 
-	<bean id="etapaAction" class="br.com.ideais.estagio.action.EtapaAction"
+	<bean id="etapasAction" class="br.com.ideais.estagio.action.EtapaAction"
 		scope="prototype">
 		<property name="etapasService" ref="etapasService" />
 	</bean>
-	<bean id="etapaService" class="br.com.ideais.estagio.service.EtapaService">
+	<bean id="etapasService" class="br.com.ideais.estagio.service.EtapaService">
 		<constructor-arg ref="etapaDao" />
 	</bean>
 
@@ -60,13 +60,6 @@
 		<constructor-arg ref="funcionarioDao" />
 	</bean>
 
-	<bean id="usuarioAction" class="br.com.ideais.estagio.action.UsuarioAction"
-		scope="prototype">
-		<property name="usuarioService" ref="usuarioService" />
-	</bean>
-	<bean id="usuarioService" class="br.com.ideais.estagio.service.UsuarioService">
-		<constructor-arg ref="usuarioDao" />
-	</bean>
 
 	<bean id="loginAction" class="br.com.ideais.estagio.action.UsuarioAction">
 		<property name="usuarioService" ref="usuarioService" />
