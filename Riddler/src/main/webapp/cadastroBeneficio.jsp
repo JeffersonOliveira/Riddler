@@ -1,5 +1,6 @@
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,12 +38,23 @@
 	<div class="container-narrow">
 
 		<div class="masthead">
-			<ul class="nav nav-pills pull-right">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
 			<h3 class="muted">Riddler</h3>
+			<div class="navbar">
+				<div class="tabbable">
+					<div class="container">
+						<ul class="nav">
+							<li class="active"><a href="paginaInicial.jsp">Tarefas
+									Urgentes</a></li>
+							<li><a href="cadastroFuncionario.jsp">Cadastro
+									Funcionário</a></li>
+							<li><a href="cadastroBeneficio.jsp">Cadastro Benefício</a></li>
+							<li><a href="#">Tarefas Pendentes</a></li>
+							<li><a href="funcionarios.jsp">Funcionários </a></li>
+							<li><a href="index.jsp">Logout </a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<hr>
@@ -55,11 +67,11 @@
 
 
 		<div>
-			<form class="form-horizontal" action="cadastrarBeneficio">
+			<form class="form-horizontal" action="cadastrarBeneficio" method="post">
 				<div class="control-group">
 					<label class="control-label" for="inputNome">Nome:</label>
 					<div class="controls">
-						<input type="text" id="inputNome" placeholder="Nome">
+						<input type="text" id="inputNome" name="beneficio.nome" placeholder="Nome">
 					</div>
 				</div>
 
@@ -68,8 +80,10 @@
 					<div id="filho-0">
 						<label class="control-label" for="inputEtapa">Etapa:</label>
 						<div class="controls controls-row">
-							<input class="span3" type="text" id="inputEtapa" placeholder="Nome da etapa">
-							<input class="span2" type="number" id="inputExecucao" placeholder="Prazo para execuc&atilde;o">
+							<input class="span3" type="text" id="inputEtapa" name="etapa.nome"
+								placeholder="Nome da etapa"> <input class="span2"
+								type="number" id="inputExecucao"
+								placeholder="Prazo para execuc&atilde;o">
 						</div>
 					</div>
 					<i class=" icon-plus-sign"></i>
@@ -81,7 +95,7 @@
 					<button type="submit" class="btn btn-success">Salvar</button>
 					<button type="button" class="btn">Cancelar</button>
 				</div>
-				
+
 			</form>
 		</div>
 
@@ -113,16 +127,20 @@
 	<script src="../assets/js/bootstrap-carousel.js"></script>
 	<script src="../assets/js/bootstrap-typeahead.js"></script>
 
-<script language="javascript">
-$(document).ready(function() {
-    $("#duplica").click(function(){
-            $(".fotosbox1").append($("input[name=fotos]:eq(0)").clone().val(""));
-    });
-});
-	$("#add").click(function(){
-		var novoFilho = $("#filho").clone()
-	});
-</script>
+	<script language="javascript">
+		$(document).ready(
+				function() {
+					$("#duplica").click(
+							function() {
+								$(".fotosbox1").append(
+										$("input[name=fotos]:eq(0)").clone()
+												.val(""));
+							});
+				});
+		$("#add").click(function() {
+			var novoFilho = $("#filho").clone()
+		});
+	</script>
 
 
 </body>
