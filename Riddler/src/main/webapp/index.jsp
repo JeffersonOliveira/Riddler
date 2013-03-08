@@ -32,10 +32,10 @@
 
     <div class="container">
 
-      <form class="form-signin" action="login">
+      <form class="form-signin" action="login" method="post">
         <h2 class="form-signin-heading">Login</h2>
-        <input type="text" class="input-block-level" placeholder="Login">
-        <input type="password" class="input-block-level" placeholder="Senha">
+        <input type="text" name="usuario.usuario" class="input-block-level" placeholder="Login">
+        <input type="password" name="usuario.senha" class="input-block-level" placeholder="Senha">
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> Lembre-me
         </label>

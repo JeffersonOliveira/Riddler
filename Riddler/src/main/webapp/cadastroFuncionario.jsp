@@ -23,14 +23,12 @@
 		</div>
 		<hr/>
 		<div class="form">
-        
-		Nome:&nbsp;<p/><input type="text" name="nome" value="" size="35" /><p/>
-		Data de Admissão:&nbsp;<p/><input type="text" name="dataDeAdmissão" value="" size="35" /><p/>
-	    </div>
-		<div class="form-actions">
-		   <button type="submit" class="btn btn-success">Cadastrar</button>
-           <button type="button" class="btn">Cancelar</button>
-        </div>
+       		<form action="cadastrarCliente" method="post">
+				<h4>Nome 			 <input type="text" id="usuario" name="funcionario.nome"></h4>
+				<h4>Data de Admissão <input type="password" id="password" name="funcionario.dataDeAdmissao"></h4>
+									 <input type="submit" class="btn btn-success" value="Cadastrar">
+			</form>
+		</div>
 
 		<script src="../bootstrap/js/jquery.js"></script>
 		<script src="../bootstrap/js/bootstrap-transition.js"></script>
