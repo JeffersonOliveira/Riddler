@@ -4,18 +4,10 @@
 <beans>
 <!-- Hibernate session factory -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <constructor-arg index="0">
-            <value>oracle.jdbc.driver.OracleDriver</value>
-        </constructor-arg>
-        <constructor-arg index="1">
-            <value>jdbc:oracle:thin:@localhost:1521:xe</value>
-        </constructor-arg>
-        <constructor-arg index="2">
-            <value>RIDDLER</value>
-        </constructor-arg>
-        <constructor-arg index="3">
-            <value>RIDDLER</value>
-        </constructor-arg>
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+		<property name="username" value="RIDDLER" />
+		<property name="password" value="RIDDLER" />
     </bean>
 
     <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
@@ -25,9 +17,9 @@
     </bean>
 
     <bean id="sessionFactory"  class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-<!--         <property name="dataSource"> -->
-<!--             <ref bean="dataSource"/> -->
-<!--         </property> -->
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
         <property name="configLocation">
             <value>classpath:hibernate-cfg.xml</value>
         </property>
@@ -39,7 +31,7 @@
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
-    			<prop key="hibernate.hbm2ddl.auto">create</prop>
+    			<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
             </props>
         </property>
     </bean>

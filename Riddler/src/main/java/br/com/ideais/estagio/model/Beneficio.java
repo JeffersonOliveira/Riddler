@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -21,6 +22,7 @@ public class Beneficio implements Serializable{
 		
 		private String nome;
 		
+		@ManyToMany
 		private List<Etapa> etapas;
 
 		public Beneficio() {
@@ -37,6 +39,16 @@ public class Beneficio implements Serializable{
 
 		public Long getId() {
 			return id;
+		}
+
+		public List<Etapa> getEtapas() {
+			return etapas;
+		}
+
+		public void setEtapas(List<Etapa> etapas) {
+			this.etapas = etapas;
 		}	
+		
+		
 		
 }

@@ -2,11 +2,14 @@ package br.com.ideais.estagio.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -17,10 +20,14 @@ public class Feitos implements Serializable{
     @SequenceGenerator( name = "sequence", sequenceName = "sequence" )
     @GeneratedValue(generator = "sequence", strategy=GenerationType.AUTO)
 	private Long id;
-	private Long id_funcionario;
-	private Long id_etapa;
 	private Date data_inicial;
 	private Boolean feito;
+	
+	@ManyToMany
+	private List<Funcionario> funcionarios;
+	@ManyToMany
+	private List<Etapa> etapas;
+	
 	
 	public Date getData_inicial() {
 		return data_inicial;
@@ -34,14 +41,6 @@ public class Feitos implements Serializable{
 		return id;
 	}
 	
-	public Long getId_funcionario() {
-		return id_funcionario;
-	}
-	
-	public Long getId_etapa() {
-		return id_etapa;
-	}
-
 	public Boolean getFeito() {
 		return feito;
 	}
@@ -50,13 +49,22 @@ public class Feitos implements Serializable{
 		this.feito = feito;
 	}
 
-	public void setId_funcionario(Funcionario funcionario) {
-		this.id_funcionario = funcionario.getId();
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
 	}
 
-	public void setId_etapa(Etapa etapa) {
-		this.id_etapa = etapa.getId();
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
 	}
+
+	public List<Etapa> getEtapas() {
+		return etapas;
+	}
+
+	public void setEtapas(List<Etapa> etapas) {
+		this.etapas = etapas;
+	}
+
 	 
 	
 }
