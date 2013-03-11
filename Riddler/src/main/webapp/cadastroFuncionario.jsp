@@ -23,9 +23,9 @@
 		</div>
 		<hr/>
 		<div class="form">
-       		<form action="cadastrarCliente" method="post">
+       		<form action="cadastrarFuncionario" method="post">
 				<h4>Nome 			 <input type="text" id="usuario" name="funcionario.nome"></h4>
-				<h4>Data de Admissão <input type="password" id="password" name="funcionario.dataDeAdmissao"></h4>
+				<h4>Data de Admissão <input type="text" id="password" name="funcionario.dataDeAdmissao"></h4>
 									 <input type="submit" class="btn btn-success" value="Cadastrar">
 			</form>
 		</div>

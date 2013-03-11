@@ -25,6 +25,11 @@ public class Funcionario implements Serializable{
 	@ManyToMany
 	private List<Feitos> feitos;
 	
+	
+	public Funcionario() {
+		
+	}
+
 	public Long getId() {
 		return id;
 	}

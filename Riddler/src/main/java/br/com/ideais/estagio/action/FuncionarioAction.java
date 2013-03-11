@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.ideais.estagio.model.Funcionario;
 import br.com.ideais.estagio.service.FuncionarioService;
@@ -13,8 +14,11 @@ import com.opensymphony.xwork2.ActionContext;
 
 public class FuncionarioAction implements CRUDAction{
 
+	@Autowired
 	private FuncionarioService funcionarioService;
+	
 	private Funcionario funcionario;
+	
 	private List<Funcionario> funcionarios;
 	
 	public String execute() throws Exception {

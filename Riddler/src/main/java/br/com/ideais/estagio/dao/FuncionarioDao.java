@@ -2,17 +2,21 @@ package br.com.ideais.estagio.dao;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.ideais.estagio.model.Funcionario;
 
+@Service
 @Transactional
 public class FuncionarioDao implements AbstractDao<Funcionario> {
 
+	@Autowired
 	private HibernateTemplate hibernateTemplate;
 
-	public FuncionarioDao(HibernateTemplate hibernateTemplate) {
+	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
 	}
 
@@ -39,6 +43,7 @@ public class FuncionarioDao implements AbstractDao<Funcionario> {
 
 	public boolean saveOrUpdate(Funcionario funcionario) {
 		try {
+			System.out.println(funcionario.getNome());
 			hibernateTemplate.saveOrUpdate(funcionario);
 			return true;
 		} catch (Exception e) {
