@@ -15,6 +15,6 @@
 		
 	</package>
 	
-	<include file="userMapping.xml" />
+	<include file="userMappings.xml" />
 
 </struts>

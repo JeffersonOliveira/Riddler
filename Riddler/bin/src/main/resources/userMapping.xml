@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.SlashesInActionNames" value="true" />
+
+	<package name="users" extends="basicstruts2">
+
+		<!-- Funcionario -->
+
+		<action name="listarFuncionarios" class="funcionarioAction"
+			method="list">
+			<result name="success">/funcionarios.jsp</result>
+		</action>
+
+		<action name="cadastrarFuncionario" class="funcionarioAction"
+			method="save">
+			<result name="success" type="redirect">listarFuncionarios</result>
+		</action>
+
+		<action name="deletarFuncionario" class="funcionarioAction"
+			method="delete">
+			<result name="success" type="redirect">listarFuncionario</result>
+		</action>
+
+		<action name="editarFuncionario" class="funcionarioAction"
+			method="update">
+			<result name="success">editarFuncionario.jsp</result>
+		</action>
+
+		<!-- Beneficio -->
+
+		<action name="listarBeneficio" class="beneficioAction" method="list">
+			<result name="success">/listarBeneficio.jsp</result>
+		</action>
+
+		<action name="cadastrarBeneficio" class="beneficioAction"
+			method="save">
+			<result name="success" type="redirect">listarBeneficio</result>
+		</action>
+
+		<action name="deletarBeneficio" class="beneficioAction" method="delete">
+			<result name="success" type="redirect">listarBeneficio</result>
+		</action>
+
+		<action name="editarBeneficio" class="beneficioAction" method="update">
+			<result name="success">editarBeneficio.jsp</result>
+		</action>
+
+		<!-- Usuario -->
+
+		<action name="login" class="loginAction">
+			<result name="success" type="redirect">paginaInicial.jsp</result>
+		</action>
+
+
+		<!-- Etapas -->
+
+		<action name="listarEtapas" class="etapasAction" method="list">
+			<result name="success">/listarBeneficio</result>
+		</action>
+
+		<action name="cadastrarEtapas" class="etapasAction" method="save">
+			<result name="success" type="redirect">listarEtapas</result>
+		</action>
+
+		<action name="deletarEtapas" class="etapasAction" method="delete">
+			<result name="success" type="redirect">listarEtapas</result>
+		</action>
+
+		<action name="editarEtapas" class="etapasAction" method="update">
+			<result name="success">/listarBeneficio</result>
+		</action>
+
+		<!-- Feitos -->
+
+		<action name="listarFeitos" class="feitosAction" method="list">
+			<result name="success">/listarBeneficio</result>
+		</action>
+
+		<action name="cadastrarFeitos" class="feitosAction" method="save">
+			<result name="success">/listarBeneficio</result>
+		</action>
+
+		<action name="deletarFeitos" class="feitosAction" method="delete">
+			<result name="success">/listarBeneficio</result>
+		</action>
+
+		<action name="editarFeitos" class="feitosAction" method="update">
+			<result name="success">/listarBeneficio</result>
+		</action>
+
+	</package>
+
+
+
+</struts>
