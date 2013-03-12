@@ -24,7 +24,7 @@ public class Etapa implements Serializable {
 	
 	private Integer ordem;
 	
-	private Integer vencimento;
+	private Integer prazo;
 	
 	@OneToMany
 	private Beneficio beneficios;
@@ -50,7 +50,7 @@ public class Etapa implements Serializable {
 	
 	
 	public Integer getVencimento() {
-		return vencimento;
+		return prazo;
 	}
 	
 	
@@ -64,15 +64,15 @@ public class Etapa implements Serializable {
 	}
 	
 	
-	public void setVencimento(Integer vencimento) {
-		this.vencimento = vencimento;
+	public void setPrazo(Integer prazo) {
+		this.prazo = prazo;
 	}
 
-	public List<Beneficio> getBeneficios() {
+	public Beneficio getBeneficios() {
 		return beneficios;
 	}
 	
-	public void setBeneficios(List<Beneficio> beneficios) {
+	public void setBeneficios(Beneficio beneficios) {
 		this.beneficios = beneficios;
 	}
 
