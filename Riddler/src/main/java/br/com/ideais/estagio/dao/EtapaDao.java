@@ -20,9 +20,6 @@ public class EtapaDao implements AbstractDao<Etapa>{
 		this.hibernateTemplate = hibernateTemplate;
 	}
 
-	public EtapaDao(HibernateTemplate hibernateTemplate) {
-		this.hibernateTemplate = hibernateTemplate;
-	}
 	public void persist(Etapa etapa) {
 		hibernateTemplate.persist(etapa);
 	}

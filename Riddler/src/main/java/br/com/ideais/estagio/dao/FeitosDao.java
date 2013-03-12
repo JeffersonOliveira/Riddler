@@ -20,10 +20,6 @@ public class FeitosDao implements AbstractDao<Feitos>{
 		this.hibernateTemplate = hibernateTemplate;
 	}
 
-	
-	public FeitosDao(HibernateTemplate hibernateTemplate) {
-		this.hibernateTemplate = hibernateTemplate;
-	}
 	public void persist(Feitos feitos) {
 		hibernateTemplate.persist(feitos);
 	}
