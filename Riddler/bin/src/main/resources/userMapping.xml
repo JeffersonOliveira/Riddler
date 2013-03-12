@@ -28,7 +28,7 @@
 
 		<action name="editarFuncionario" class="funcionarioAction"
 			method="update">
-			<result name="success">editarFuncionario.jsp</result>
+			<result name="success">/editarFuncionario.jsp</result>
 		</action>
 
 		<!-- Beneficio -->
@@ -47,50 +47,50 @@
 		</action>
 
 		<action name="editarBeneficio" class="beneficioAction" method="update">
-			<result name="success">editarBeneficio.jsp</result>
+			<result name="success">/editarBeneficio.jsp</result>
 		</action>
 
 		<!-- Usuario -->
 
 		<action name="login" class="loginAction">
-			<result name="success" type="redirect">paginaInicial.jsp</result>
+			<result name="success" type="redirect">/paginaInicial.jsp</result>
 		</action>
 
 
 		<!-- Etapas -->
 
 		<action name="listarEtapas" class="etapasAction" method="list">
-			<result name="success">/listarBeneficio</result>
+			<result name="success">listarBeneficio</result>
 		</action>
 
 		<action name="cadastrarEtapas" class="etapasAction" method="save">
-			<result name="success" type="redirect">listarEtapas</result>
+			<result name="success" type="redirect">listarBeneficio</result>
 		</action>
 
 		<action name="deletarEtapas" class="etapasAction" method="delete">
-			<result name="success" type="redirect">listarEtapas</result>
+			<result name="success" type="redirect">listarBeneficio</result>
 		</action>
 
 		<action name="editarEtapas" class="etapasAction" method="update">
-			<result name="success">/listarBeneficio</result>
+			<result name="success">listarBeneficio</result>
 		</action>
 
 		<!-- Feitos -->
 
 		<action name="listarFeitos" class="feitosAction" method="list">
-			<result name="success">/listarBeneficio</result>
+			<result name="success">listarBeneficio</result>
 		</action>
 
 		<action name="cadastrarFeitos" class="feitosAction" method="save">
-			<result name="success">/listarBeneficio</result>
+			<result name="success">listarBeneficio</result>
 		</action>
 
 		<action name="deletarFeitos" class="feitosAction" method="delete">
-			<result name="success">/listarBeneficio</result>
+			<result name="success">listarBeneficio</result>
 		</action>
 
 		<action name="editarFeitos" class="feitosAction" method="update">
-			<result name="success">/listarBeneficio</result>
+			<result name="success">listarBeneficio</result>
 		</action>
 
 	</package>
