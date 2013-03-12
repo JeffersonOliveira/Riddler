@@ -2,14 +2,23 @@ package br.com.ideais.estagio.dao;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import br.com.ideais.estagio.model.Usuario;
 
+@Service
 @Transactional
 public class UsuarioDaoImpl implements UsuarioDao {
 		
-		private HibernateTemplate hibernateTemplate;
+	@Autowired
+	private HibernateTemplate hibernateTemplate;
+
+	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+		this.hibernateTemplate = hibernateTemplate;
+	}
 		
 		public UsuarioDaoImpl(HibernateTemplate hibernateTemplate) {
 			this.hibernateTemplate = hibernateTemplate;

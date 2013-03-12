@@ -16,6 +16,10 @@ public class EtapaDao implements AbstractDao<Etapa>{
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
 
+	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+		this.hibernateTemplate = hibernateTemplate;
+	}
+
 	public EtapaDao(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
 	}
