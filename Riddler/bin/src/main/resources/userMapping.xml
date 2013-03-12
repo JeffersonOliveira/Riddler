@@ -23,7 +23,7 @@
 
 		<action name="deletarFuncionario" class="funcionarioAction"
 			method="delete">
-			<result name="success" type="redirect">listarFuncionario</result>
+			<result name="success" type="redirect">listarFuncionarios</result>
 		</action>
 
 		<action name="editarFuncionario" class="funcionarioAction"
@@ -33,17 +33,17 @@
 
 		<!-- Beneficio -->
 
-		<action name="listarBeneficio" class="beneficioAction" method="list">
-			<result name="success">/listarBeneficio.jsp</result>
+		<action name="listarBeneficios" class="beneficioAction" method="list">
+			<result name="success">/listarBeneficios.jsp</result>
 		</action>
 
 		<action name="cadastrarBeneficio" class="beneficioAction"
 			method="save">
-			<result name="success" type="redirect">listarBeneficio</result>
+			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
 		<action name="deletarBeneficio" class="beneficioAction" method="delete">
-			<result name="success" type="redirect">listarBeneficio</result>
+			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
 		<action name="editarBeneficio" class="beneficioAction" method="update">
@@ -60,37 +60,37 @@
 		<!-- Etapas -->
 
 		<action name="listarEtapas" class="etapasAction" method="list">
-			<result name="success">listarBeneficio</result>
+			<result name="success">listarBeneficios</result>
 		</action>
 
-		<action name="cadastrarEtapas" class="etapasAction" method="save">
-			<result name="success" type="redirect">listarBeneficio</result>
+		<action name="cadastrarEtapa" class="etapasAction" method="save">
+			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
-		<action name="deletarEtapas" class="etapasAction" method="delete">
-			<result name="success" type="redirect">listarBeneficio</result>
+		<action name="deletarEtapa" class="etapasAction" method="delete">
+			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
-		<action name="editarEtapas" class="etapasAction" method="update">
-			<result name="success">listarBeneficio</result>
+		<action name="editarEtapa" class="etapasAction" method="update">
+			<result name="success">listarBeneficios</result>
 		</action>
 
 		<!-- Feitos -->
 
 		<action name="listarFeitos" class="feitosAction" method="list">
-			<result name="success">listarBeneficio</result>
+			<result name="success">listarBeneficios</result>
 		</action>
 
 		<action name="cadastrarFeitos" class="feitosAction" method="save">
-			<result name="success">listarBeneficio</result>
+			<result name="success">listarBeneficios</result>
 		</action>
 
 		<action name="deletarFeitos" class="feitosAction" method="delete">
-			<result name="success">listarBeneficio</result>
+			<result name="success">listarBeneficios</result>
 		</action>
 
 		<action name="editarFeitos" class="feitosAction" method="update">
-			<result name="success">listarBeneficio</result>
+			<result name="success">listarBeneficios</result>
 		</action>
 
 	</package>
