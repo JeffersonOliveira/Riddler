@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.ideais.estagio.model.Feitos;
 import br.com.ideais.estagio.service.FeitosService;
@@ -13,6 +14,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 public class FeitosAction implements CRUDAction {
 
+	@Autowired
 	private FeitosService feitosService;
 	private Feitos feitos;
 	private List<Feitos> list_feitos;
@@ -41,7 +43,7 @@ public class FeitosAction implements CRUDAction {
 
 	public void prepare() throws Exception {
 		if(getFeitosFromRequest()!=null){
-			feitos = feitosService.findById(getFeitosFromRequest());
+			feitos = feitosService.findbyId(getFeitosFromRequest());
 		}
 	}
 

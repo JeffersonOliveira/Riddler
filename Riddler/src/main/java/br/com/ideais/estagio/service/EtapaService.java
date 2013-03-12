@@ -1,12 +1,17 @@
 package br.com.ideais.estagio.service;
 import java.util.List;
 
-import br.com.ideais.estagio.model.Etapa;
-import br.com.ideais.estagio.dao.EtapaDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class EtapaService {
+import br.com.ideais.estagio.dao.AbstractDao;
+import br.com.ideais.estagio.model.Etapa;
+
+@Service
+public class EtapaService implements AbstractService<Etapa>{
 	
-	private EtapaDao eDao;
+	@Autowired
+	private AbstractDao<Etapa> eDao;
 	
 	public void persist(Etapa etapa){
 		eDao.persist(etapa);

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.ideais.estagio.model.Etapa;
 import br.com.ideais.estagio.service.EtapaService;
@@ -13,6 +14,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 public class EtapaAction implements CRUDAction {
 
+	@Autowired
 	private EtapaService etapaService;
 	private Etapa etapa;
 	private List<Etapa> etapas;

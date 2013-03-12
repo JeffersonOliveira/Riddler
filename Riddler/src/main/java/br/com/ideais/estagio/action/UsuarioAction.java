@@ -2,92 +2,37 @@ package br.com.ideais.estagio.action;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts2.ServletActionContext;
-
-import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.Preparable;
 
 import br.com.ideais.estagio.model.Usuario;
 import br.com.ideais.estagio.service.UsuarioService;
 
-public class UsuarioAction implements CRUDAction {
+public interface UsuarioAction extends Action,Preparable{
 
-	private UsuarioService usuarioService;
-	private Usuario usuario;
-	private List<Usuario> usuarios;
+	public String execute() throws Exception;
 
-	public String execute() throws Exception {
-		if (usuarioService.validateUsuario(usuario)) {
-			ActionContext.getContext().getSession().put("usuario", usuario);
-			return SUCCESS;
-		}
-		return ERROR;
-	}
+	public void prepare() throws Exception;
 
-	public void prepare() throws Exception {
-		if (getUsuarioFromRequest() != null)
-			usuario = usuarioService.findbyId(getUsuarioFromRequest());
-	}
+	public String save();
 
-	public String save() {
-		usuarioService.saveOrUpdate(getUsuario());
-		return SUCCESS;
-	}
+	public String update();
 
-	public String update() {
-		return SUCCESS;
-	}
+	public String delete();
 
-	public String delete() {
-		if (usuarioService.delete(usuario)) {
-			return SUCCESS;
-		}
-		return ERROR;
-	}
+	public String create();
 
-	public String create() {
+	public UsuarioService getUsuarioService();
 
-		return SUCCESS;
-	}
+	public void setUsuarioService(UsuarioService usuarioService);
 
-	public String list() {
-		usuarios = usuarioService.list();
-		return SUCCESS;
-	}
+	public Usuario getUsuario();
 
-	private Long getUsuarioFromRequest() {
-		HttpServletRequest request = (HttpServletRequest) ActionContext
-				.getContext().get(ServletActionContext.HTTP_REQUEST);
+	public void setUsuario(Usuario usuario);
 
-		if (request.getParameter("id") != null)
-			return Long.parseLong(request.getParameter("id"));
+	public List<Usuario> getUsuarios();
 
-		return null;
-	}
+	public void setUsuarios(List<Usuario> usuarios);
 
-	public UsuarioService getUsuarioService() {
-		return usuarioService;
-	}
-
-	public void setUsuarioService(UsuarioService usuarioService) {
-		this.usuarioService = usuarioService;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	public List<Usuario> getUsuarios() {
-		return usuarios;
-	}
-
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionContext;
 
@@ -13,6 +14,7 @@ import br.com.ideais.estagio.service.BeneficioService;
 
 public class BeneficioAction implements CRUDAction{
 
+	@Autowired
 	private BeneficioService beneficioService;
 	private Beneficio beneficio;
 	private List<Beneficio> beneficios;
@@ -23,7 +25,7 @@ public class BeneficioAction implements CRUDAction{
 
 	public void prepare() throws Exception {
 		if(getBeneficioFromRequest()!=null){
-			beneficio = beneficioService.findById(getBeneficioFromRequest());
+			beneficio = beneficioService.findbyId(getBeneficioFromRequest());
 		}
 		
 	}

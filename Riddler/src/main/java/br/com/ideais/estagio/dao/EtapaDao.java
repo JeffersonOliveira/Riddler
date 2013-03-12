@@ -2,12 +2,18 @@ package br.com.ideais.estagio.dao;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.ideais.estagio.model.Etapa;
 
+@Service
+@Transactional
 public class EtapaDao implements AbstractDao<Etapa>{
 	
+	@Autowired
 	private HibernateTemplate hibernateTemplate;
 
 	public EtapaDao(HibernateTemplate hibernateTemplate) {

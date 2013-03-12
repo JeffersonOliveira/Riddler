@@ -2,19 +2,17 @@ package br.com.ideais.estagio.service;
 
 import java.util.List;
 
-import br.com.ideais.estagio.dao.BeneficioDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.ideais.estagio.dao.AbstractDao;
 import br.com.ideais.estagio.model.Beneficio;
 
-public class BeneficioService {
+@Service
+public class BeneficioService implements AbstractService<Beneficio>{
 
-
-	private BeneficioDao bDao;
-	
-	
-	public BeneficioService(BeneficioDao bDao) {
-
-		this.bDao = bDao;
-	}
+	@Autowired
+	private AbstractDao<Beneficio> bDao;
 	
 	
 	public void persist (Beneficio beneficio){
@@ -35,17 +33,17 @@ public class BeneficioService {
 		return bDao.list();
 	}
 	
-	
-	public Beneficio findById(Long id){
-		
-		return bDao.findById(id);
-	}
-	
+
 	
 	public boolean delete(Beneficio beneficio){
 		
 		return bDao.delete(beneficio);
 	}
-	
-	
+
+
+	public Beneficio findbyId(Long id) {
+		return bDao.findById(id);
+	}
+
+
 }

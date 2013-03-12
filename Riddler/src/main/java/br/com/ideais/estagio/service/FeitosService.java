@@ -2,18 +2,19 @@ package br.com.ideais.estagio.service;
 
 import java.util.List;
 
-import br.com.ideais.estagio.dao.FeitosDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.ideais.estagio.dao.AbstractDao;
 import br.com.ideais.estagio.model.Feitos;
 
-public class FeitosService {
+@Service
+public class FeitosService implements AbstractService<Feitos>{
 
-	private FeitosDao ftDao;
+	@Autowired
+	private AbstractDao<Feitos> ftDao;
 
-	public FeitosService(FeitosDao ftDao) {
-
-		this.ftDao = ftDao;
-	}
-
+	
 	public void persist(Feitos feitos) {
 
 		ftDao.persist(feitos);
@@ -30,14 +31,14 @@ public class FeitosService {
 		return ftDao.list();
 	}
 
-	public Feitos findById(Long id) {
-
-		return ftDao.findById(id);
-	}
 
 	public boolean delete(Feitos feitos) {
 
 		return ftDao.delete(feitos);
+	}
+
+	public Feitos findbyId(Long id) {
+		return ftDao.findById(id);
 	}
 
 }
