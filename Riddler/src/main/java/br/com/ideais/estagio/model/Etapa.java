@@ -16,62 +16,61 @@ public class Etapa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
-    @SequenceGenerator( name = "sequence", sequenceName = "sequence" )
-    @GeneratedValue(generator = "sequence", strategy=GenerationType.AUTO)
+	@SequenceGenerator(name = "sequence", sequenceName = "sequence")
+	@GeneratedValue(generator = "sequence", strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	private String nome;
-	
+
 	private Integer ordem;
-	
+
 	private Integer prazo;
-	
+
 	@OneToMany
 	private Beneficio beneficios;
 	@ManyToMany
 	private List<Feitos> feitos;
 
-	private Etapa(){
-		
+	private Etapa() {
+
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
-	
-	
+
 	public Integer getOrdem() {
 		return ordem;
 	}
-	
-	
+
 	public Integer getVencimento() {
 		return prazo;
 	}
-	
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	
+
 	public void setOrdem(Integer ordem) {
 		this.ordem = ordem;
 	}
-	
-	
+
 	public void setPrazo(Integer prazo) {
 		this.prazo = prazo;
+	}
+
+	public Integer getPrazo() {
+		return prazo;
 	}
 
 	public Beneficio getBeneficios() {
 		return beneficios;
 	}
-	
+
 	public void setBeneficios(Beneficio beneficios) {
 		this.beneficios = beneficios;
 	}
@@ -85,4 +84,3 @@ public class Etapa implements Serializable {
 	}
 
 }
-
