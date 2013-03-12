@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -25,8 +26,8 @@ public class Etapa implements Serializable {
 	
 	private Integer vencimento;
 	
-	@ManyToMany
-	private List<Beneficio> beneficios;
+	@OneToMany
+	private Beneficio beneficios;
 	@ManyToMany
 	private List<Feitos> feitos;
 

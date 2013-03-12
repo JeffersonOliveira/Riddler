@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -22,7 +22,7 @@ public class Beneficio implements Serializable{
 		
 		private String nome;
 		
-		@ManyToMany
+		@ManyToOne
 		private List<Etapa> etapas;
 
 		public Beneficio() {
