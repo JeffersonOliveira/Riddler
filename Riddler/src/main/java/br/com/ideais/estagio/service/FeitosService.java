@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.ideais.estagio.dao.AbstractDao;
+import br.com.ideais.estagio.dao.FeitosDao;
 import br.com.ideais.estagio.model.Feitos;
 
 @Service
 public class FeitosService implements AbstractService<Feitos>{
 
 	@Autowired
-	private AbstractDao<Feitos> ftDao;
+	private FeitosDao ftDao;
 
 	
 	public void persist(Feitos feitos) {

@@ -4,14 +4,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.ideais.estagio.dao.AbstractDao;
+import br.com.ideais.estagio.dao.EtapaDao;
 import br.com.ideais.estagio.model.Etapa;
 
 @Service
 public class EtapaService implements AbstractService<Etapa>{
 	
 	@Autowired
-	private AbstractDao<Etapa> eDao;
+	private EtapaDao eDao;
 	
 	public void persist(Etapa etapa){
 		eDao.persist(etapa);

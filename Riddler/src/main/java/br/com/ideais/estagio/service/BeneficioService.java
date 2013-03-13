@@ -5,38 +5,31 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.ideais.estagio.dao.AbstractDao;
+import br.com.ideais.estagio.dao.BeneficioDao;
 import br.com.ideais.estagio.model.Beneficio;
 
 @Service
 public class BeneficioService implements AbstractService<Beneficio>{
 
 	@Autowired
-	private AbstractDao<Beneficio> bDao;
+	private BeneficioDao bDao;
 	
 	
 	public void persist (Beneficio beneficio){
-	
 		bDao.persist(beneficio);
-		
 	}
 	
 	
 	public void saveOrUpdate (Beneficio beneficio){
-		
 		bDao.saveOrUpdate(beneficio);
 	}
 	
 	
 	public List<Beneficio> list(){
-		
 		return bDao.list();
 	}
 	
-
-	
 	public boolean delete(Beneficio beneficio){
-		
 		return bDao.delete(beneficio);
 	}
 
@@ -44,6 +37,5 @@ public class BeneficioService implements AbstractService<Beneficio>{
 	public Beneficio findbyId(Long id) {
 		return bDao.findById(id);
 	}
-
 
 }

@@ -1,18 +1,17 @@
 package br.com.ideais.estagio.service;
-import br.com.ideais.estagio.dao.AbstractDao;
-import br.com.ideais.estagio.dao.FuncionarioDao;
-import br.com.ideais.estagio.model.Funcionario;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.ideais.estagio.dao.FuncionarioDao;
+import br.com.ideais.estagio.model.Funcionario;
+
 @Service
 public class FuncionarioService implements AbstractService<Funcionario> {
 
 	@Autowired
-	private AbstractDao<Funcionario> fDao;
+	private FuncionarioDao fDao;
 	
 	public void persist(Funcionario funcionario){
 		fDao.persist(funcionario);
