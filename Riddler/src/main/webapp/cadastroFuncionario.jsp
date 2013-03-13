@@ -11,22 +11,39 @@
 
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="css/cadastroFuncionario.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+<script>
+	$(function() {
+		$("#datepicker").datepicker();
+		$("#anim").change(function() {
+			$("#datepicker").datepicker("option", "showAnim", $(this).val());
+		});
+	});
+</script>
 
 </head>
 
 <body>
 
-	<div class="container" >
+	<div class="container">
 
 		<div class="masthead" align="center">
 			<h1 class="muted">Cadastro de Funcionários</h1>
 		</div>
-		<hr/>
+		<hr />
 		<div class="form">
-       		<form action="cadastrarFuncionario" method="post">
-				<h4>Nome 			 <input type="text" id="usuario" name="funcionario.nome"></h4>
-				<h4>Data de Admissão <input type="text" id="password" name="funcionario.dataDeAdmissao"></h4>
-									 <input type="submit" class="btn btn-success" value="Cadastrar">
+			<form action="cadastrarFuncionario" method="post">
+				<h4>
+					Nome <input type="text" id="usuario" name="funcionario.nome">
+				</h4>
+				<h4>
+					Data de Admissão <input type="text" id="datepicker" name="funcionario.dataDeAdmissao" /> 
+				</h4>
+				<input type="submit" class="btn btn-success" value="Cadastrar">
 			</form>
 		</div>
 
