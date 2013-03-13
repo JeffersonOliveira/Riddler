@@ -16,10 +16,7 @@
  	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
-	<context:component-scan base-package="br.com.ideais.estagio.model" />
-	<context:component-scan base-package="br.com.ideais.estagio.dao" />
-	<context:component-scan base-package="br.com.ideais.estagio.service" />
-	<context:component-scan base-package="br.com.ideais.estagio.action" />
+	<context:component-scan base-package="br.com.ideais.estagio" />
 
 <!-- 	<bean -->
 <!-- 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> -->

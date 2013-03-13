@@ -1,4 +1,5 @@
 package br.com.ideais.estagio.service;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,27 +12,27 @@ import br.com.ideais.estagio.model.Etapa;
 public class EtapaService implements AbstractService<Etapa>{
 	
 	@Autowired
-	private EtapaDao eDao;
+	private EtapaDao etapaDao;
 	
 	public void persist(Etapa etapa){
-		eDao.persist(etapa);
+		etapaDao.persist(etapa);
 	}
 	
 	public void saveOrUpdate(Etapa etapa){
-		eDao.saveOrUpdate(etapa);
+		etapaDao.saveOrUpdate(etapa);
 	}
 
 	public List<Etapa> list() {
-		return eDao.list();
+		return etapaDao.list();
 	}
 	
 
 	public Etapa findbyId(Long id) {
-		return eDao.findById(id);
+		return etapaDao.findById(id);
 	}
 	
 	public boolean delete(Etapa etapa){
-		return eDao.delete(etapa);
+		return etapaDao.delete(etapa);
 	}
 
 }

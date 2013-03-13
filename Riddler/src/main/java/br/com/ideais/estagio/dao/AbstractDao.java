@@ -1,23 +1,47 @@
 package br.com.ideais.estagio.dao;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
-/*
- * TODO dica do tio JayFer: Criem uma implementação abstrata desta interface
- * de forma que vocês não precisem injetar dependencias comuns em todos os daos.
- * 
- * Se o framework permitir, não precisam nem ter esta interface, tenham apenas
- * a tal classe abstrata.
- */
-public interface AbstractDao<T> {
-	
-	public void persist(T t);
-	
-	public List<T> list();
-	
-	public T findById(Long id);
-	
-	public boolean delete(T t);
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 
-	public boolean saveOrUpdate(T user);
+public abstract class AbstractDao<T> {
+	@Autowired
+	private HibernateTemplate hibernateTemplate;
+
+	public void persist(T t) {
+		hibernateTemplate.persist(t);
+	}
+
+	public List<T> list() {
+		return hibernateTemplate.loadAll(getPersistentClass());
+	}
+
+	public boolean delete(T t) {
+		try{
+			hibernateTemplate.delete(t);
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+	}
+
+	public boolean saveOrUpdate(T t) {
+		try{
+			hibernateTemplate.saveOrUpdate(t);
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+	}
+
+	public T findById(Long id) {
+		return hibernateTemplate.get(getPersistentClass(), id);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public Class<T> getPersistentClass() {
+        return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+    }
 }
