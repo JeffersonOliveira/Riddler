@@ -33,12 +33,13 @@
 
 		<!-- Beneficio -->
 
-		<action name="listarBeneficio" class="br.com.ideais.estagio.action.BeneficioAction" method="list">
+		<action name="listarBeneficios" class="br.com.ideais.estagio.action.BeneficioAction" method="list">
 			<result name="success">/beneficios.jsp</result>
 		</action>
 
 		<action name="cadastrarBeneficios" class="br.com.ideais.estagio.action.BeneficioAction"
-			<result name="success">/listarBeneficio.jsp</result>
+			method="save">
+			<result name="success">listarBeneficios</result>
 		</action>
 
 		<action name="deletarBeneficios" class="br.com.ideais.estagio.action.BeneficioAction" method="delete">
@@ -46,7 +47,7 @@
 		</action>
 
 		<action name="editarBeneficio" class="br.com.ideais.estagio.action.BeneficioAction" method="update">
-			<result name="success">editarBeneficio.jsp</result>
+			<result name="success">/editarBeneficio.jsp</result>
 		</action>
 
 		<!-- Usuario -->
@@ -59,11 +60,11 @@
 		<!-- Etapas -->
 
 		<action name="listarEtapas" class="br.com.ideais.estagio.action.EtapasAction" method="list">
-			<result name="success">/listarBeneficio</result>
+			<result name="success">/listarBeneficios</result>
 		</action>
 
 		<action name="cadastrarEtapas" class="br.com.ideais.estagio.action.EtapasAction" method="save">
-			<result name="success" type="redirect">listarEtapas</result>
+			<result name="success" type="redirect">/listarBeneficios</result>
 		</action>
 
 		<action name="deletarEtapas" class="br.com.ideais.estagio.action.EtapasAction" method="delete">
@@ -71,7 +72,7 @@
 		</action>
 
 		<action name="editarEtapas" class="br.com.ideais.estagio.action.EtapasAction" method="update">
-			<result name="success">/listarBeneficio</result>
+			<result name="success">/listarBeneficios</result>
 		</action>
 
 		<!-- Feitos -->
