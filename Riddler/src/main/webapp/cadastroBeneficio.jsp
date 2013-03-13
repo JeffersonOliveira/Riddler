@@ -8,18 +8,12 @@
 
 <title>Riddler - Cadastro de Benef&iacute;cios</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
 
 <!-- Le styles -->
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 <link href="css/cadastroBeneficio.css" rel="stylesheet">
 
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
 
 <!-- Fav and touch icons -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144"
@@ -35,36 +29,13 @@
 
 <body>
 
-	<div class="container-narrow">
-
-		<div class="masthead">
-			<h3 class="muted">Riddler</h3>
-			<div class="navbar">
-				<div class="tabbable">
-					<div class="container">
-						<ul class="nav">
-							<li class="active"><a href="paginaInicial.jsp">Tarefas
-									Urgentes</a></li>
-							<li><a href="cadastroFuncionario.jsp">Cadastro
-									Funcionário</a></li>
-							<li><a href="cadastroBeneficio.jsp">Cadastro Benefício</a></li>
-							<li><a href="#">Tarefas Pendentes</a></li>
-							<li><a href="funcionarios.jsp">Funcionários </a></li>
-							<li><a href="index.jsp">Logout </a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+	<jsp:include page="header.jsp"  />
 
 		<hr>
 
 		<div class="jumbotron">
 			<h2>Cadastro de Benef&iacute;cio</h2>
 		</div>
-
-
-
 
 		<div>
 			<form class="form-horizontal" action="cadastrarBeneficio" method="post">
@@ -108,24 +79,7 @@
 
 
 	</div>
-	<!-- /container -->
-
-	<!-- Le javascript
-    ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="../assets/js/jquery.js"></script>
-	<script src="../assets/js/bootstrap-transition.js"></script>
-	<script src="../assets/js/bootstrap-alert.js"></script>
-	<script src="../assets/js/bootstrap-modal.js"></script>
-	<script src="../assets/js/bootstrap-dropdown.js"></script>
-	<script src="../assets/js/bootstrap-scrollspy.js"></script>
-	<script src="../assets/js/bootstrap-tab.js"></script>
-	<script src="../assets/js/bootstrap-tooltip.js"></script>
-	<script src="../assets/js/bootstrap-popover.js"></script>
-	<script src="../assets/js/bootstrap-button.js"></script>
-	<script src="../assets/js/bootstrap-collapse.js"></script>
-	<script src="../assets/js/bootstrap-carousel.js"></script>
-	<script src="../assets/js/bootstrap-typeahead.js"></script>
+	
 
 	<script language="javascript">
 		$(document).ready(

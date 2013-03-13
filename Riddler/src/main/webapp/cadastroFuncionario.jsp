@@ -5,18 +5,15 @@
 <html lang="en">
 <head>
 <title>Cadastro de Funcion&atilde;rios</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="css/cadastroFuncionario.css" rel="stylesheet">
+<jsp:include page="headerCSS.jsp"/>
 
 </head>
 
 <body>
 
-	<div class="container" >
+	<div class="container">
+
+	<jsp:include page="header.jsp"  />
 
 		<div class="masthead" align="center">
 			<h1 class="muted">Cadastro de Funcionários</h1>
@@ -29,20 +26,9 @@
 									 <input type="submit" class="btn btn-success" value="Cadastrar">
 			</form>
 		</div>
-
-		<script src="../bootstrap/js/jquery.js"></script>
-		<script src="../bootstrap/js/bootstrap-transition.js"></script>
-		<script src="../bootstrap/js/bootstrap-alert.js"></script>
-		<script src="../bootstrap/js/bootstrap-modal.js"></script>
-		<script src="../bootstrap/js/bootstrap-dropdown.js"></script>
-		<script src="../bootstrap/js/bootstrap-scrollspy.js"></script>
-		<script src="../bootstrap/js/bootstrap-tab.js"></script>
-		<script src="../bootstrap/js/bootstrap-tooltip.js"></script>
-		<script src="../bootstrap/js/bootstrap-popover.js"></script>
-		<script src="../bootstrap/js/bootstrap-button.js"></script>
-		<script src="../bootstrap/js/bootstrap-collapse.js"></script>
-		<script src="../bootstrap/js/bootstrap-carousel.js"></script>
-		<script src="../bootstrap/js/bootstrap-typeahead.js"></script>
+		
+		
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 </body>
 </html>

@@ -5,10 +5,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Tarefas Pendentes</title>
+<jsp:include page="headerCSS.jsp"/>
+
 </head>
 <body>
+<div class="container">
 
-	<h2>Nome da Tarefa</h2>
+	
+	<jsp:include page="header.jsp"  />
+	
+	<h2>Todas as tarefas</h2>
+	
+	
+	<jsp:include page="footer.jsp"></jsp:include>
+</div>
 
 </body>
 </html>
