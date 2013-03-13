@@ -23,7 +23,7 @@
 
 		<action name="deletarFuncionario" class="br.com.ideais.estagio.action.FuncionarioAction"
 			method="delete">
-			<result name="success" type="redirect">listarFuncionario</result>
+			<result name="success" type="redirect">listarFuncionarios</result>
 		</action>
 
 		<action name="editarFuncionario" class="br.com.ideais.estagio.action.FuncionarioAction"
@@ -33,20 +33,20 @@
 
 		<!-- Beneficio -->
 
-		<action name="listarBeneficio" class="beneficioAction" method="list">
-			<result name="success">/listarBeneficio.jsp</result>
+		<action name="listarBeneficios" class="beneficioAction" method="list">
+			<result name="success">/beneficios.jsp</result>
 		</action>
 
-		<action name="cadastrarBeneficio" class="beneficioAction"
+		<action name="cadastrarBeneficios" class="beneficioAction"
 			method="save">
-			<result name="success" type="redirect">listarBeneficio</result>
+			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
-		<action name="deletarBeneficio" class="beneficioAction" method="delete">
-			<result name="success" type="redirect">listarBeneficio</result>
+		<action name="deletarBeneficios" class="beneficioAction" method="delete">
+			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
-		<action name="editarBeneficio" class="beneficioAction" method="update">
+		<action name="editarBeneficios" class="beneficioAction" method="update">
 			<result name="success">editarBeneficio.jsp</result>
 		</action>
 
@@ -60,7 +60,7 @@
 		<!-- Etapas -->
 
 		<action name="listarEtapas" class="etapasAction" method="list">
-			<result name="success">/listarBeneficio</result>
+			<result name="success">listarBeneficios</result>
 		</action>
 
 		<action name="cadastrarEtapas" class="etapasAction" method="save">
@@ -72,7 +72,7 @@
 		</action>
 
 		<action name="editarEtapas" class="etapasAction" method="update">
-			<result name="success">/listarBeneficio</result>
+			<result name="success">listarBeneficios</result>
 		</action>
 
 		<!-- Feitos -->
