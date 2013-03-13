@@ -7,15 +7,7 @@
 <head>
 
 <title>Riddler - Funcionários</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<!-- Le styles -->
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-
-<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-<link href="css/paginaInicial.css" rel="stylesheet">
+<jsp:include page="headerCSS.jsp"/>
 
 </head>
 
@@ -23,33 +15,8 @@
     <input type="hidden" />
 	<div class="container">
 
-		<div class="masthead">
-			<h3 class="muted">Riddler</h3>
-			<div class="navbar">
-				<div class="tabbable">
-					<div class="container">
-						<ul class="nav">
-							<li class="active"><a href="paginaInicial.jsp">Tarefas
-									Urgentes</a></li>
-							<li><a href="cadastroFuncionario.jsp">Cadastro Funcionário</a></li>
-							<li><a href="cadastroBeneficio.jsp">Cadastro Benefício</a></li>
-							<li><a href="#">Tarefas Pendentes</a></li>
-							<li><a href="funcionarios.jsp">Funcionários </a></li>
-						
-							<!-- Olhar pra fazer logout-->						
-						
-					
-					
-							<li><a href="index.jsp">Logout </a></li>
-					
-					
-					
-						</ul>
-					</div>
-				</div>
-			</div>
-			<!-- /.navbar -->
-		</div>
+		<jsp:include page="header.jsp"></jsp:include>
+		
 		&nbsp;
 		<div class="jumbotron">
 			<h1 align="center">
@@ -92,29 +59,11 @@
 
 		<hr color="green">
 
-		<div class="footer">
-			<p>&copy; Ideais Tecnologia</p>
-		</div>
+		<jsp:include page="footer.jsp"></jsp:include>
 
 	</div>
 	<!-- /container -->
 
-	<!-- Le javascript
-    ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="bootstrap/js/jquery.js"></script>
-	<script src="bootstrap/js/bootstrap-transition.js"></script>
-	<script src="bootstrap/js/bootstrap-alert.js"></script>
-	<script src="bootstrap/js/bootstrap-modal.js"></script>
-	<script src="bootstrap/js/bootstrap-dropdown.js"></script>
-	<script src="bootstrap/js/bootstrap-scrollspy.js"></script>
-	<script src="bootstrap/js/bootstrap-tab.js"></script>
-	<script src="bootstrap/js/bootstrap-tooltip.js"></script>
-	<script src="bootstrap/js/bootstrap-popover.js"></script>
-	<script src="bootstrap/js/bootstrap-button.js"></script>
-	<script src="bootstrap/js/bootstrap-collapse.js"></script>
-	<script src="bootstrap/js/bootstrap-carousel.js"></script>
-	<script src="bootstrap/js/bootstrap-typeahead.js"></script>
 
 </body>
 </html>

@@ -9,6 +9,10 @@
 </head>
 <body>
 
+<div class="container">
+
+	<jsp:include page="header.jsp"  />
+
 	<h2>Lista de Beneficios do Funcionario ${funcionario.nome}</h2>
 	
 	<table cellspacing="10px;">
