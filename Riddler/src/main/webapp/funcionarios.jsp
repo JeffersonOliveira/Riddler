@@ -1,10 +1,12 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+     pageEncoding="UTF-8"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<html>
 <head>
-<meta charset="utf-8">
-<title>Riddler - Funcionários</title>
+
+<title>Riddler - FuncionÃ¡rios</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -18,7 +20,7 @@
 </head>
 
 <body>
-
+    <input type="hidden" />
 	<div class="container">
 
 		<div class="masthead">
@@ -29,10 +31,10 @@
 						<ul class="nav">
 							<li class="active"><a href="paginaInicial.jsp">Tarefas
 									Urgentes</a></li>
-							<li><a href="cadastroFuncionario.jsp">Cadastro Funcionário</a></li>
-							<li><a href="cadastroBeneficio.jsp">Cadastro Benefício</a></li>
+							<li><a href="cadastroFuncionario.jsp">Cadastro FuncionÃ¡rio</a></li>
+							<li><a href="cadastroBeneficio.jsp">Cadastro BenefÃ­cio</a></li>
 							<li><a href="#">Tarefas Pendentes</a></li>
-							<li><a href="funcionarios.jsp">Funcionários </a></li>
+							<li><a href="funcionarios.jsp">FuncionÃ¡rios </a></li>
 						
 							<!-- Olhar pra fazer logout-->						
 						
@@ -51,26 +53,39 @@
 		&nbsp;
 		<div class="jumbotron">
 			<h1 align="center">
-				Funcionários
+				FuncionÃ¡rios
 			</h1>
 			&nbsp;
 			<table class="table table-striped">
 				<thead align="center">
 					<tr>
-						<th>ID</th>
-						<th>Funcionário</th>
-						<th>Data de Admissão</th>
+					
+<!-- 						<th>ID</th> -->
+						<th>FuncionÃ¡rio</th>
+						<th>Data de AdmissÃ£o</th>
 				</thead>
 				<tbody>
-					<tr class="warning">
-						<td>01</td>
-						<td>Larissa</td>
-						<td>01/10/2012</td>
-						<td><button class="btn btn-small btn-success">
+					
+ 						<c:forEach  var="funcionario" items="${funcionarios}"> 
+		                  <tr> 
+		                  <td>
+		                   <td>${funcionario.nome}</td>
+		                   <td>${funcionario.dataDeAdmissao}</td>
+		                   <td><button class="btn btn-small btn-success">
+						        <a href="/editarFuncionario?id=${funcionario.id}">Editar Funcionario</a>        
+						      </button>
+						   </td>
+		                   <td><button class="btn btn-small btn-success">
+						        <a href="/deletarFuncionario?id=${funcionario.id}">Deletar Funcionario</a>         
+						       </button>
+						   </td>
+						   <td>
+						    <button class="btn btn-small btn-success">
 								<a href="paginaInicial.jsp"><font color="white">Verificar Tarefas</font></a>
-							</button></td>
-					</tr>
-
+							</button>
+					       </td>
+						   </tr>
+	                    </c:forEach> 
 				</tbody>
 			</table>
 		</div>
