@@ -79,11 +79,6 @@ public class EtapaAction implements CRUDAction {
 	}
 	
 
-	public void setEtapa(Etapa etapa) {
-		this.etapa = etapa;
-	}
-	
-
 	public EtapaService getEtapaService() {
 		return etapaService;
 	}

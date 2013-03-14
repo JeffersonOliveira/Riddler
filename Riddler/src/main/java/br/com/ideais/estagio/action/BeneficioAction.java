@@ -52,10 +52,6 @@ public class BeneficioAction implements CRUDAction{
 		return beneficio;
 	}
 
-	public void setBeneficio(Beneficio beneficio) {
-		this.beneficio = beneficio;
-	}
-
 	public List<Beneficio> getBeneficios() {
 		return beneficios;
 	}

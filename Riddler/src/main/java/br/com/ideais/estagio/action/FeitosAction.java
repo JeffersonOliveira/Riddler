@@ -36,10 +36,6 @@ public class FeitosAction implements CRUDAction {
 		return feitos;
 	}
 
-	public void setFeitos(Feitos feitos) {
-		this.feitos = feitos;
-	}
-
 
 	public void prepare() throws Exception {
 		if(getFeitosFromRequest()!=null){

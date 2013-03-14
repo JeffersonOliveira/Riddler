@@ -76,9 +76,6 @@ public class UsuarioActionImpl implements UsuarioAction {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 
 	public List<Usuario> getUsuarios() {
 		return usuarios;

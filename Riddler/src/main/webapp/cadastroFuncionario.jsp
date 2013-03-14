@@ -49,9 +49,6 @@
 					Nome <input type="text" id="usuario" name="funcionario.nome">
 				</h4>
 				<h4>
-					Apelido <input type="text" id="usuario" name="funcionario.apelido">
-				</h4>
-				<h4>
 					Data de Admissão <input type="text" id="datepicker"  name="funcionario.dataDeAdmissao" /> 
 				</h4>
 				<input type="submit" class="btn btn-success" value="Cadastrar">
