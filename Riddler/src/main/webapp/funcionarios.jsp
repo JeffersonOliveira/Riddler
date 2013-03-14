@@ -35,7 +35,6 @@
 					
  						<c:forEach  var="funcionario" items="${funcionarios}"> 
 		                  <tr> 
-		                  <td>
 		                   <td>${funcionario.nome}</td>
 		                   <td>${funcionario.dataDeAdmissao}</td>
 		                   <td><button class="btn btn-small btn-success">
