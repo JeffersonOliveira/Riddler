@@ -33,9 +33,20 @@ public class FuncionarioAction implements CRUDAction{
 
 
 	public String save() {
-		funcionarioService.saveOrUpdate( funcionario );
-		return SUCCESS;
+		System.out.println(funcionario.getNome() + " " + funcionario.getDataDeAdmissao());
+		if (!funcionario.getNome().equals(null)){
+			erroCampoVazio();
+			return ERROR;
+		}
+		else if(funcionarioService.saveOrUpdate( funcionario )) {
+			return SUCCESS;
+		}
+		else{
+			erroAoCriarFuncionario();
+			return ERROR;
+		}
 	}
+
 
 
 	public String update() {
@@ -66,7 +77,20 @@ public class FuncionarioAction implements CRUDAction{
 		
 		return null;
 	}
-
+	
+	
+	// REDIRECIONA A MESSAGEM DE ERRO PARA A TELA
+	 
+	private void erroCampoVazio() {
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		request.setAttribute("erro", "Preencha os campos por favor");		
+	}
+	private void erroAoCriarFuncionario() {
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		request.setAttribute("erro", "Funcionario Existente");
+	}
+	
+	//
 	public Funcionario getFuncionario() {
 		return funcionario;
 	}

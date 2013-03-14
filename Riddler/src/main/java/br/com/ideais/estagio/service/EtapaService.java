@@ -18,8 +18,8 @@ public class EtapaService implements AbstractService<Etapa>{
 		etapaDao.persist(etapa);
 	}
 	
-	public void saveOrUpdate(Etapa etapa){
-		etapaDao.saveOrUpdate(etapa);
+	public boolean saveOrUpdate(Etapa etapa){
+		return etapaDao.saveOrUpdate(etapa);
 	}
 
 	public List<Etapa> list() {

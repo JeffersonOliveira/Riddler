@@ -21,9 +21,9 @@ public class FeitosService implements AbstractService<Feitos>{
 
 	}
 
-	public void saveOrUpdate(Feitos feitos) {
+	public boolean saveOrUpdate(Feitos feitos) {
 
-		ftDao.saveOrUpdate(feitos);
+		return ftDao.saveOrUpdate(feitos);
 	}
 
 	public List<Feitos> list() {

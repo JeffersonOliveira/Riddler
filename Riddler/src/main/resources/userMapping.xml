@@ -19,6 +19,7 @@
 		<action name="cadastrarFuncionario" class="br.com.ideais.estagio.action.FuncionarioAction"
 			method="save">
 			<result name="success" type="redirect">listarFuncionarios</result>
+			<result name="error">/cadastroFuncionario.jsp</result>
 		</action>
 
 		<action name="deletarFuncionario" class="br.com.ideais.estagio.action.FuncionarioAction"
