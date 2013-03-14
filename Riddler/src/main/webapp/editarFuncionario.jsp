@@ -21,119 +21,86 @@
 
 <body>
 
-	<div class="masthead">
-		<h2 class="muted" align="center">Riddler</h2>
-		<div class="navbar">
-			<div class="tabbable">
-				<div class="container">
-					<ul class="nav">
-						<li class="active"><a href="paginaInicial.jsp">Tarefas
-								Urgentes</a></li>
-						<li><a href="cadastroFuncionario.jsp">Cadastro
-								Funcionário</a></li>
-						<li><a href="cadastroBeneficio.jsp">Cadastro Benefício</a></li>
-						<li><a href="#">Tarefas Pendentes</a></li>
-						<li><a href="funcionarios.jsp">Funcionários </a></li>
+	<jsp:include page="headerCSS.jsp" />
+</head>
 
-						<!-- Olhar pra fazer logout-->
+<body>
+	<input type="hidden" />
+	<div class="container">
 
+		<jsp:include page="header.jsp"></jsp:include>
 
+		&nbsp;
+		<div align="center">
 
-						<li><a href="index.jsp">Logout </a></li>
+			<form action="cadastrarFuncionario" method="post">
 
+				<input type="hidden" value="${funcionario.id}" name="funcionario.id"
+					readonly="readonly" />
 
+				<table border="0">
+					<tr>
+						<td align="center"><h2>Editar Funcion&aacute;rio
+								${funcionario.nome}</h2></td>
+					</tr>
 
-					</ul>
-				</div>
-			</div>
+					<tr>
+						<td>Nome:</td>
+						<td><input type="text" id="nome" value="${funcionario.nome}"
+							name="funcionario.nome"></td>
+					</tr>
+					<tr>
+						<td>data de admissão</td>
+						<td><input type="text" id="dataDeAdmissao"
+							value="${funcionario.dataDeAdmissao}"
+							name="funcionario.dataDeAdmissao"></td>
+					</tr>
+					<tr>
+						<td>
+							<h4>Benefícios</h4>
+							<h6>
+								Vale Transporte<input type="checkbox" id="nome"
+									value="${beneficio.nome}" name="beneficio.nome" />
+							</h6>
+							<h6>
+								Vale Refeição<input type="checkbox" id="nome"
+									value="${beneficio.nome}" name="beneficio.nome" />
+							</h6>
+							<h6>
+								Plano de saúde<input type="checkbox" id="nome"
+									value="${beneficio.nome}" name="beneficio.nome" />
+							</h6>
+							<h6>
+								Plano Dental<input type="checkbox" id="nome"
+									value="${beneficio.nome}" name="beneficio.nome" />
+							</h6>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5>
+								<button class="btn btn-small btn-danger">
+									<a href="/deletarFuncionario?id=${funcionario.id}"><font
+										color="white">Deletar Funcionario</font></a>
+								</button>
+								<button class="btn btn-small btn-success">
+
+									<input type="submit" value="Alterar Dados" />
+
+								</button>
+							</h5>
+						</td>
+					</tr>
+				</table>
+			</form>
+
 		</div>
-		<!-- /.navbar -->
-	</div>
 
-	<div align="center">
+		<hr color="green">
 
-		<form action="cadastrarFuncionario" method="post">
-
-			<input type="hidden" value="${funcionario.id}" name="funcionario.id"
-				readonly="readonly" />
-
-			<table border="0">
-				<tr>
-					<td align="center"><h2>Editar Funcion&aacute;rio
-							${funcionario.nome}</h2></td>
-				</tr>
-
-				<tr>
-					<td>Nome:</td>
-					<td><input type="text" id="nome" value="${funcionario.nome}"
-						name="funcionario.nome"></td>
-				</tr>
-				<tr>
-					<td>data de admissão</td>
-					<td><input type="text" id="dataDeAdmissao"
-						value="${funcionario.dataDeAdmissao}"
-						name="funcionario.dataDeAdmissao"></td>
-				</tr>
-				<tr>
-					<td>
-						<h4>Benefícios</h4>
-						<h6>
-							Vale Transporte<input type="checkbox" id="nome"
-								value="${beneficio.nome}" name="beneficio.nome" />
-						</h6>
-						<h6>
-							Vale Refeição<input type="checkbox" id="nome"
-								value="${beneficio.nome}" name="beneficio.nome" />
-						</h6>
-						<h6>
-							Plano de saúde<input type="checkbox" id="nome"
-								value="${beneficio.nome}" name="beneficio.nome" />
-						</h6>
-						<h6>
-							Plano Dental<input type="checkbox" id="nome"
-								value="${beneficio.nome}" name="beneficio.nome" />
-						</h6>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<h5>
-							<button class="btn btn-small btn-danger">
-								<a href="/deletarFuncionario?id=${funcionario.id}"><font
-									color="white">Deletar Funcionario</font></a>
-							</button>
-							<button class="btn btn-small btn-success">
-
-								<input type="submit" value="Alterar Dados" />
-
-							</button>
-						</h5>
-					</td>
-				</tr>
-			</table>
-		</form>
+		<jsp:include page="footer.jsp"></jsp:include>
 
 	</div>
-
-	<!-- /container -->
-
-	<!-- Le javascript
-    ================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="bootstrap/js/jquery.js"></script>
-	<script src="bootstrap/js/bootstrap-transition.js"></script>
-	<script src="bootstrap/js/bootstrap-alert.js"></script>
-	<script src="bootstrap/js/bootstrap-modal.js"></script>
-	<script src="bootstrap/js/bootstrap-dropdown.js"></script>
-	<script src="bootstrap/js/bootstrap-scrollspy.js"></script>
-	<script src="bootstrap/js/bootstrap-tab.js"></script>
-	<script src="bootstrap/js/bootstrap-tooltip.js"></script>
-	<script src="bootstrap/js/bootstrap-popover.js"></script>
-	<script src="bootstrap/js/bootstrap-button.js"></script>
-	<script src="bootstrap/js/bootstrap-collapse.js"></script>
-	<script src="bootstrap/js/bootstrap-carousel.js"></script>
-	<script src="bootstrap/js/bootstrap-typeahead.js"></script>
-
 
 </body>
 </html>
