@@ -7,6 +7,5 @@
         	<mapping class="br.com.ideais.estagio.model.Etapa"/>
         	<mapping class="br.com.ideais.estagio.model.Feitos"/>
         	<mapping class="br.com.ideais.estagio.model.Funcionario"/>
-        	<mapping class="br.com.ideais.estagio.model.Usuario"/>
         </session-factory>
 </hibernate-configuration>

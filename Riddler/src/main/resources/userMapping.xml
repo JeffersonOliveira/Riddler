@@ -49,13 +49,14 @@
 		<action name="editarBeneficio" class="br.com.ideais.estagio.action.BeneficioAction" method="update">
 			<result name="success">/editarBeneficio.jsp</result>
 		</action>
-
+	
 		<!-- Usuario -->
 
-		<action name="login" class="br.com.ideais.estagio.action.LoginAction">
-			<result name="success" type="redirect">paginaInicial.jsp</result>
+<!--
+		<action name="login" class="br.com.ideais.estagio.action.UsuarioActionImpl">
+			<result name="success" type="redirect">/home.jsp</result>
 		</action>
-
+-->
 
 		<!-- Etapas -->
 

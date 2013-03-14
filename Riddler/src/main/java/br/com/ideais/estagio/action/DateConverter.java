@@ -13,7 +13,6 @@ public class DateConverter extends StrutsTypeConverter{
 	public Object convertFromString(Map context, String[] value, Class toClass) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = null;
-		System.out.println("========================= ================\n chamei o converter!!!!!!");
 		try {
 			date = sdf.parse(value[0]);
 		} catch (ParseException e) {

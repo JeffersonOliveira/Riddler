@@ -28,13 +28,13 @@
 
     <div class="container">
 
-      <form class="form-signin" action="login" method="post">
+      <form class="form-signin" action="j_spring_security_check" method="post">
         <h2 class="form-signin-heading">Login</h2>
-        <input type="text" name="usuario.usuario" class="input-block-level" placeholder="Login">
-        <input type="password" name="usuario.senha" class="input-block-level" placeholder="Senha">
-        <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Lembre-me
-        </label>
+        <input type="text" name="j_username" class="input-block-level" placeholder="Login">
+        <input type="password" name="j_password" class="input-block-level" placeholder="Senha">
+<!--         <label class="checkbox"> -->
+<!--           <input type="checkbox" value="remember-me"> Lembre-me -->
+<!--         </label> -->
         <button class="btn btn-large btn-success" type="submit">Entrar</button>
       </form>
 
