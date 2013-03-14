@@ -77,7 +77,7 @@ public class FuncionarioAction implements CRUDAction{
 	 
 	private void erroAoCriarFuncionario() {
 		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		request.setAttribute("erro", "erro");
+		request.setAttribute("erro", "Funcionario Existente");
 	}
 	
 	//

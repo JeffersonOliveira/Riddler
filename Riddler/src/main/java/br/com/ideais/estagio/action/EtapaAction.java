@@ -34,10 +34,15 @@ public class EtapaAction implements CRUDAction {
 	
 
 	public String save() {
-		etapaService.saveOrUpdate(getEtapa());
-		return SUCCESS;
+		if(etapaService.saveOrUpdate( etapa )){
+			return SUCCESS;
+		}
+		else{
+			erroAoCriarEtapa();
+			return ERROR;
+		}
 	}
-	
+
 
 	public String update() {
 		return SUCCESS;
@@ -72,6 +77,16 @@ public class EtapaAction implements CRUDAction {
 
 		return null;
 	}
+	
+	
+	// REDIRECIONA A MESSAGEM DE ERRO PARA A TELA
+	 
+	private void erroAoCriarEtapa() {
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		request.setAttribute("erro", "erro");
+	}
+	
+	//
 	
 
 	private Etapa getEtapa() {

@@ -40,6 +40,16 @@ public class BeneficioAction implements CRUDAction{
 		return null;
 	}
 	
+	
+	// REDIRECIONA A MESSAGEM DE ERRO PARA A TELA
+	 
+	private void erroAoCriarBenefício() {
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		request.setAttribute("erro", "Beneficio Existente");
+	}
+	
+	//
+	
 	public BeneficioService getBeneficioService() {
 		return beneficioService;
 	}
@@ -61,8 +71,13 @@ public class BeneficioAction implements CRUDAction{
 	}
 
 	public String save() {
-		beneficioService.saveOrUpdate(getBeneficio());
-		return SUCCESS;
+		if(beneficioService.saveOrUpdate(getBeneficio())){
+			return SUCCESS;
+		}
+		else{
+			erroAoCriarBenefício();
+			return ERROR;
+		}
 	}
 
 	public String update() {		
