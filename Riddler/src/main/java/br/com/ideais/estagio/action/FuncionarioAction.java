@@ -33,8 +33,10 @@ public class FuncionarioAction implements CRUDAction{
 
 
 	public String save() {
-		funcionarioService.saveOrUpdate( funcionario );
-		return SUCCESS;
+		if(funcionarioService.saveOrUpdate( funcionario )){
+			return SUCCESS;
+		}
+		return ERROR;
 	}
 
 

@@ -20,8 +20,8 @@ public class BeneficioService implements AbstractService<Beneficio>{
 	}
 	
 	
-	public void saveOrUpdate (Beneficio beneficio){
-		bDao.saveOrUpdate(beneficio);
+	public boolean saveOrUpdate (Beneficio beneficio){
+		return bDao.saveOrUpdate(beneficio);
 	}
 	
 	

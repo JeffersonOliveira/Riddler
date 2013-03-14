@@ -10,7 +10,7 @@ public interface AbstractService<T> {
 
 	public List<T> list();
 
-	public void saveOrUpdate(T t);
+	public boolean saveOrUpdate(T t);
 
 	public void persist(T t);
 }

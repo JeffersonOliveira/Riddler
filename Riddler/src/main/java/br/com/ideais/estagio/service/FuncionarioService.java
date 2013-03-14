@@ -17,8 +17,8 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 		fDao.persist(funcionario);
 	}
 	
-	public void saveOrUpdate(Funcionario funcionario){
-		fDao.saveOrUpdate(funcionario);
+	public boolean saveOrUpdate(Funcionario funcionario){
+		return fDao.saveOrUpdate(funcionario);
 	}
 
 	public List<Funcionario> list() {
