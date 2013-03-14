@@ -34,7 +34,7 @@
 </head>
 
 <body>
-
+	
 	<div class="container">
 
 	<jsp:include page="header.jsp"  />
@@ -45,7 +45,9 @@
 		<hr />
 		<div class="form">
 			<form action="cadastrarFuncionario" method="post">
+				${erro}
 				<h4>
+				
 					Nome <input type="text" id="usuario" name="funcionario.nome">
 				</h4>
 				<h4>
@@ -54,6 +56,8 @@
 				<input type="submit" class="btn btn-success" value="Cadastrar">
 			</form>
 		</div>
+		
+		
 		
 		
 		<jsp:include page="footer.jsp"></jsp:include>

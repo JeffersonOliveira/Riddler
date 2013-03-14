@@ -36,7 +36,10 @@ public class FuncionarioAction implements CRUDAction{
 		if(funcionarioService.saveOrUpdate( funcionario )){
 			return SUCCESS;
 		}
-		return ERROR;
+		else{
+			erroAoCriarFuncionario();
+			return ERROR;
+		}
 	}
 
 
@@ -68,7 +71,16 @@ public class FuncionarioAction implements CRUDAction{
 		
 		return null;
 	}
-
+	
+	
+	// REDIRECIONA A MESSAGEM DE ERRO PARA A TELA
+	 
+	private void erroAoCriarFuncionario() {
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		request.setAttribute("erro", "erro");
+	}
+	
+	//
 	public Funcionario getFuncionario() {
 		return funcionario;
 	}
