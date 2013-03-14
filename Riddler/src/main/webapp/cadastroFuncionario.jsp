@@ -20,6 +20,8 @@
 <script>
 	$(function() {
 		$("#datepicker").datepicker();
+		$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
+		
 		$("#anim").change(function() {
 			$("#datepicker").datepicker("option", "showAnim", $(this).val());
 		});
@@ -47,7 +49,10 @@
 					Nome <input type="text" id="usuario" name="funcionario.nome">
 				</h4>
 				<h4>
-					Data de Admissão <input type="text" id="datepicker" name="funcionario.dataDeAdmissao" /> 
+					Apelido <input type="text" id="usuario" name="funcionario.apelido">
+				</h4>
+				<h4>
+					Data de Admissão <input type="text" id="datepicker"  name="funcionario.dataDeAdmissao" /> 
 				</h4>
 				<input type="submit" class="btn btn-success" value="Cadastrar">
 			</form>

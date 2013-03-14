@@ -17,7 +17,7 @@ public class FuncionarioAction implements CRUDAction{
 	@Autowired
 	private FuncionarioService funcionarioService;
 	
-	private Funcionario funcionario;
+	private Funcionario funcionario = new Funcionario();
 	
 	private List<Funcionario> funcionarios;
 	
@@ -26,14 +26,14 @@ public class FuncionarioAction implements CRUDAction{
 	}
 
 	public void prepare() throws Exception {
-		if(getFuncionarioFromRequest() != null)
+		if(getFuncionarioFromRequest() != null) {
 			funcionario = funcionarioService.findbyId(getFuncionarioFromRequest());
-		
+		}
 	}
 
 
 	public String save() {
-		funcionarioService.saveOrUpdate(getFuncionario());
+		funcionarioService.saveOrUpdate( funcionario );
 		return SUCCESS;
 	}
 
@@ -67,16 +67,10 @@ public class FuncionarioAction implements CRUDAction{
 		return null;
 	}
 
-	
-	private Funcionario getFuncionario() {
+	public Funcionario getFuncionario() {
 		return funcionario;
 	}
-
 	
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
-	}
-
 	public FuncionarioService getFuncionarioService() {
 		return funcionarioService;
 	}

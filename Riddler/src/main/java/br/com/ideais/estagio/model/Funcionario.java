@@ -1,8 +1,9 @@
 package br.com.ideais.estagio.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.DatabaseMetaData;
 import java.util.List;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
+
+import org.joda.time.LocalDate;
 
 @Entity
 public class Funcionario implements Serializable{
@@ -20,6 +23,7 @@ public class Funcionario implements Serializable{
     @GeneratedValue( generator = "sequence", strategy = GenerationType.AUTO )
 	private Long id;
 	private String nome;
+	private String apelido;
 	private Date dataDeAdmissao;
 	
 	@ManyToMany
@@ -39,6 +43,7 @@ public class Funcionario implements Serializable{
 	}
 
 	public void setNome(String nome) {
+		System.out.println(nome);
 		this.nome = nome;
 	}
 
@@ -49,7 +54,7 @@ public class Funcionario implements Serializable{
 	public void setDataDeAdmissao(Date dataDeAdmissao) {
 		this.dataDeAdmissao = dataDeAdmissao;
 	}
-
+	
 	public List<Feitos> getFeitos() {
 		return feitos;
 	}
@@ -58,5 +63,12 @@ public class Funcionario implements Serializable{
 		this.feitos = feitos;
 	}
 
+	public String getApelido() {
+		return apelido;
+	}
+	
+	public void setApelido( String apelido ) {
+		this.apelido = apelido;
+	}
 	
 }
