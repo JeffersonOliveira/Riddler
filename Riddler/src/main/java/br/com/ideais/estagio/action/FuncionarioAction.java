@@ -34,7 +34,7 @@ public class FuncionarioAction implements CRUDAction{
 
 	public String save() {
 		System.out.println(funcionario.getNome() + " " + funcionario.getDataDeAdmissao());
-		if (!funcionario.getNome().equals(null)){
+		if (funcionario.getNome().equals("")){
 			erroCampoVazio();
 			return ERROR;
 		}

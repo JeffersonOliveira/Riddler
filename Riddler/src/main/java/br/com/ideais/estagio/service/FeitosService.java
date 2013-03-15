@@ -16,24 +16,19 @@ public class FeitosService implements AbstractService<Feitos>{
 
 	
 	public void persist(Feitos feitos) {
-
 		ftDao.persist(feitos);
-
 	}
 
 	public boolean saveOrUpdate(Feitos feitos) {
-
 		return ftDao.saveOrUpdate(feitos);
 	}
 
 	public List<Feitos> list() {
-
 		return ftDao.list();
 	}
 
 
 	public boolean delete(Feitos feitos) {
-
 		return ftDao.delete(feitos);
 	}
 

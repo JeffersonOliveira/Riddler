@@ -21,6 +21,7 @@ public class Feitos implements Serializable{
 	private Long id;
 	private Date data_inicial;
 	private Boolean feito;
+	private String observacao;
 	
 	@ManyToMany
 	private List<Funcionario> funcionarios;
@@ -62,6 +63,14 @@ public class Feitos implements Serializable{
 
 	public void setEtapas(List<Etapa> etapas) {
 		this.etapas = etapas;
+	}
+
+	public String getObservacao() {
+		return observacao;
+	}
+
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
 
 	 
