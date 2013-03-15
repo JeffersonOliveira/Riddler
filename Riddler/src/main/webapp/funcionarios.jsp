@@ -6,7 +6,7 @@
 <html>
 <head>
 
-<title>Riddler - Funcionários</title>
+<title>Riddler - Funcionários </title>
 
 <script>
 	$(function() {
@@ -55,7 +55,7 @@
 						   </td>
 		                   <td>
 						    <button class="btn btn-small btn-success">
-								<a href="paginaInicial.jsp"><font color="white">Verificar Tarefas</font></a>
+								<a href="paginaInicial.jsp" ><font color="white">Verificar Tarefas</font></a>
 							</button>
 					       </td>
 					       <td>
