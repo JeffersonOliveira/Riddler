@@ -124,6 +124,16 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>3.0.5.RELEASE</version>
 		</dependency>
+
+		<!-- PDF -->
+
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.4.0</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>

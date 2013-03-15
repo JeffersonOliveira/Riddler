@@ -94,6 +94,14 @@
 		<action name="editarFeitos" class="br.com.ideais.estagio.action.FeitosAction" method="update">
 			<result name="success">/listarBeneficio</result>
 		</action>
+		
+		
+		<!-- PDF -->
+		
+		
+		<action name="createPdf" class="br.com.ideais.estagio.action.RelatorioAction" method="createPdf">
+			<result name="success">listarFuncionarios</result>
+		</action>
 
 	</package>
 
