@@ -1,4 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="masthead">
+
 			<h3 class="muted" align="center">- Perfil RH</h3>&nbsp;
 			<div class="navbar">
 				<div class="tabbable">
@@ -12,11 +14,11 @@
 							<li><a href="funcionarios.jsp">Funcionários </a></li>
 						
 							<!-- Olhar pra fazer logout-->						
-							<li><a href="index.jsp">Logout </a></li>
+							<li><a href="<c:url value="j_spring_security_logout" />" >Logout </a></li>
 					
 					
 						</ul>
 					</div>
 				</div>
 			</div>
-			<!-- /.navbar -->
+</div>
