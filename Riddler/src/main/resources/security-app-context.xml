@@ -6,7 +6,7 @@
                    http://www.springframework.org/schema/beans/spring-beans.xsd
                    http://www.springframework.org/schema/security
                    http://www.springframework.org/schema/security/spring-security.xsd">
-
+ 
 
 	<http use-expressions="true">
 		<intercept-url pattern="/home.jsp" access="isAuthenticated()" />
@@ -23,7 +23,7 @@
 			default-target-url="/home.jsp"
 			/>
 			
-		<logout />
+		<logout logout-success-url="/index.jsp" />
 	</http>
 
 	<authentication-manager>
