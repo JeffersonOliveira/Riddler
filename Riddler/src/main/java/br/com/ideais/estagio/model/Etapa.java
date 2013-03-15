@@ -1,15 +1,16 @@
 package br.com.ideais.estagio.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -24,10 +25,9 @@ public class Etapa implements Serializable {
 	private String nome;
 
 	private Integer ordem;
-
-	private Long id_beneficio;
 	
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name="beneficio_id")
 	private Beneficio beneficio;
 	
 	@ManyToMany
@@ -73,13 +73,6 @@ public class Etapa implements Serializable {
 	public void setFeitos(List<Feitos> feitos) {
 		this.feitos = feitos;
 	}
-	
-	public Long getId_beneficio() {
-		return id_beneficio;
-	}
-	
-	public void setId_beneficio() {
-		this.id_beneficio = beneficio.getId();	
-	}
+
 
 }

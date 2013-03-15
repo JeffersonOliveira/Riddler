@@ -4,10 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
@@ -25,7 +27,8 @@ public class Beneficio implements Serializable {
 	
 	private Date prazo;
 	
-	@OneToMany(mappedBy="beneficio")
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="beneficio_id")
 	private List<Etapa> etapas;
 
 	public Beneficio() {
