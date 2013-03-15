@@ -7,6 +7,18 @@
 <head>
 
 <title>Riddler - Funcionários</title>
+
+<script>
+	$(function() {
+		$("#datepicker").datepicker();
+		$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
+		
+		$("#anim").change(function() {
+			$("#datepicker").datepicker("option", "showAnim", $(this).val());
+		});
+	});
+</script>
+
 <jsp:include page="headerCSS.jsp"/>
 
 </head>
@@ -37,19 +49,20 @@
 		                  <tr> 
 		                   <td>${funcionario.nome}</td>
 		                   <td>${funcionario.dataDeAdmissao}</td>
-		                   <td><button class="btn btn-small btn-success">
-						        <a href="/editarFuncionario?id=${funcionario.id}">Editar Funcionario</a>        
+		                   <td><button class="btn btn-small btn-success" value="Editar">
+						        <a href="/editarFuncionario?id=${funcionario.id}"><font color="white">Editar Funcionario</font></a>        
 						      </button>
 						   </td>
-		                   <td><button class="btn btn-small btn-success">
-						        <a href="deletarFuncionario?id=${funcionario.id}">Deletar Funcionario</a>         
-						       </button>
-						   </td>
-						   <td>
+		                   <td>
 						    <button class="btn btn-small btn-success">
 								<a href="paginaInicial.jsp"><font color="white">Verificar Tarefas</font></a>
 							</button>
 					       </td>
+					       <td>
+					       	 <button class="btn btn-small btn-danger">
+						        <a href="deletarFuncionario?id=${funcionario.id}"><font color="white">Deletar Funcionario</font></a>         
+						     </button>
+						   </td>
 						   </tr>
 	                    </c:forEach> 
 				</tbody>
