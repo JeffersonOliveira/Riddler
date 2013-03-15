@@ -42,7 +42,7 @@
 						      </button>
 						   </td>
 		                   <td><button class="btn btn-small btn-success">
-						        <a href="/deletarFuncionario?id=${funcionario.id}">Deletar Funcionario</a>         
+						        <a href="deletarFuncionario?id=${funcionario.id}">Deletar Funcionario</a>         
 						       </button>
 						   </td>
 						   <td>

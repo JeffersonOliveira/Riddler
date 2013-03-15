@@ -54,6 +54,7 @@ public class FuncionarioAction implements CRUDAction{
 	}
 
 	public String delete() {
+		System.out.println(funcionario.getNome());
 		if(funcionarioService.delete(funcionario)){
 			return SUCCESS;
 		}
