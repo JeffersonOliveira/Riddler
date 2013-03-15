@@ -1,6 +1,7 @@
 package br.com.ideais.estagio.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -24,8 +25,8 @@ public class Etapa implements Serializable {
 
 	private Integer ordem;
 
-	private Integer prazo;
-
+	private Long id_beneficio;
+	
 	@OneToOne
 	private Beneficio beneficio;
 	
@@ -48,9 +49,6 @@ public class Etapa implements Serializable {
 		return ordem;
 	}
 
-	public Integer getVencimento() {
-		return prazo;
-	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
@@ -58,14 +56,6 @@ public class Etapa implements Serializable {
 
 	public void setOrdem(Integer ordem) {
 		this.ordem = ordem;
-	}
-
-	public void setPrazo(Integer prazo) {
-		this.prazo = prazo;
-	}
-
-	public Integer getPrazo() {
-		return prazo;
 	}
 
 	public Beneficio getBeneficio() {
@@ -82,6 +72,14 @@ public class Etapa implements Serializable {
 
 	public void setFeitos(List<Feitos> feitos) {
 		this.feitos = feitos;
+	}
+	
+	public Long getId_beneficio() {
+		return id_beneficio;
+	}
+	
+	public void setId_beneficio() {
+		this.id_beneficio = beneficio.getId();	
 	}
 
 }

@@ -19,7 +19,6 @@ public class Feitos implements Serializable{
     @SequenceGenerator( name = "sequence", sequenceName = "sequence" )
     @GeneratedValue(generator = "sequence", strategy=GenerationType.AUTO)
 	private Long id;
-	private Date data_inicial;
 	private Boolean feito;
 	private String observacao;
 	
@@ -27,15 +26,6 @@ public class Feitos implements Serializable{
 	private List<Funcionario> funcionarios;
 	@ManyToMany
 	private List<Etapa> etapas;
-	
-	
-	public Date getData_inicial() {
-		return data_inicial;
-	}
-	
-	public void setData_inicial(Date data_inicial) {
-		this.data_inicial = data_inicial;
-	}
 	
 	public Long getId() {
 		return id;

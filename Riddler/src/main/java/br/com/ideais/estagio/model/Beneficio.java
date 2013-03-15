@@ -1,6 +1,7 @@
 package br.com.ideais.estagio.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -21,6 +22,8 @@ public class Beneficio implements Serializable {
 	private Long id;
 	
 	private String nome;
+	
+	private Date prazo;
 	
 	@OneToMany(mappedBy="beneficio")
 	private List<Etapa> etapas;
@@ -48,5 +51,12 @@ public class Beneficio implements Serializable {
 	public void setEtapas(List<Etapa> etapas) {
 		this.etapas = etapas;
 	}	
-		
+	
+	public Date getPrazo() {
+		return prazo;
+	}
+
+	public void setPrazo(Date prazo) {
+		this.prazo = prazo;
+	}
 }
