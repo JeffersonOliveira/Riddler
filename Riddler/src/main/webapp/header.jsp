@@ -19,4 +19,4 @@
 					</div>
 				</div>
 			</div>
-			<!-- /.navbar -->
+</div>
