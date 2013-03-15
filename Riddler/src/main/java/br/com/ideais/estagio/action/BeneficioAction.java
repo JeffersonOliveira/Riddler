@@ -19,6 +19,11 @@ public class BeneficioAction implements CRUDAction{
 	private Beneficio beneficio;
 	private List<Beneficio> beneficios;
 	
+	
+	public void setBeneficio(Beneficio beneficio){
+		this.beneficio = beneficio;
+	}
+	
 	public String execute() throws Exception {
 		return SUCCESS;
 	}
@@ -71,7 +76,7 @@ public class BeneficioAction implements CRUDAction{
 	}
 
 	public String save() {
-		if(beneficioService.saveOrUpdate(getBeneficio())){
+		if(beneficioService.saveOrUpdate(beneficio)){
 			return SUCCESS;
 		}
 		else{
