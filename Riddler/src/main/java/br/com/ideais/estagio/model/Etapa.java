@@ -1,6 +1,7 @@
 package br.com.ideais.estagio.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -24,7 +25,7 @@ public class Etapa implements Serializable {
 
 	private Integer ordem;
 
-	private Integer prazo;
+	private Date prazo;
 
 	@OneToOne
 	private Beneficio beneficio;
@@ -48,7 +49,7 @@ public class Etapa implements Serializable {
 		return ordem;
 	}
 
-	public Integer getVencimento() {
+	public Date getVencimento() {
 		return prazo;
 	}
 
@@ -60,11 +61,11 @@ public class Etapa implements Serializable {
 		this.ordem = ordem;
 	}
 
-	public void setPrazo(Integer prazo) {
+	public void setPrazo(Date prazo) {
 		this.prazo = prazo;
 	}
 
-	public Integer getPrazo() {
+	public Date getPrazo() {
 		return prazo;
 	}
 
