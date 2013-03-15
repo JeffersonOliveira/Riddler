@@ -43,7 +43,7 @@ public class BeneficioAction implements CRUDAction{
 	
 	// REDIRECIONA A MESSAGEM DE ERRO PARA A TELA
 	 
-	private void erroAoCriarBenefício() {
+	private void erroAoCriarBeneficio() {
 		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
 		request.setAttribute("erro", "Beneficio Existente");
 	}
@@ -75,7 +75,7 @@ public class BeneficioAction implements CRUDAction{
 			return SUCCESS;
 		}
 		else{
-			erroAoCriarBenefício();
+			erroAoCriarBeneficio();
 			return ERROR;
 		}
 	}
