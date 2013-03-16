@@ -14,6 +14,7 @@
 		<action name="listarFuncionarios" class="br.com.ideais.estagio.action.FuncionarioAction"
 			method="list">
 			<result name="success">/funcionarios.jsp</result>
+			<result name="error">/cadastroFuncionario.jsp</result>
 		</action>
 
 		<action name="cadastrarFuncionario" class="br.com.ideais.estagio.action.FuncionarioAction"
@@ -46,6 +47,7 @@
 
 		<action name="deletarBeneficios" class="br.com.ideais.estagio.action.BeneficioAction" method="delete">
 			<result name="success" type="redirect">listarBeneficios</result>
+			<result name="error">/beneficios.jsp</result>
 		</action>
 
 		<action name="editarBeneficio" class="br.com.ideais.estagio.action.BeneficioAction" method="update">
@@ -62,12 +64,12 @@
 
 		<!-- Etapas -->
 
-		<action name="listarEtapas" class="br.com.ideais.estagio.action.EtapasAction" method="list">
-			<result name="success">/listarBeneficios</result>
+		<action name="listarEtapas" class="br.com.ideais.estagio.action.BeneficioAction" method="list">
+			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
 		<action name="cadastrarEtapas" class="br.com.ideais.estagio.action.EtapasAction" method="save">
-			<result name="success" type="redirect">/listarBeneficios</result>
+			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
 		<action name="deletarEtapas" class="br.com.ideais.estagio.action.EtapasAction" method="delete">
@@ -75,25 +77,25 @@
 		</action>
 
 		<action name="editarEtapas" class="br.com.ideais.estagio.action.EtapasAction" method="update">
-			<result name="success">/listarBeneficios</result>
+			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
 		<!-- Feitos -->
 
 		<action name="listarFeitos" class="br.com.ideais.estagio.action.FeitosAction" method="list">
-			<result name="success">/listarBeneficio</result>
+			<result name="success" type="redirect">listarBeneficio</result>
 		</action>
 
 		<action name="cadastrarFeitos" class="br.com.ideais.estagio.action.FeitosAction" method="save">
-			<result name="success">/listarBeneficio</result>
+			<result name="success" type="redirect">listarBeneficio</result>
 		</action>
 
 		<action name="deletarFeitos" class="br.com.ideais.estagio.action.FeitosAction" method="delete">
-			<result name="success">/listarBeneficio</result>
+			<result name="success" type="redirect">listarBeneficio</result>
 		</action>
 
 		<action name="editarFeitos" class="br.com.ideais.estagio.action.FeitosAction" method="update">
-			<result name="success">/listarBeneficio</result>
+			<result name="success" type="redirect">listarBeneficio</result>
 		</action>
 		
 		

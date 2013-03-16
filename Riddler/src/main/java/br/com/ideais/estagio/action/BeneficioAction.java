@@ -76,6 +76,10 @@ public class BeneficioAction implements CRUDAction{
 	}
 
 	public String save() {
+		if (beneficio.getNome().equals("")){
+			erroCampoVazio();
+			return ERROR;
+		}
 		if(beneficioService.saveOrUpdate(beneficio)){
 			return SUCCESS;
 		}
@@ -83,6 +87,10 @@ public class BeneficioAction implements CRUDAction{
 			erroAoCriarBeneficio();
 			return ERROR;
 		}
+	}
+	private void erroCampoVazio() {
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		request.setAttribute("erro", "Preencha os campos, por favor");		
 	}
 
 	public String update() {		
