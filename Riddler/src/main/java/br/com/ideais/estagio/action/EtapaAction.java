@@ -32,8 +32,16 @@ public class EtapaAction implements CRUDAction {
 
 	}
 	
+	private void erroCampoVazio() {
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		request.setAttribute("erro", "Preencha os campos por favor");		
+	}
 
 	public String save() {
+		if (etapa.getNome().equals("")){
+			erroCampoVazio();
+			return ERROR;
+		}
 		if(etapaService.saveOrUpdate( etapa )){
 			return SUCCESS;
 		}
