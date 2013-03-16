@@ -18,8 +18,8 @@ public class Etapa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@SequenceGenerator(name = "sequence", sequenceName = "sequence")
-	@GeneratedValue(generator = "sequence", strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "sequenceEtapa", sequenceName = "sequenceEtapa")
+	@GeneratedValue(generator = "sequenceEtapa", strategy = GenerationType.AUTO)
 	private Long id;
 
 	private String nome;
