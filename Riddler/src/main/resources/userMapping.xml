@@ -35,8 +35,14 @@
 
 		<!-- Beneficio -->
 
-		<action name="listarBeneficios" class="br.com.ideais.estagio.action.BeneficioAction" method="list">
+		<action name="listarBeneficios" class="br.com.ideais.estagio.action.BeneficioAction"
+			method="list">
 			<result name="success">/beneficios.jsp</result>
+		</action>
+
+		<action name="funcionarioBeneficios" class="br.com.ideais.estagio.action.BeneficioAction"
+			method="list">
+			<result name="success">/cadastroFuncionario.jsp</result>
 		</action>
 
 		<action name="cadastrarBeneficios" class="br.com.ideais.estagio.action.BeneficioAction"
@@ -45,64 +51,72 @@
 			<result name="error">/cadastroBeneficio.jsp</result>
 		</action>
 
-		<action name="deletarBeneficios" class="br.com.ideais.estagio.action.BeneficioAction" method="delete">
+		<action name="deletarBeneficios" class="br.com.ideais.estagio.action.BeneficioAction"
+			method="delete">
 			<result name="success" type="redirect">listarBeneficios</result>
 			<result name="error">/beneficios.jsp</result>
 		</action>
 
-		<action name="editarBeneficio" class="br.com.ideais.estagio.action.BeneficioAction" method="update">
+		<action name="editarBeneficio" class="br.com.ideais.estagio.action.BeneficioAction"
+			method="update">
 			<result name="success">/editarBeneficio.jsp</result>
 		</action>
-	
+
 		<!-- Usuario -->
 
-<!--
-		<action name="login" class="br.com.ideais.estagio.action.UsuarioActionImpl">
-			<result name="success" type="redirect">/home.jsp</result>
-		</action>
--->
+		<!-- <action name="login" class="br.com.ideais.estagio.action.UsuarioActionImpl"> 
+			<result name="success" type="redirect">/home.jsp</result> </action> -->
 
 		<!-- Etapas -->
 
-		<action name="listarEtapas" class="br.com.ideais.estagio.action.BeneficioAction" method="list">
+		<action name="listarEtapas" class="br.com.ideais.estagio.action.BeneficioAction"
+			method="list">
 			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
-		<action name="cadastrarEtapas" class="br.com.ideais.estagio.action.EtapasAction" method="save">
+		<action name="cadastrarEtapas" class="br.com.ideais.estagio.action.EtapasAction"
+			method="save">
 			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
-		<action name="deletarEtapas" class="br.com.ideais.estagio.action.EtapasAction" method="delete">
+		<action name="deletarEtapas" class="br.com.ideais.estagio.action.EtapasAction"
+			method="delete">
 			<result name="success" type="redirect">listarEtapas</result>
 		</action>
 
-		<action name="editarEtapas" class="br.com.ideais.estagio.action.EtapasAction" method="update">
+		<action name="editarEtapas" class="br.com.ideais.estagio.action.EtapasAction"
+			method="update">
 			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
 		<!-- Feitos -->
 
-		<action name="listarFeitos" class="br.com.ideais.estagio.action.FeitosAction" method="list">
+		<action name="listarFeitos" class="br.com.ideais.estagio.action.FeitosAction"
+			method="list">
 			<result name="success" type="redirect">listarBeneficio</result>
 		</action>
 
-		<action name="cadastrarFeitos" class="br.com.ideais.estagio.action.FeitosAction" method="save">
+		<action name="cadastrarFeitos" class="br.com.ideais.estagio.action.FeitosAction"
+			method="save">
 			<result name="success" type="redirect">listarBeneficio</result>
 		</action>
 
-		<action name="deletarFeitos" class="br.com.ideais.estagio.action.FeitosAction" method="delete">
+		<action name="deletarFeitos" class="br.com.ideais.estagio.action.FeitosAction"
+			method="delete">
 			<result name="success" type="redirect">listarBeneficio</result>
 		</action>
 
-		<action name="editarFeitos" class="br.com.ideais.estagio.action.FeitosAction" method="update">
+		<action name="editarFeitos" class="br.com.ideais.estagio.action.FeitosAction"
+			method="update">
 			<result name="success" type="redirect">listarBeneficio</result>
 		</action>
-		
-		
+
+
 		<!-- PDF -->
-		
-		
-		<action name="createPdf" class="br.com.ideais.estagio.action.RelatorioAction" method="createPdf">
+
+
+		<action name="createPdf" class="br.com.ideais.estagio.action.RelatorioAction"
+			method="createPdf">
 			<result name="success">listarFuncionarios</result>
 		</action>
 

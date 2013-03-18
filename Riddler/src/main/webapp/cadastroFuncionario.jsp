@@ -21,23 +21,23 @@
 	$(function() {
 		$("#datepicker").datepicker();
 		$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
-		
+
 		$("#anim").change(function() {
 			$("#datepicker").datepicker("option", "showAnim", $(this).val());
 		});
 	});
 </script>
 
-<jsp:include page="headerCSS.jsp"/>
+<jsp:include page="headerCSS.jsp" />
 
 
 </head>
 
 <body>
-	
+
 	<div class="container">
 
-	<jsp:include page="header.jsp"  />
+		<jsp:include page="header.jsp" />
 
 		<div class="masthead" align="center">
 			<h1 class="muted">Cadastro de Funcionários</h1>
@@ -47,19 +47,30 @@
 			<form action="cadastrarFuncionario" method="post">
 				${erro}
 				<h4>
-				
-					Nome <input type="text" id="usuario" name="funcionario.nome">
+
+					Nome: <input type="text" id="usuario" name="funcionario.nome">
 				</h4>
 				<h4>
-					Data de Admissão <input type="text" id="datepicker"  name="funcionario.dataDeAdmissao" /> 
+					Data de Admissão: <input type="text" id="datepicker"
+						name="funcionario.dataDeAdmissao" />
+				</h4>
+
+				<h4>
+				<tbody>
+					<c:forEach var="beneficio" items="${beneficios}">
+						<tr>
+							<td>${beneficio.nome}</td>
+						</tr>
+					</c:forEach>
+					</tbody>
 				</h4>
 				<input type="submit" class="btn btn-success" value="Cadastrar">
 			</form>
 		</div>
-		
-		
-		
-		
+
+
+
+
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 </body>
