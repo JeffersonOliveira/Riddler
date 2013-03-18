@@ -8,7 +8,7 @@
 						<ul class="nav">
 							<li class="active" ><a href="home.jsp">Tarefas
 									Urgentes</a></li>
-							<li><a href="cadastroFuncionario.jsp">Cadastro Funcionário</a></li>
+							<li><a href="funcionarioBeneficios">Cadastro Funcionário</a></li>
 							<li><a href="cadastroBeneficio.jsp">Cadastro Benefício</a></li>
 							<li><a href="tarefasPendentes.jsp">Tarefas Pendentes</a></li>
 							<li><a href="listarFuncionarios">Funcionários </a></li>
