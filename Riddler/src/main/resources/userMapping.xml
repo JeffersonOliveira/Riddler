@@ -17,7 +17,7 @@
 			<result name="error">/cadastroFuncionario.jsp</result>
 		</action>
 
-		<action name="cadastrarFuncionario" class="br.com.ideais.estagio.action.FuncionarioAction"
+		<action name="cadastrarFuncionario" class="br.com.ideais.estagio.action.FeitosAction"
 			method="save">
 			<result name="success" type="redirect">listarFuncionarios</result>
 			<result name="error">/cadastroFuncionario.jsp</result>

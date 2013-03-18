@@ -3,33 +3,38 @@ package br.com.ideais.estagio.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Feitos implements Serializable{
-	
+public class Feitos implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	@Id
-    @SequenceGenerator( name = "sequenceFeitos", sequenceName = "sequenceFeitos" )
-    @GeneratedValue(generator = "sequenceFeitos", strategy=GenerationType.AUTO)
+	@SequenceGenerator(name = "sequenceFeitos", sequenceName = "sequenceFeitos")
+	@GeneratedValue(generator = "sequenceFeitos", strategy = GenerationType.AUTO)
 	private Long id;
 	private Boolean feito;
 	private String observacao;
-	
-	@ManyToMany
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "funcionario_id")
 	private List<Funcionario> funcionarios;
-	@ManyToMany
-	private List<Etapa> etapas;
 	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "etapa_id")
+	private List<Etapa> etapas;
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public Boolean getFeito() {
 		return feito;
 	}
@@ -62,6 +67,4 @@ public class Feitos implements Serializable{
 		this.observacao = observacao;
 	}
 
-	 
-	
 }

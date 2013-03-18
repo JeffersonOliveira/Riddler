@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -17,16 +18,7 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css" />
-<script>
-	$(function() {
-		$("#datepicker").datepicker();
-		$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
 
-		$("#anim").change(function() {
-			$("#datepicker").datepicker("option", "showAnim", $(this).val());
-		});
-	});
-</script>
 
 <jsp:include page="headerCSS.jsp" />
 
@@ -55,15 +47,20 @@
 						name="funcionario.dataDeAdmissao" />
 				</h4>
 
-				<h4>
-				<tbody>
-					<c:forEach var="beneficio" items="${beneficios}">
-						<tr>
-							<td>${beneficio.nome}</td>
-						</tr>
-					</c:forEach>
+				<table class="table table-striped">
+					<tbody>
+						<c:forEach var="beneficio" items="${beneficios}">
+							<input type="hidden" id="feitosFuncionario"
+								name="feitos.funcionarios[0]" />
+							<input type="hidden" id="feitosEtapas"
+								name="feitos.etapas[0].beneficio" />
+							<label class="checkbox"> <input type="checkbox">
+								${beneficio.nome}
+							</label>
+							
+						</c:forEach>
 					</tbody>
-				</h4>
+				</table>
 				<input type="submit" class="btn btn-success" value="Cadastrar">
 			</form>
 		</div>
@@ -75,3 +72,31 @@
 	</div>
 </body>
 </html>
+
+<script type="text/javascript">
+	$(function() {
+		$("#datepicker").datepicker();
+		$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
+
+		$("#anim").change(function() {
+			$("#datepicker").datepicker("option", "showAnim", $(this).val());
+		});
+	});
+	
+	
+	
+	$(function() {
+		$("#add").click(function() {
+			var clone = $(".clone").clone();
+			$(clone).removeClass("clone");
+			var count = $(".count").length + 1;
+			var name = "feitos.funcionarios[" + (count -1) + "]";
+			var order = "feitos.etapas[" + (count -1) + "].beneficio";
+			$(clone).find('label').text('Etapa ' + count + ':');
+			$(clone).find('input.feitosFuncionario').val('').attr("name", name);
+			$(clone).find('input.feitosEtapas').val(count).attr("name", order);
+
+			$("#rendered").append(clone);
+		});
+
+</script>

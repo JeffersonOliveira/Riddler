@@ -70,27 +70,14 @@
 							value="${funcionario.dataDeAdmissao}"
 							name="funcionario.dataDeAdmissao"></td>
 					</tr>
-					<tr>
-						<td>
-							<h4>Benefícios</h4>
-							<h6>
-								Vale Transporte<input type="checkbox" id="nome"
-									value="${beneficio.nome}" name="beneficio.nome" />
-							</h6>
-							<h6>
-								Vale Refeição<input type="checkbox" id="nome"
-									value="${beneficio.nome}" name="beneficio.nome" />
-							</h6>
-							<h6>
-								Plano de saúde<input type="checkbox" id="nome"
-									value="${beneficio.nome}" name="beneficio.nome" />
-							</h6>
-							<h6>
-								Plano Dental<input type="checkbox" id="nome"
-									value="${beneficio.nome}" name="beneficio.nome" />
-							</h6>
-						</td>
-					</tr>
+					<c:forEach var="beneficio" items="${beneficios}">
+							<input type="hidden" id="beneficioId" 
+								name="beneficio.id"/>
+							<input type="checkbox" id="feitosFuncionario" name="feitos.funcionarios[0]"/>
+							<input type="checkbox" id="feitosEtapas" name="feitos.etapas[0].beneficio"/>
+								
+							<tr>
+								<td>${beneficio.nome}</td>
 					<tr>
 						<td>
 							<h5>
