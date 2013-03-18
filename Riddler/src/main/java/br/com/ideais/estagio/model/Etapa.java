@@ -1,9 +1,9 @@
 package br.com.ideais.estagio.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,6 +25,9 @@ public class Etapa implements Serializable {
 	private String nome;
 
 	private Integer ordem;
+
+	private Date prazo;
+
 	
 	@ManyToOne
 	@JoinColumn(name="beneficio_id")
@@ -49,6 +52,9 @@ public class Etapa implements Serializable {
 		return ordem;
 	}
 
+	public Date getVencimento() {
+		return prazo;
+	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
@@ -56,6 +62,14 @@ public class Etapa implements Serializable {
 
 	public void setOrdem(Integer ordem) {
 		this.ordem = ordem;
+	}
+
+	public void setPrazo(Date prazo) {
+		this.prazo = prazo;
+	}
+
+	public Date getPrazo() {
+		return prazo;
 	}
 
 	public Beneficio getBeneficio() {

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import br.com.ideais.estagio.dao.BeneficioDao;
 import br.com.ideais.estagio.dao.EtapaDao;
 import br.com.ideais.estagio.model.Beneficio;
-import br.com.ideais.estagio.model.Etapa;
 
 @Service
 public class BeneficioService implements AbstractService<Beneficio> {

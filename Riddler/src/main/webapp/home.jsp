@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <title>Riddler</title>
-<jsp:include page="headerCSS.jsp"/>
+<jsp:include page="headerCSS.jsp" />
 
 </head>
 
@@ -14,37 +14,27 @@
 	<div class="container">
 
 		<jsp:include page="header.jsp"></jsp:include>
-	
+
 		&nbsp;
 		<div class="jumbotron">
 			<h1 align="center">
 				<font color="#8B0000">Alertas Urgentes</font>
 			</h1>
 			&nbsp;
-			<table class="table table-striped">
-				<thead align="center">
-					<tr>
-						<th>ID</th>
-						<th>Tarefa</th>
-						<th>Funcionário</th>
-				</thead>
-				<tbody>
-					<tr class="warning">
-						<td>01</td>
-						<td>Tarefa 1</td>
-						<td>Lara</td>
-						<td><button class="btn btn-small btn-danger">Fazer</button></td>
-					</tr>
+			<c:forEach var="tarefaUrgente" items="${tarefas}">
+				<tr class="warning">
+					<td>${tarefaUrgente.nome}</td>
+					<td><button class="btn btn-small btn-danger">Verificar</button></td>
+					<tbody>
+				</tr>
 
 				</tbody>
-			</table>
+				</table>
 		</div>
 
-		<hr color="green">
 
 		<jsp:include page="footer.jsp"></jsp:include>
-	
+
 	</div>
-	<!-- /container -->
 </body>
 </html>

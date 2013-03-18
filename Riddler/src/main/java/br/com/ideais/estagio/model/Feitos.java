@@ -1,7 +1,6 @@
 package br.com.ideais.estagio.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
