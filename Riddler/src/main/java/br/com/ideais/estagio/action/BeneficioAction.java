@@ -19,6 +19,11 @@ public class BeneficioAction implements CRUDAction{
 	private Beneficio beneficio;
 	private List<Beneficio> beneficios;
 	
+	
+	public void setBeneficio(Beneficio beneficio){
+		this.beneficio = beneficio;
+	}
+	
 	public String execute() throws Exception {
 		return SUCCESS;
 	}
@@ -71,13 +76,21 @@ public class BeneficioAction implements CRUDAction{
 	}
 
 	public String save() {
-		if(beneficioService.saveOrUpdate(getBeneficio())){
+		if (beneficio.getNome().equals("")){
+			erroCampoVazio();
+			return ERROR;
+		}
+		if(beneficioService.saveOrUpdate(beneficio)){
 			return SUCCESS;
 		}
 		else{
 			erroAoCriarBeneficio();
 			return ERROR;
 		}
+	}
+	private void erroCampoVazio() {
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		request.setAttribute("erro", "Preencha os campos, por favor");		
 	}
 
 	public String update() {		

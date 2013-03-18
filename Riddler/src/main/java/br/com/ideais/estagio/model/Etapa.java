@@ -8,8 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -17,8 +18,8 @@ public class Etapa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@SequenceGenerator(name = "sequence", sequenceName = "sequence")
-	@GeneratedValue(generator = "sequence", strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "sequenceEtapa", sequenceName = "sequenceEtapa")
+	@GeneratedValue(generator = "sequenceEtapa", strategy = GenerationType.AUTO)
 	private Long id;
 
 	private String nome;
@@ -27,7 +28,9 @@ public class Etapa implements Serializable {
 
 	private Date prazo;
 
-	@OneToOne
+	
+	@ManyToOne
+	@JoinColumn(name="beneficio_id")
 	private Beneficio beneficio;
 	
 	@ManyToMany
@@ -84,5 +87,6 @@ public class Etapa implements Serializable {
 	public void setFeitos(List<Feitos> feitos) {
 		this.feitos = feitos;
 	}
+
 
 }

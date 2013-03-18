@@ -23,6 +23,7 @@ public class EtapaService implements AbstractService<Etapa>{
 	}
 
 	public List<Etapa> list() {
+		
 		return etapaDao.list();
 	}
 	

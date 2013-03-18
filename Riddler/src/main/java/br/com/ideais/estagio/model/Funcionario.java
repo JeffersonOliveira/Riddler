@@ -16,8 +16,8 @@ public class Funcionario implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	@Id
-    @SequenceGenerator( name = "sequence", sequenceName = "sequence" )
-    @GeneratedValue( generator = "sequence", strategy = GenerationType.AUTO )
+    @SequenceGenerator( name = "sequenceFuncionario", sequenceName = "sequenceFuncionario" )
+    @GeneratedValue( generator = "sequenceFuncionario", strategy = GenerationType.AUTO )
 	private Long id;
 	private String nome;
 	private Date dataDeAdmissao;
