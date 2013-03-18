@@ -3,21 +3,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
      pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
 
 <title>Riddler - Funcionários </title>
-
-<script>
-	$(function() {
-		$("#datepicker").datepicker();
-		$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
-		
-		$("#anim").change(function() {
-			$("#datepicker").datepicker("option", "showAnim", $(this).val());
-		});
-	});
-</script>
 
 <jsp:include page="headerCSS.jsp"/>
 
@@ -44,18 +34,20 @@
 						<th>Data de Admissão</th>
 				</thead>
 				<tbody>
-					
+				
+				       	 <input type="text" id="bProv" value="" name="funcionario.nome" onclick="filtroP()"/> 
+				       	 <button id="bProv" onclick="filtroP()">filtrar</button>	
  						<c:forEach  var="funcionario" items="${funcionarios}"> 
 		                  <tr> 
 		                   <td>${funcionario.nome}</td>
-		                   <td>${funcionario.dataDeAdmissao}</td>
+		                   <td><fmt:formatDate pattern="dd/MM/yyyy" value="${funcionario.dataDeAdmissao}" /></td>
 		                   <td><button class="btn btn-small btn-success" value="Editar">
-						        <a href="/editarFuncionario?id=${funcionario.id}"><font color="white">Editar Funcionario</font></a>        
+						        <a href="editarFuncionario?id=${funcionario.id}"><font color="white">Editar Funcionario</font></a>        
 						      </button>
 						   </td>
 		                   <td>
 						    <button class="btn btn-small btn-success">
-								<a href="paginaInicial.jsp" ><font color="white">Verificar Tarefas</font></a>
+								<a href="tarefasPendentes.jsp" ><font color="white">Verificar Tarefas</font></a>
 							</button>
 					       </td>
 					       <td>
@@ -65,6 +57,8 @@
 						   </td>
 						   </tr>
 	                    </c:forEach> 
+	                    
+	                   
 				</tbody>
 			</table>
 		</div>

@@ -17,6 +17,21 @@
 <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 <link href="css/paginaInicial.css" rel="stylesheet">
 
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script>
+	$(function() {
+		$("#datepicker").datepicker();
+		$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yyyy");
+		
+		$("#anim").change(function() {
+			$("#datepicker").datepicker("option", "showAnim", $(this).val());
+		});
+	});
+</script>
+
 </head>
 
 <body>
@@ -80,14 +95,15 @@
 						<td>
 							<h5>
 								<button class="btn btn-small btn-danger">
-									<a href="/deletarFuncionario?id=${funcionario.id}"><font
+									<a href="deletarFuncionario?id=${funcionario.id}"><font
 										color="white">Deletar Funcionario</font></a>
 								</button>
-								<button class="btn btn-small btn-success">
+								<button class="btn btn-small">
 
 									<input type="submit" value="Alterar Dados" />
 
 								</button>
+								
 							</h5>
 						</td>
 					</tr>
