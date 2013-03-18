@@ -14,7 +14,7 @@ public class VerificacaoService {
         Calendar dataAtual = Calendar.getInstance();
  
         // Calcula a diferença entre hoje e da data de inicio
-        long diferenca = dataPrevisao.getTimeInMillis() - dataAtual.getTimeInMillis();                    ;
+        long diferenca = dataPrevisao.getTimeInMillis() - dataAtual.getTimeInMillis();
  
         // Quantidade de milissegundos em um dia
         int tempoDia = 1000 * 60 * 60 * 24;
