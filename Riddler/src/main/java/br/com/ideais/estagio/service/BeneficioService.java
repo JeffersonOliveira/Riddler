@@ -22,18 +22,7 @@ public class BeneficioService implements AbstractService<Beneficio> {
 	}
 
 	public boolean saveOrUpdate(Beneficio beneficio) {
-		Boolean resp = false;
-		if (!bDao.saveOrUpdate(beneficio))
-			return resp;
-//		for (Etapa etapa : beneficio.getEtapas()) {
-//			System.out.println(etapa.getNome());
-//			etapa.setBeneficio(beneficio);
-//			resp = true;
-//			//resp = eDao.saveOrUpdate(etapa);
-//			if (!resp)
-//				return resp;
-//		}
-	return true;
+		return bDao.saveOrUpdate(beneficio);
 	}
 
 	public List<Beneficio> list() {
