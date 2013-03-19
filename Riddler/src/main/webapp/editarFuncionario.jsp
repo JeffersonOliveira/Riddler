@@ -19,18 +19,6 @@
 
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
-<script>
-	$(function() {
-		$("#datepicker").datepicker();
-		$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yyyy");
-
-		$("#anim").change(function() {
-			$("#datepicker").datepicker("option", "showAnim", $(this).val());
-		});
-	});
-</script>
 
 </head>
 
@@ -50,7 +38,7 @@
 
 			<form action="cadastrarFuncionario" method="post">
 
-				<input type="hidden" value="${funcionario.id}" name="funcionario.id"
+				<input type="hidden" value="${feitos.funcionario.id}" name="funcionario.id"
 					readonly="readonly" />
 
 				<table border="0">
@@ -107,5 +95,17 @@
 
 	</div>
 
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script>
+	$(function() {
+		$("#datepicker").datepicker();
+		$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yyyy");
+
+		$("#anim").change(function() {
+			$("#datepicker").datepicker("option", "showAnim", $(this).val());
+		});
+	});
+</script>
 </body>
 </html>

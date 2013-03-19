@@ -93,7 +93,7 @@
 
 		<action name="listarFeitos" class="br.com.ideais.estagio.action.FeitosAction"
 			method="list">
-			<result name="success" type="redirect">listarBeneficio</result>
+			<result name="success" type="redirect">/editarFuncionario.jsp</result>
 		</action>
 
 		<action name="cadastrarFeitos" class="br.com.ideais.estagio.action.FeitosAction"
