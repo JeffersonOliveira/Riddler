@@ -26,6 +26,9 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 	}
 
 	public boolean saveOrUpdate(Funcionario funcionario, Collection<Etapa> etapasSelecionadas) {
+		for (Etapa etapa : etapasSelecionadas) {
+			System.out.println(etapa.getNome());
+		}
 		List<Feitos> feitos = new LinkedList<Feitos>();
 		for (Etapa etapa : etapasSelecionadas) {
 			Feitos f = new Feitos();

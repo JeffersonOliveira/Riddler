@@ -52,8 +52,11 @@ public class FuncionarioAction implements CRUDAction{
 			Collection<Etapa> etapas = new LinkedList<Etapa>();
 			for (Long etapaSelecionada : etapasSelecionadas) {
 				Etapa etapa = etapaService.findbyId(etapaSelecionada);
+				System.out.println("=================   " + etapa.getNome());
 				etapas.add(etapa);
+				System.out.println("=================   " + etapas.size());
 			}
+			
 			funcionarioService.saveOrUpdate(funcionario, etapas);
 			
 			return SUCCESS;
