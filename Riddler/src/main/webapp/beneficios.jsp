@@ -40,7 +40,6 @@
 				<c:forEach var="beneficio" items="${beneficios}">
 					<tr>
 						<td>${beneficio.nome}</td>
-						<td>${beneficio.prazo}</td>
 						<td><button class="btn btn-small btn-success" value="Editar">
 								<a href="editarBeneficio?id=${beneficio.id}"><font
 									color="white">Editar Beneficio</font></a>
