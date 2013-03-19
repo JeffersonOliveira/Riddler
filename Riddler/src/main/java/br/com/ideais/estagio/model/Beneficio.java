@@ -6,12 +6,15 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+
+import org.hibernate.Criteria;
 
 @Entity
 public class Beneficio implements Serializable {
@@ -27,7 +30,7 @@ public class Beneficio implements Serializable {
 	
 	private Date prazo;
 	
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name="beneficio_id")
 	private List<Etapa> etapas;
 
