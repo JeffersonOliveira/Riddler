@@ -60,6 +60,7 @@ public class FeitosAction implements CRUDAction {
 	}
 	
 	public String save() {
+		
 		feitosService.saveOrUpdate(getFeitos());
 		return SUCCESS;
 	}

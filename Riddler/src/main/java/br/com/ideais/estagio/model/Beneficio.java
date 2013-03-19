@@ -1,8 +1,8 @@
 package br.com.ideais.estagio.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
+import java.util.TreeSet;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -25,14 +25,14 @@ public class Beneficio implements Serializable {
 	
 	private String nome;
 	
-	private Date prazo;
-	
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="beneficio_id")
+	@JoinColumn(name = "id_beneficio")
 	private List<Etapa> etapas;
 
-	public Beneficio() {
-		
+	public Etapa getPrimeiraEtapa() {
+		TreeSet<Etapa> etapasOrdenadas = new TreeSet<Etapa>(new EtapaComparator());
+		etapasOrdenadas.addAll(etapas);
+		return etapasOrdenadas.first();
 	}
 
 	public String getNome() {
@@ -55,11 +55,4 @@ public class Beneficio implements Serializable {
 		this.etapas = etapas;
 	}	
 	
-	public Date getPrazo() {
-		return prazo;
-	}
-
-	public void setPrazo(Date prazo) {
-		this.prazo = prazo;
-	}
 }

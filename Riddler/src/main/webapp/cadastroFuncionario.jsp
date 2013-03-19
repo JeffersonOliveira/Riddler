@@ -49,15 +49,11 @@
 
 				<table class="table table-striped">
 					<tbody>
-						<c:forEach var="beneficio" items="${beneficios}">
-							<input type="hidden" id="feitosFuncionario"
-								name="feitos.funcionarios[0]" />
-							<input type="hidden" id="feitosEtapas"
-								name="feitos.etapas[0].beneficio" />
-							<label class="checkbox"> <input type="checkbox">
-								${beneficio.nome}
+						<c:forEach var="beneficio" items="${beneficios}" varStatus="count">
+							<label class="checkbox">
+								<input type="checkbox" name="etapasSelecionadas[${count.index}]" value="${beneficio.primeiraEtapa.id}"/>
+									${beneficio.nome}
 							</label>
-							
 						</c:forEach>
 					</tbody>
 				</table>
@@ -82,21 +78,4 @@
 			$("#datepicker").datepicker("option", "showAnim", $(this).val());
 		});
 	});
-	
-	
-	
-	$(function() {
-		$("#add").click(function() {
-			var clone = $(".clone").clone();
-			$(clone).removeClass("clone");
-			var count = $(".count").length + 1;
-			var name = "feitos.funcionarios[" + (count -1) + "]";
-			var order = "feitos.etapas[" + (count -1) + "].beneficio";
-			$(clone).find('label').text('Etapa ' + count + ':');
-			$(clone).find('input.feitosFuncionario').val('').attr("name", name);
-			$(clone).find('input.feitosEtapas').val(count).attr("name", order);
-
-			$("#rendered").append(clone);
-		});
-
 </script>

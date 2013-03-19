@@ -8,8 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -20,18 +20,15 @@ public class Funcionario implements Serializable{
     @SequenceGenerator( name = "sequenceFuncionario", sequenceName = "sequenceFuncionario" )
     @GeneratedValue( generator = "sequenceFuncionario", strategy = GenerationType.AUTO )
 	private Long id;
+	
 	private String nome;
+	
 	private Date dataDeAdmissao;
 	
-	@ManyToMany
-	@JoinTable(name="funcionario_id")
+	@OneToMany
+	@JoinColumn(name = "id_funcionario")
 	private List<Feitos> feitos;
 	
-	
-	public Funcionario() {
-		
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -61,5 +58,4 @@ public class Funcionario implements Serializable{
 		this.feitos = feitos;
 	}
 
-	
 }

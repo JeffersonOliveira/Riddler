@@ -25,7 +25,7 @@
 	$(function() {
 		$("#datepicker").datepicker();
 		$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yyyy");
-		
+
 		$("#anim").change(function() {
 			$("#datepicker").datepicker("option", "showAnim", $(this).val());
 		});
@@ -71,29 +71,31 @@
 							name="funcionario.dataDeAdmissao"></td>
 					</tr>
 					<c:forEach var="beneficio" items="${beneficios}">
-							<input type="hidden" id="beneficioId" 
-								name="beneficio.id"/>
-							<input type="checkbox" id="feitosFuncionario" name="feitos.funcionarios[0]"/>
-							<input type="checkbox" id="feitosEtapas" name="feitos.etapas[0].beneficio"/>
-								
-							<tr>
-								<td>${beneficio.nome}</td>
-					<tr>
-						<td>
-							<h5>
-								<button class="btn btn-small btn-danger">
-									<a href="deletarFuncionario?id=${funcionario.id}"><font
-										color="white">Deletar Funcionario</font></a>
-								</button>
-								<button class="btn btn-small">
+						<input type="hidden" id="beneficioId" name="beneficio.id" />
+						<input type="checkbox" id="feitosFuncionario"
+							name="feitos.funcionarios[0]" />
+						<input type="checkbox" id="feitosEtapas"
+							name="feitos.etapas[0].beneficio" />
 
-									<input type="submit" value="Alterar Dados" />
+						<tr>
+							<td>${beneficio.nome}</td>
+						<tr>
+							<td>
+								<h5>
+									<button class="btn btn-small btn-danger">
+										<a href="deletarFuncionario?id=${funcionario.id}"><font
+											color="white">Deletar Funcionario</font></a>
+									</button>
+									<button class="btn btn-small">
 
-								</button>
-								
-							</h5>
-						</td>
-					</tr>
+										<input type="submit" value="Alterar Dados" />
+
+									</button>
+
+								</h5>
+							</td>
+						</tr>
+						</c:forEach>
 				</table>
 			</form>
 

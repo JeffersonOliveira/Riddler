@@ -1,63 +1,38 @@
 package br.com.ideais.estagio.model;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Feitos implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1886649227266676743L;
+
 	@Id
 	@SequenceGenerator(name = "sequenceFeitos", sequenceName = "sequenceFeitos")
 	@GeneratedValue(generator = "sequenceFeitos", strategy = GenerationType.AUTO)
 	private Long id;
-	private Boolean feito;
-	private String observacao;
-
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "funcionario_id")
-	private List<Funcionario> funcionarios;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "etapa_id")
-	private List<Etapa> etapas;
+	private String observacao;
+	
+	private Date prazo;
 
-	public Long getId() {
-		return id;
-	}
-
-	public Boolean getFeito() {
-		return feito;
-	}
-
-	public void setFeito(Boolean feito) {
-		this.feito = feito;
-	}
-
-	public List<Funcionario> getFuncionarios() {
-		return funcionarios;
-	}
-
-	public void setFuncionarios(List<Funcionario> funcionarios) {
-		this.funcionarios = funcionarios;
-	}
-
-	public List<Etapa> getEtapas() {
-		return etapas;
-	}
-
-	public void setEtapas(List<Etapa> etapas) {
-		this.etapas = etapas;
-	}
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_funcionario")
+	private Funcionario funcionario;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_etapa")
+	private Etapa etapa;
 
 	public String getObservacao() {
 		return observacao;
@@ -67,4 +42,32 @@ public class Feitos implements Serializable {
 		this.observacao = observacao;
 	}
 
+	public Date getPrazo() {
+		return prazo;
+	}
+
+	public void setPrazo(Date prazo) {
+		this.prazo = prazo;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	public Etapa getEtapa() {
+		return etapa;
+	}
+
+	public void setEtapa(Etapa etapa) {
+		this.etapa = etapa;
+	}
+
+	public Long getId() {
+		return id;
+	}
+	
 }

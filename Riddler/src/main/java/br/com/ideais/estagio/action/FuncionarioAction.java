@@ -1,5 +1,7 @@
 package br.com.ideais.estagio.action;
 
+import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import br.com.ideais.estagio.model.Etapa;
 import br.com.ideais.estagio.model.Funcionario;
+import br.com.ideais.estagio.service.EtapaService;
 import br.com.ideais.estagio.service.FuncionarioService;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -17,7 +21,12 @@ public class FuncionarioAction implements CRUDAction{
 	@Autowired
 	private FuncionarioService funcionarioService;
 	
+	@Autowired
+	private EtapaService etapaService;
+	
 	private Funcionario funcionario = new Funcionario();
+	
+	private List<Long> etapasSelecionadas = new LinkedList<Long>();
 	
 	private List<Funcionario> funcionarios;
 	
@@ -33,16 +42,23 @@ public class FuncionarioAction implements CRUDAction{
 
 
 	public String save() {
-		System.out.println(funcionario.getNome() + " " + funcionario.getDataDeAdmissao());
-		if (funcionario.getNome().equals("")){
-			erroCampoVazio();
-			return ERROR;
-		}
-		else if(funcionarioService.saveOrUpdate( funcionario )) {
+		try {
+			System.out.println(funcionario.getNome() + " " + funcionario.getDataDeAdmissao());
+			if (funcionario.getNome().equals("")){
+				erroCampoVazio();
+				return ERROR;
+			}
+			
+			Collection<Etapa> etapas = new LinkedList<Etapa>();
+			for (Long etapaSelecionada : etapasSelecionadas) {
+				Etapa etapa = etapaService.findbyId(etapaSelecionada);
+				etapas.add(etapa);
+			}
+			funcionarioService.saveOrUpdate(funcionario, etapas);
+			
 			return SUCCESS;
 		}
-		else{
-			erroAoCriarFuncionario();
+		catch(Exception e) {
 			return ERROR;
 		}
 	}
@@ -86,14 +102,14 @@ public class FuncionarioAction implements CRUDAction{
 		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
 		request.setAttribute("erro", "Preencha os campos por favor");		
 	}
-	private void erroAoCriarFuncionario() {
-		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		request.setAttribute("erro", "Funcionario Existente");
-	}
 	
 	//
 	public Funcionario getFuncionario() {
 		return funcionario;
+	}
+	
+	public List<Long> getEtapasSelecionadas() {
+		return etapasSelecionadas;
 	}
 	
 	public FuncionarioService getFuncionarioService() {
