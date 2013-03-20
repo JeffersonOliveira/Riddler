@@ -37,6 +37,22 @@ public class Alarme {
 	public Beneficio getBeneficio() {
 		return beneficio;
 	}
+
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
+	}
+
+	public void setDataAlarme(Date dataAlarme) {
+		this.dataAlarme = dataAlarme;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	public void setBeneficio(Beneficio beneficio) {
+		this.beneficio = beneficio;
+	}
 	
 	
 	
