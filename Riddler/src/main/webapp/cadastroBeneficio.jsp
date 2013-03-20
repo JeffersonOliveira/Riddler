@@ -30,8 +30,8 @@
 		<div class="form">
 			<form action="cadastrarBeneficios" method="post">
 				<div>
-					${erro} Nome <input type="text" id="beneficio"
-						name="beneficio.nome">
+					${erro} Nome <input type="text" id="beneficio" name="beneficio.nome">
+					Prazo <input type="text" id="datepicker" name="beneficio.prazo" />
 				</div>
 				<div class="control-group  " id="rendered">
 
@@ -94,6 +94,16 @@
 
 					});
 		});
+		
+		$(function() {
+			$("#datepicker").datepicker();
+			$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
+
+			$("#anim").change(function() {
+				$("#datepicker").datepicker("option", "showAnim", $(this).val());
+			});
+		});
+		
 	</script>
 
 </body>

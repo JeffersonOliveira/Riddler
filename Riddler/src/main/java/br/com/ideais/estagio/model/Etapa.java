@@ -23,7 +23,6 @@ public class Etapa implements Serializable {
 	private Long id;
 
 	private String nome;
-
 	private Integer ordem;
 	
 	@ManyToOne(cascade = CascadeType.ALL)

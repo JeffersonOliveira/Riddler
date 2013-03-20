@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -36,10 +37,11 @@
 					<th></th>
 					<th></th>
 			</thead>
-			<tbody>
+			<tbody>			
 				<c:forEach var="beneficio" items="${beneficios}">
 					<tr>
 						<td>${beneficio.nome}</td>
+						<td><fmt:formatDate pattern="dd/MM/yyyy" value="${beneficio.prazo}" /></td>
 						<td><button class="btn btn-small btn-success" value="Editar">
 								<a href="editarBeneficio?id=${beneficio.id}"><font
 									color="white">Editar Beneficio</font></a>

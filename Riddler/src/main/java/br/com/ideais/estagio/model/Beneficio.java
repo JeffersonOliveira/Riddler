@@ -1,6 +1,7 @@
 package br.com.ideais.estagio.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -14,47 +15,56 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
-
 @Entity
 public class Beneficio implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@SequenceGenerator( name = "sequenceBeneficio", sequenceName = "sequenceBeneficio" )
-	@GeneratedValue(generator = "sequenceBeneficio", strategy=GenerationType.AUTO)
+	@SequenceGenerator(name = "sequenceBeneficio", sequenceName = "sequenceBeneficio")
+	@GeneratedValue(generator = "sequenceBeneficio", strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	private String nome;
-	
-	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	private Date prazo;
+
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_beneficio")
 	private List<Etapa> etapas;
 
 	public Etapa getPrimeiraEtapa() {
-		TreeSet<Etapa> etapasOrdenadas = new TreeSet<Etapa>(new EtapaComparator());
+		TreeSet<Etapa> etapasOrdenadas = new TreeSet<Etapa>(
+				new EtapaComparator());
 		etapasOrdenadas.addAll(etapas);
 		return etapasOrdenadas.first();
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
+	public Date getPrazo() {
+		return prazo;
+	}
+
 	public List<Etapa> getEtapas() {
 		return etapas;
 	}
 
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setPrazo(Date prazo) {
+		this.prazo = prazo;
+	}
+
 	public void setEtapas(List<Etapa> etapas) {
 		this.etapas = etapas;
-	}	
-	
+	}
+
 }
