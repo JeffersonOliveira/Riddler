@@ -74,17 +74,17 @@
 			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
-		<action name="cadastrarEtapas" class="br.com.ideais.estagio.action.EtapasAction"
+		<action name="cadastrarEtapas" class="br.com.ideais.estagio.action.EtapaAction"
 			method="save">
 			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
-		<action name="deletarEtapas" class="br.com.ideais.estagio.action.EtapasAction"
+		<action name="deletarEtapas" class="br.com.ideais.estagio.action.EtapaAction"
 			method="delete">
 			<result name="success" type="redirect">listarEtapas</result>
 		</action>
 
-		<action name="editarEtapas" class="br.com.ideais.estagio.action.EtapasAction"
+		<action name="editarEtapas" class="br.com.ideais.estagio.action.EtapaAction"
 			method="update">
 			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
