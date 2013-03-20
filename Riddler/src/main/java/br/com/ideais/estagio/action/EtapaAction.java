@@ -19,22 +19,13 @@ public class EtapaAction implements CRUDAction {
 	private Etapa etapa;
 	private List<Etapa> etapas;
 	
-
 	public String execute() throws Exception {
-
 		return SUCCESS;
 	}
-	
 
 	public void prepare() throws Exception {
 		if (getEtapaFromRequest() != null)
 			etapa = etapaService.findbyId(getEtapaFromRequest());
-
-	}
-	
-	private void erroCampoVazio() {
-		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		request.setAttribute("erro", "Preencha os campos por favor");		
 	}
 
 	public String save() {
@@ -51,12 +42,10 @@ public class EtapaAction implements CRUDAction {
 		}
 	}
 
-
 	public String update() {
 		return SUCCESS;
 	}
 	
-
 	public String delete() {
 		if (etapaService.delete(etapa)) {
 			return SUCCESS;
@@ -64,61 +53,52 @@ public class EtapaAction implements CRUDAction {
 		return ERROR;
 	}
 	
-
 	public String create() {
 		return SUCCESS;
 	}
-	
 
 	public String list() {
 		etapas = etapaService.list();
 		return SUCCESS;
 	}
 	
-
 	private Long getEtapaFromRequest() {
 		HttpServletRequest request = (HttpServletRequest) ActionContext
 				.getContext().get(ServletActionContext.HTTP_REQUEST);
 
-		if (request.getParameter("id") != null)
+		if (request.getParameter("id") != null){
 			return Long.parseLong(request.getParameter("id"));
-
+		}
 		return null;
 	}
-	
-	
-	// REDIRECIONA A MESSAGEM DE ERRO PARA A TELA
-	 
-	private void erroAoCriarEtapa() {
-		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		request.setAttribute("erro", "erro");
-	}
-	
-	//
-	
 
 	private Etapa getEtapa() {
 		return etapa;
 	}
-	
 
 	public EtapaService getEtapaService() {
 		return etapaService;
 	}
-	
 
 	public void setEtapaService(EtapaService etapaService) {
 		this.etapaService = etapaService;
 	}
 	
-
 	public List<Etapa> getEtapas() {
 		return etapas;
 	}
 	
-
 	public void setEtapas(List<Etapa> etapas) {
 		this.etapas = etapas;
 	}
-
+	
+	private void erroCampoVazio() {
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		request.setAttribute("erro", "Preencha os campos por favor");		
+	}
+	
+	private void erroAoCriarEtapa() {
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		request.setAttribute("erro", "erro");
+	}
 }

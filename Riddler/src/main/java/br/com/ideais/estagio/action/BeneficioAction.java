@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.ideais.estagio.model.Beneficio;
 import br.com.ideais.estagio.service.BeneficioService;
-import br.com.ideais.estagio.service.EtapaService;
 
 import com.opensymphony.xwork2.ActionContext;
 
@@ -17,8 +16,6 @@ public class BeneficioAction implements CRUDAction {
 
 	@Autowired
 	private BeneficioService beneficioService;
-	@Autowired
-	private EtapaService etapaService;
 	private Beneficio beneficio;
 	private List<Beneficio> beneficios;
 

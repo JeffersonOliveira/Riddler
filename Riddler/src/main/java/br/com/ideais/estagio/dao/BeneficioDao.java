@@ -6,27 +6,40 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.ideais.estagio.model.Beneficio;
+import br.com.ideais.estagio.model.Etapa;
 
 @Service
 @Transactional
-public class BeneficioDao extends AbstractDao<Beneficio>{
+public class BeneficioDao extends AbstractDao<Beneficio> {
 	@Autowired
 	HibernateTemplate hibernateTemplate;
 
-
 	public boolean saveOrUpdate(Beneficio beneficio) {
-		try{
+		try {
 			for (Beneficio beneficioSalvo : list()) {
-				if(beneficio.getNome().equals(beneficioSalvo.getNome())){
-					return false;	
+				if (beneficio.getNome().equals(beneficioSalvo.getNome())) {
+					return false;
 				}
 			}
-				hibernateTemplate.saveOrUpdate(beneficio);
-				return true;
-		}catch (Exception e) {
+			hibernateTemplate.saveOrUpdate(beneficio);
+			return true;
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return false;
 	}
+
+	public boolean delete(Beneficio beneficio) {
+		try {
+			for (Etapa etapa : beneficio.getEtapas()) {
+				hibernateTemplate.delete(etapa);
+			}
+			hibernateTemplate.delete(beneficio);
+			return true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+
 }
-	
