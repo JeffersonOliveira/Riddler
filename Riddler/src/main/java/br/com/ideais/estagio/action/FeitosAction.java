@@ -18,7 +18,8 @@ public class FeitosAction implements CRUDAction {
 	private FeitosService feitosService;
 	private Feitos feitos;
 	private List<Feitos> list_feitos;
-
+    private List<Feitos> feitosPendentes;
+    
 	public String execute() throws Exception {
 		return SUCCESS;
 	}
@@ -81,6 +82,11 @@ public class FeitosAction implements CRUDAction {
 
 	public String list() {
 		list_feitos = feitosService.list();
+		return SUCCESS;
+	}
+	
+	public String buscarFuncionario(Long id){
+		feitosPendentes = feitosService.buscarFuncionario(id);
 		return SUCCESS;
 	}
 }

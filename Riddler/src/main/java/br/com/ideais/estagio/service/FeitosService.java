@@ -41,5 +41,9 @@ public class FeitosService implements AbstractService<Feitos>{
 	public Feitos findbyId(Long id) {
 		return ftDao.findById(id);
 	}
+	
+	public List<Feitos> buscarFuncionario(Long id){
+		return ftDao.buscarFuncionario(id);
+	}
 
 }

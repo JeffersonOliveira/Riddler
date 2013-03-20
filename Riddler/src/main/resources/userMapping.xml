@@ -91,6 +91,12 @@
 
 		<!-- Feitos -->
 
+		<action name="buscarFuncionario" class="br.com.ideais.estagio.action.FeitosAction"
+			method="buscarFuncionario">
+			<result name="success" type="redirect">/editarFuncionario.jsp</result>
+		</action>
+		
+		
 		<action name="listarFeitos" class="br.com.ideais.estagio.action.FeitosAction"
 			method="list">
 			<result name="success" type="redirect">/editarFuncionario.jsp</result>
