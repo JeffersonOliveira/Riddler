@@ -28,18 +28,4 @@ public class BeneficioDao extends AbstractDao<Beneficio> {
 		}
 		return false;
 	}
-
-	public boolean delete(Beneficio beneficio) {
-		try {
-			for (Etapa etapa : beneficio.getEtapas()) {
-				hibernateTemplate.delete(etapa);
-			}
-			hibernateTemplate.delete(beneficio);
-			return true;
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		return false;
-	}
-
 }
