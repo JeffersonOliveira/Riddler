@@ -39,6 +39,13 @@
 			<result name="error">listarFuncionarios</result>
 		</action>
 
+		<action name="terefasPendentes" class="br.com.ideais.estagio.action.FuncionarioAction"
+			method="editarTarefas">
+			<result name="success">atualizarTarefa.jsp</result>
+			<result name="error">listarFuncionarios</result>
+		</action>
+
+
 		<!-- Beneficio -->
 
 		<action name="listarBeneficios" class="br.com.ideais.estagio.action.BeneficioAction"
