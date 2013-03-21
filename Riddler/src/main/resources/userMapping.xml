@@ -32,6 +32,12 @@
 			method="update">
 			<result name="success">editarFuncionario.jsp</result>
 		</action>
+		
+		<action name="editarTarefas" class="br.com.ideais.estagio.action.FuncionarioAction"
+			method="editarTarefas">
+			<result name="success">editarFuncionario.jsp</result>
+			<result name="error">listarFuncionarios</result>
+		</action>
 
 		<!-- Beneficio -->
 

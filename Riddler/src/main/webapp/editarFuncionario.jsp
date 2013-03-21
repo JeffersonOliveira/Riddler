@@ -38,8 +38,8 @@
 
 			<form action="cadastrarFuncionario" method="post">
 
-				<input type="hidden" value="${feitos.funcionario.id}" name="funcionario.id"
-					readonly="readonly" />
+				<input type="hidden" value="${feitos.funcionario.id}"
+					name="funcionario.id" readonly="readonly" />
 
 				<table border="0">
 					<tr>
@@ -58,32 +58,42 @@
 							value="${funcionario.dataDeAdmissao}"
 							name="funcionario.dataDeAdmissao"></td>
 					</tr>
-					<c:forEach var="beneficio" items="${beneficios}">
-						<input type="hidden" id="beneficioId" name="beneficio.id" />
-						<input type="checkbox" id="feitosFuncionario"
-							name="feitos.funcionarios[0]" />
-						<input type="checkbox" id="feitosEtapas"
-							name="feitos.etapas[0].beneficio" />
-
+					<c:forEach var="mapas" items="${mapa}">
 						<tr>
-							<td>${beneficio.nome}</td>
-						<tr>
-							<td>
-								<h5>
-									<button class="btn btn-small btn-danger">
-										<a href="deletarFuncionario?id=${funcionario.id}"><font
-											color="white">Deletar Funcionario</font></a>
-									</button>
-									<button class="btn btn-small">
+							<td>Benefício: ${mapas.key}
+								<div>
+									<c:forEach var="item" items="${mapas.value}">
+ 							             Etapa:  ${item.etapa.nome}
+									</c:forEach>
+								</div>
+					</c:forEach>
 
-										<input type="submit" value="Alterar Dados" />
+					<%-- 					<c:forEach var="beneficio" items="${beneficios}"> --%>
+					<!-- 						<input type="hidden" id="beneficioId" name="beneficio.id" /> -->
+					<!-- 						<input type="checkbox" id="feitosFuncionario" -->
+					<!-- 							name="feitos.funcionarios[0]" /> -->
+					<!-- 						<input type="checkbox" id="feitosEtapas" -->
+					<!-- 							name="feitos.etapas[0].beneficio" /> -->
 
-									</button>
+					<!-- 						<tr> -->
+					<%-- 							<td>${beneficio.nome}</td> --%>
+					<!-- 						<tr> -->
+					<!-- 							<td> -->
+					<!-- 								<h5> -->
+					<!-- 									<button class="btn btn-small btn-danger"> -->
+					<%-- 										<a href="deletarFuncionario?id=${funcionario.id}"><font --%>
+					<!-- 											color="white">Deletar Funcionario</font></a> -->
+					<!-- 									</button> -->
+					<!-- 									<button class="btn btn-small"> -->
 
-								</h5>
-							</td>
-						</tr>
-						</c:forEach>
+					<!-- 										<input type="submit" value="Alterar Dados" /> -->
+
+					<!-- 									</button> -->
+
+					<!-- 								</h5> -->
+					<!-- 							</td> -->
+					<!-- 						</tr> -->
+					<%-- 					</c:forEach> --%>
 				</table>
 			</form>
 
@@ -95,17 +105,19 @@
 
 	</div>
 
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
-<script>
-	$(function() {
-		$("#datepicker").datepicker();
-		$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yyyy");
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+	<script>
+		$(function() {
+			$("#datepicker").datepicker();
+			$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yyyy");
 
-		$("#anim").change(function() {
-			$("#datepicker").datepicker("option", "showAnim", $(this).val());
+			$("#anim").change(
+					function() {
+						$("#datepicker").datepicker("option", "showAnim",
+								$(this).val());
+					});
 		});
-	});
-</script>
+	</script>
 </body>
 </html>
