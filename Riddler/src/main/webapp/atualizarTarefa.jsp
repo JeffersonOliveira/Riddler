@@ -64,7 +64,7 @@
 									</c:forEach>
 								</textarea>&nbsp;&nbsp;&nbsp;&nbsp;
 								<button class="btn btn-small btn-success">
-									<a href="editarFuncionario?id=${funcionario.id}" ><font color="white">Salvar Observação</font></a>
+									<a href="adicionarObservacao?id=${item.id}" ><font color="white">Salvar Observação</font></a>
 								 </button>
 							</td>	 
 							

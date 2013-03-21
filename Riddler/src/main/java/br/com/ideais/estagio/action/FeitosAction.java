@@ -85,6 +85,16 @@ public class FeitosAction implements CRUDAction {
 		}
 		return ERROR;
 	}
+	
+	public String adicionarObservacao(){
+		try{
+			feitosService.adicionarObservacao(getFeitosFromRequest(), getFeitos());
+			return SUCCESS;
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return ERROR;
+	}
 
 	public String update() {		
 		return SUCCESS;

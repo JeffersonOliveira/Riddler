@@ -32,35 +32,6 @@
 						<th>Data de Admissão</th>
 				</thead>
 				<tbody>
-<<<<<<< HEAD
-					<form action="listarFuncionarios">
-						<input type="text" id="bProv" value="" name="funcionario.nome" onclick="filtroP()"/> 
-				       	<button id="bProv" onclick="filtroP()">filtrar</button>
-					 
-				    </form>   	 	
- 						<c:forEach  var="funcionario" items="${funcionarios}"> 
-		                  <tr> 
-		                   <td>${funcionario.nome}</td>
-		                   <td><fmt:formatDate pattern="dd/MM/yyyy" value="${funcionario.dataDeAdmissao}" /></td>
-		                   <td><button class="btn btn-small btn-success" value="Editar">
-						        <a href="editarFuncionario?id=${funcionario.id}"><font color="white">Editar Funcionario</font></a>        
-						      </button>
-						   </td>
-		                   <td>
-						    <button class="btn btn-small btn-success">
-								<a href="terefasPendentes?id=${funcionario.id}" ><font color="white">Verificar Tarefas</font></a>
-							</button>
-					       </td>
-					       <td>
-					       	 <button class="btn btn-small btn-danger">
-						        <a href="deletarFuncionario?id=${funcionario.id}"><font color="white">Deletar Funcionario</font></a>         
-						     </button>
-						   </td>
-						   </tr>
-	                    </c:forEach> 
-	                    
-					                    
-=======
 					<form action="listarFuncionarios" class="form-search">
 						<div class="input-append">
 							<input class="span2" id="bProv" type="text" value="" name="funcionario.nome"
@@ -96,7 +67,6 @@
 					</c:forEach>
 
 
->>>>>>> 0b1961a640d290edd008c928725434148b44e95a
 				</tbody>
 			</table>
 		</div>
@@ -108,6 +78,6 @@
 	</div>
 	<!-- /container -->
 
-	
+
 </body>
 </html>
