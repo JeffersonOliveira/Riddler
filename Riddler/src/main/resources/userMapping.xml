@@ -48,7 +48,8 @@
 
 		<action name="finalizarEtapa" class="br.com.ideais.estagio.action.FeitosAction"
 			method="finalizarEtapa">
-			<result name="success" type="redirect">listarFuncionarios</result>
+			<result name="success" type="redirect">finalizarEtapa</result>
+			<result name="error">atualizarTarefa.jsp</result>
 		</action>
 
 
