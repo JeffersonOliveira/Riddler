@@ -8,6 +8,7 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.ideais.estagio.model.Feitos;
+import br.com.ideais.estagio.model.Funcionario;
 import br.com.ideais.estagio.service.FeitosService;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -19,6 +20,7 @@ public class FeitosAction implements CRUDAction {
 	private Feitos feitos;
 	private List<Feitos> list_feitos;
     private List<Feitos> feitosPendentes;
+    private Funcionario funcionario;
     
 	public String execute() throws Exception {
 		return SUCCESS;
@@ -35,6 +37,14 @@ public class FeitosAction implements CRUDAction {
 
 	public Feitos getFeitos() {
 		return feitos;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 
 
@@ -85,8 +95,8 @@ public class FeitosAction implements CRUDAction {
 		return SUCCESS;
 	}
 	
-	public String buscarFuncionario(Long id){
-		feitosPendentes = feitosService.buscarFuncionario(id);
+	public String buscarFuncionario(){
+		feitosPendentes = feitosService.buscarFuncionario(getFuncionario().getId());
 		return SUCCESS;
 	}
 }

@@ -1,5 +1,7 @@
 package br.com.ideais.estagio.service;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,6 +21,12 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 	private FuncionarioDao fDao;
 	@Autowired
 	private FeitosDao feitosDao;
+	
+	private List<Feitos> feitosPendentes = new ArrayList<Feitos>();
+	
+	private List<Etapa> etapasPendentes;
+
+	private HashMap<String, List<Feitos>> mapa = new HashMap<String, List<Feitos>>();
 	
 	public void persist(Funcionario funcionario){
 		fDao.persist(funcionario);
@@ -64,6 +72,19 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 	public void setfDao(FuncionarioDao fDao) {
 		this.fDao = fDao;
 	}
+	
+	public HashMap<String, List<Feitos>> editarTarefas(Long id){
+		Funcionario	 funcionario = findbyId(id);
+	
+		for (Feitos feitos : funcionario.getFeitos()) {
+			   String nomeBeneficio = feitos.getEtapa().getBeneficio().getNome();
+			   if (!mapa.containsKey(nomeBeneficio)) {
+			      mapa.put(nomeBeneficio, new ArrayList());
+			   }
+			   mapa.get(nomeBeneficio).add(feitos);
+			}
 		
+		return mapa;
+	}
 }
 

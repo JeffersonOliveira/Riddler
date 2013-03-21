@@ -1,6 +1,7 @@
 package br.com.ideais.estagio.action;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.ideais.estagio.model.Etapa;
+import br.com.ideais.estagio.model.Feitos;
 import br.com.ideais.estagio.model.Funcionario;
 import br.com.ideais.estagio.service.EtapaService;
 import br.com.ideais.estagio.service.FuncionarioService;
@@ -29,6 +31,8 @@ public class FuncionarioAction implements CRUDAction{
 	private List<Long> etapasSelecionadas = new LinkedList<Long>();
 	
 	private List<Funcionario> funcionarios;
+	
+	private HashMap<String, List<Feitos>> mapa;
 	
 	public String execute() throws Exception {
 		return SUCCESS;
@@ -52,9 +56,7 @@ public class FuncionarioAction implements CRUDAction{
 			Collection<Etapa> etapas = new LinkedList<Etapa>();
 			for (Long etapaSelecionada : etapasSelecionadas) {
 				Etapa etapa = etapaService.findbyId(etapaSelecionada);
-				System.out.println("=================   " + etapa.getNome());
 				etapas.add(etapa);
-				System.out.println("=================   " + etapas.size());
 			}
 			
 			funcionarioService.saveOrUpdate(funcionario, etapas);
@@ -66,14 +68,22 @@ public class FuncionarioAction implements CRUDAction{
 		}
 	}
 
-
+	public String editarTarefas(){
+		System.out.println(getFuncionarioFromRequest());
+		try{
+			mapa = funcionarioService.editarTarefas(getFuncionarioFromRequest());
+			return SUCCESS;
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return ERROR;
+	}
 
 	public String update() {
 		return SUCCESS;
 	}
 
 	public String delete() {
-		System.out.println(funcionario.getNome());
 		if(funcionarioService.delete(funcionario)){
 			return SUCCESS;
 		}
@@ -130,5 +140,15 @@ public class FuncionarioAction implements CRUDAction{
 	public void setFuncionarios(List<Funcionario> funcionarios) {
 		this.funcionarios = funcionarios;
 	}
+
+	public HashMap<String, List<Feitos>> getMapa() {
+		return mapa;
+	}
+
+	public void setMapa(HashMap<String, List<Feitos>> mapa) {
+		this.mapa = mapa;
+	}
+	
+	
 	
 }
