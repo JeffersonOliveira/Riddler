@@ -6,7 +6,7 @@
 <html>
 <head>
 
-<title>P&aacute;gina de ediç&atilde;o de funcion&aacute;rio</title>
+<title>Atualizar Tarefas</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -43,57 +43,19 @@
 
 				<table border="0">
 					<tr>
-						<td align="center"><h2>Editar Funcion&aacute;rio
-								${funcionario.nome}</h2></td>
+						<td align="center"><h2>${funcionario.nome}</h2></td>
 					</tr>
 
-					<tr>
-						<td>Nome:</td>
-						<td><input type="text" id="nome" value="${funcionario.nome}"
-							name="funcionario.nome"></td>
-					</tr>
-					<tr>
-						<td>data de admissão</td>
-						<td><input type="text" id="dataDeAdmissao"
-							value="${funcionario.dataDeAdmissao}"
-							name="funcionario.dataDeAdmissao"></td>
-					</tr>
 					<c:forEach var="mapas" items="${mapa}">
 						<tr>
 							<td>Benefício: ${mapas.key}
 								<div>
 									<c:forEach var="item" items="${mapas.value}">
- 							             Etapa:  ${item.etapa.nome}
+ 										<td>Etapa:  ${item.etapa.nome}</td>
 									</c:forEach>
 								</div>
 					</c:forEach>
 
-					<%-- 					<c:forEach var="beneficio" items="${beneficios}"> --%>
-					<!-- 						<input type="hidden" id="beneficioId" name="beneficio.id" /> -->
-					<!-- 						<input type="checkbox" id="feitosFuncionario" -->
-					<!-- 							name="feitos.funcionarios[0]" /> -->
-					<!-- 						<input type="checkbox" id="feitosEtapas" -->
-					<!-- 							name="feitos.etapas[0].beneficio" /> -->
-
-					<!-- 						<tr> -->
-					<%-- 							<td>${beneficio.nome}</td> --%>
-					<!-- 						<tr> -->
-					<!-- 							<td> -->
-					<!-- 								<h5> -->
-					<!-- 									<button class="btn btn-small btn-danger"> -->
-					<%-- 										<a href="deletarFuncionario?id=${funcionario.id}"><font --%>
-					<!-- 											color="white">Deletar Funcionario</font></a> -->
-					<!-- 									</button> -->
-					<!-- 									<button class="btn btn-small"> -->
-
-					<!-- 										<input type="submit" value="Alterar Dados" /> -->
-
-					<!-- 									</button> -->
-
-					<!-- 								</h5> -->
-					<!-- 							</td> -->
-					<!-- 						</tr> -->
-					<%-- 					</c:forEach> --%>
 				</table>
 			</form>
 

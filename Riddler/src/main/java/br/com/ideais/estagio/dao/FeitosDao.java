@@ -32,4 +32,3 @@ public class FeitosDao extends AbstractDao<Feitos>{
 	}
 }
 	
-}

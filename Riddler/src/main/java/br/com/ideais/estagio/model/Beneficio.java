@@ -1,7 +1,6 @@
 package br.com.ideais.estagio.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -26,7 +25,7 @@ public class Beneficio implements Serializable {
 	private Long id;
 
 	private String nome;
-	private Date prazo;
+	private Integer prazo;
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_beneficio")
@@ -47,7 +46,7 @@ public class Beneficio implements Serializable {
 		return nome;
 	}
 
-	public Date getPrazo() {
+	public Integer getPrazo() {
 		return prazo;
 	}
 
@@ -59,7 +58,7 @@ public class Beneficio implements Serializable {
 		this.nome = nome;
 	}
 
-	public void setPrazo(Date prazo) {
+	public void setPrazo(Integer prazo) {
 		this.prazo = prazo;
 	}
 
