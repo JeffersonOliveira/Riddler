@@ -18,76 +18,86 @@ import br.com.ideais.estagio.service.FuncionarioService;
 
 import com.opensymphony.xwork2.ActionContext;
 
-public class FuncionarioAction implements CRUDAction{
+public class FuncionarioAction implements CRUDAction {
 
 	@Autowired
 	private FuncionarioService funcionarioService;
-	
+
 	@Autowired
 	private EtapaService etapaService;
-	
+
 	private Funcionario funcionario = new Funcionario();
-	
+
 	private List<Long> etapasSelecionadas = new LinkedList<Long>();
-	
+
 	private List<Funcionario> funcionarios;
-	
+
 	private HashMap<String, List<Feitos>> mapa;
-	
+
 	public String execute() throws Exception {
 		return SUCCESS;
 	}
 
 	public void prepare() throws Exception {
-		if(getFuncionarioFromRequest() != null) {
-			funcionario = funcionarioService.findbyId(getFuncionarioFromRequest());
+		if (getFuncionarioFromRequest() != null) {
+			funcionario = funcionarioService
+					.findbyId(getFuncionarioFromRequest());
 		}
 	}
 
-
 	public String save() {
 		try {
-			System.out.println(funcionario.getNome() + " " + funcionario.getDataDeAdmissao());
-			if (funcionario.getNome().equals("")){
+			System.out.println(funcionario.getNome() + " "
+					+ funcionario.getDataDeAdmissao());
+			if (funcionario.getNome().equals("")) {
 				erroCampoVazio();
 				return ERROR;
 			}
-			
+
 			Collection<Etapa> etapas = new LinkedList<Etapa>();
 			for (Long etapaSelecionada : etapasSelecionadas) {
 				Etapa etapa = etapaService.findbyId(etapaSelecionada);
 				etapas.add(etapa);
 			}
-			
+
 			funcionarioService.saveOrUpdate(funcionario, etapas);
-			
+
 			return SUCCESS;
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			return ERROR;
 		}
 	}
 
-	public String editarTarefas(){
+	public String editarTarefas() {
 		System.out.println(getFuncionarioFromRequest());
-		try{
-			mapa = funcionarioService.editarTarefas(getFuncionarioFromRequest());
+		try {
+			mapa = funcionarioService
+					.editarTarefas(getFuncionarioFromRequest());
 			return SUCCESS;
-		}catch(Exception e){
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return ERROR;
 	}
 
 	public String update() {
-		return SUCCESS;
+		try {
+			funcionarioService.saveOrUpdate(funcionario);
+			return SUCCESS;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return ERROR;
 	}
 
 	public String delete() {
-		if(funcionarioService.delete(funcionario)){
+		try {
+			funcionarioService.delete(funcionario);
 			return SUCCESS;
+		} catch (Exception e) {
+
+			return ERROR;
 		}
-		return ERROR;
 	}
 
 	public String create() {
@@ -98,33 +108,34 @@ public class FuncionarioAction implements CRUDAction{
 		funcionarios = funcionarioService.list();
 		return SUCCESS;
 	}
-	
+
 	private Long getFuncionarioFromRequest() {
-		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		
-		if(request.getParameter("id") != null)
+		HttpServletRequest request = (HttpServletRequest) ActionContext
+				.getContext().get(ServletActionContext.HTTP_REQUEST);
+
+		if (request.getParameter("id") != null)
 			return Long.parseLong(request.getParameter("id"));
-		
+
 		return null;
 	}
-	
-	
+
 	// REDIRECIONA A MESSAGEM DE ERRO PARA A TELA
-	 
+
 	private void erroCampoVazio() {
-		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		request.setAttribute("erro", "Preencha os campos por favor");		
+		HttpServletRequest request = (HttpServletRequest) ActionContext
+				.getContext().get(ServletActionContext.HTTP_REQUEST);
+		request.setAttribute("erro", "Preencha os campos por favor");
 	}
-	
+
 	//
 	public Funcionario getFuncionario() {
 		return funcionario;
 	}
-	
+
 	public List<Long> getEtapasSelecionadas() {
 		return etapasSelecionadas;
 	}
-	
+
 	public FuncionarioService getFuncionarioService() {
 		return funcionarioService;
 	}
@@ -148,7 +159,5 @@ public class FuncionarioAction implements CRUDAction{
 	public void setMapa(HashMap<String, List<Feitos>> mapa) {
 		this.mapa = mapa;
 	}
-	
-	
-	
+
 }

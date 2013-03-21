@@ -5,7 +5,7 @@
 
 <html lang="en">
 <head>
-<title>Cadastro de Funcion&atilde;rios</title>
+<title>Editar Funcionário]</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
@@ -32,7 +32,7 @@
 		<jsp:include page="header.jsp" />
 
 		<div class="masthead" align="center">
-			<h1 class="muted">Editar Funcionario(a) ${funcionario.nome}</h1>
+			<h1 class="muted">Editar Funcionário ${funcionario.nome}</h1>
 		</div>
 		<hr />
 		<div class="form">
@@ -46,16 +46,6 @@
 						name="funcionario.dataDeAdmissao" value="${funcionario.dataDeAdmissao}" />
 				</h4>
 
-				<table class="table table-striped">
-					<tbody>
-						<c:forEach var="beneficio" items="${beneficios}" varStatus="count">
-							<label class="checkbox">
-								<input type="checkbox" name="etapasSelecionadas[${count.index}]" value="${beneficio.primeiraEtapa.id}"/>
-									${beneficio.nome}
-							</label>
-						</c:forEach>
-					</tbody>
-				</table>
 				<input type="submit" class="btn btn-success" value="Alterar Dados">
 			</form>
 		</div>

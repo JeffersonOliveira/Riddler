@@ -30,7 +30,7 @@
 
 		<action name="editarFuncionario" class="br.com.ideais.estagio.action.FuncionarioAction"
 			method="update">
-			<result name="success">editarFuncionario.jsp</result>
+			<result name="success">/editarFuncionario.jsp</result>
 		</action>
 		
 		<action name="editarTarefas" class="br.com.ideais.estagio.action.FuncionarioAction"
