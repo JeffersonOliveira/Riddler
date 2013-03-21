@@ -31,13 +31,13 @@
 			<form action="cadastrarBeneficios" method="post">
 				<div>
 					${erro} Nome <input type="text" id="beneficio" name="beneficio.nome">
-					Prazo <input type="text" id="datepicker" name="beneficio.prazo" />
+					Prazo <input type="number" id="prazo" name="beneficio.prazo" />
 				</div>
 				<div class="control-group  " id="rendered">
 
 					<div class="clone count">
-						<label class="control-label" for="inputEtapa">Etapa 1:</label> <input
-							class="etapaName" type="text" id="inputEtapa"
+						<label class="control-label" for="inputEtapa">Etapa 1:</label>
+						<input class="etapaName" type="text" id="inputEtapa"
 							name="beneficio.etapas[0].nome" placeholder="Nome da etapa">
 						<input type="hidden" id="ordem" class="ordem"
 							name="beneficio.etapas[0].ordem" value="1" /> <i
@@ -93,17 +93,7 @@
 						$("#rendered").append(clone);
 
 					});
-		});
-		
-		$(function() {
-			$("#datepicker").datepicker();
-			$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
-
-			$("#anim").change(function() {
-				$("#datepicker").datepicker("option", "showAnim", $(this).val());
-			});
-		});
-		
+		});		
 	</script>
 
 </body>
