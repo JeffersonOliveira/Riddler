@@ -60,13 +60,9 @@ public class FeitosService implements AbstractService<Feitos>{
 		}
 			System.out.println(feitos.getId());
 			System.out.println("========== " + feitos.getEtapa().getNome() + " " + feitos.getEtapa().getBeneficio().getNome());
-		try{
-			return ftDao.saveOrUpdate(feitos);
-		}catch(Exception e){
-			System.out.println(e);
-		}
-		return false;
 		
+		return ftDao.saveOrUpdate(feitos);
+				
 	}
 	
 }

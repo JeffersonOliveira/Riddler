@@ -30,9 +30,12 @@ public abstract class AbstractDao<T> {
 	public boolean saveOrUpdate(T t) {
 		try{
 			hibernateTemplate.saveOrUpdate(t);
+			hibernateTemplate.flush();
 			return true;
 		}catch (Exception e) {
-			return false;
+			System.out.println("----------------------_> " + e.getMessage());
+			e.printStackTrace();
+			return false; 
 		}
 	}
 
