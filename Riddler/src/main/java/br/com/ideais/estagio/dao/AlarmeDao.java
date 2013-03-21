@@ -1,7 +1,7 @@
 package br.com.ideais.estagio.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -29,27 +29,41 @@ public class AlarmeDao extends AbstractDao<Alarme> {
 	public void dataAlarme(){
 		
 		List<Alarme> alarmes = new ArrayList<Alarme>();
+		Set<Beneficio> beneficios = new TreeSet<Beneficio>();
+		List<Funcionario> funcionarios = new ArrayList<Funcionario>();
 		
+		Date dataAtual = new Date();
+		String formatoAtual = "dd/MM/yyyy";
+	    SimpleDateFormat dataAtualFormatada = new SimpleDateFormat(formatoAtual);
+	    int dataAtualmillis = Integer.parseInt(dataAtualFormatada.format(dataAtual));
+		
+	    
 		for (Funcionario funcionario: funcionarios) {
-			 Set<Beneficio> beneficios = new TreeSet<Beneficio>();
+			 
 			for (Feitos feito: funcionario.getFeitos()) {
 				beneficios.add(feito.getEtapa().getBeneficio());		
 			}
-		}
+		
 			for (Beneficio beneficio: beneficios) {
-				Date dtPrazo = usuario.getDataAdmissao();
-				dtPrazo.add(Calendar.Date, (beneficios.getPrazo() - 5));
+				Date dtPrazo =  funcionario.getDataDeAdmissao();
+				//dtPrazo.add(Calendar, (beneficios.getPrazo() - 5));
+				
+			    dtPrazo.setDate(dtPrazo.getDate() + beneficio.getPrazo() - 5);          
+			    String formatoPrazo = "dd/MM/yyyy";
+			    SimpleDateFormat dataPrazoFormatada = new SimpleDateFormat(formatoPrazo);
+			    int dtPrazomillis = Integer.parseInt(dataPrazoFormatada.format(dtPrazo));
 
-				if (dtPrazo <= hj) {
+				if (dtPrazomillis <= dataAtualmillis) {
 					Alarme alarme = new Alarme();
-					alarme.setfuncionario(); 
-					alarme.setbeneficio();
+					
+					alarme.setFuncionario(funcionario); 
+					alarme.setBeneficio(beneficio);
 
 					alarmes.add(alarme);
 				}
 			}
 		}
-	
+	}
 		
 	
 	
