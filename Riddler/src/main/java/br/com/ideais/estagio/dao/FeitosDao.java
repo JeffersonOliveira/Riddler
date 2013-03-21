@@ -30,5 +30,7 @@ public class FeitosDao extends AbstractDao<Feitos>{
 		return hibernateTemplate.loadAll(getPersistentClass());
 		
 	}
+
+
 }
 	

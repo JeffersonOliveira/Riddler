@@ -45,6 +45,11 @@
 			<result name="error">listarFuncionarios</result>
 		</action>
 
+		<action name="finalizarEtapa" class="br.com.ideais.estagio.action.FeitosAction"
+			method="finalizarEtapa">
+			<result name="success" type="redirect">listarFuncionarios</result>
+		</action>
+
 
 		<!-- Beneficio -->
 

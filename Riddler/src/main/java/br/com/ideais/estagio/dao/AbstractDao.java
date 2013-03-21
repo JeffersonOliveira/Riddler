@@ -36,6 +36,15 @@ public abstract class AbstractDao<T> {
 		}
 	}
 
+	public boolean update(T t) {
+		try{
+			hibernateTemplate.update(t);
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+	}
+	
 	public T findById(Long id) {
 		return hibernateTemplate.get(getPersistentClass(), id);
 	}
