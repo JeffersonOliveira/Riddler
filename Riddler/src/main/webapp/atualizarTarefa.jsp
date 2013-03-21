@@ -38,6 +38,9 @@
 
 				<input type="hidden" value="${feitos.funcionario.id}"
 					name="funcionario.id" readonly="readonly" />
+					
+				<input type="hidden" value="${feitos.id}"
+					name="feitos.id" readonly="readonly" />
 
 				<div align="left"><h2>${funcionario.nome}</h2></td></div>
 				<div align="center">
@@ -46,14 +49,16 @@
 					<c:forEach var="mapas" items="${mapa}">
 						<tr>
 							<td align="left"><b>${mapas.key}</b> </td>
-									<c:forEach var="item" items="${mapas.value}">
- 							<td>		<b>Etapa Atual:&nbsp;&nbsp;&nbsp;  ${item.etapa.nome}</b></td>
-									</c:forEach>
-							<td> <button class="btn btn-small btn-success">
-									<a href="finalizarEtapa?id=${funcionario.id}" ><font color="white">Avançar Etapa</font></a>
-								 </button>
-							</td>
-							<td> <textarea rows="5">
+								<c:forEach var="item" items="${mapas.value}">
+									<td><b>${item.etapa.nome}</b></td>
+									<td>
+										<button class="btn btn-small btn-success">
+											<a href="finalizarEtapa?id=${item.id}"><font
+												color="white">Avançar Etapa</font></a>
+										</button>
+									</td>
+								</c:forEach>
+								<td> <textarea rows="5">
 									<c:forEach var="item" items="${mapas.value}">
  										${item.observacao}
 									</c:forEach>

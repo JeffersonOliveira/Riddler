@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.ideais.estagio.dao.EtapaDao;
 import br.com.ideais.estagio.dao.FeitosDao;
 import br.com.ideais.estagio.dao.FuncionarioDao;
+import br.com.ideais.estagio.model.Etapa;
 import br.com.ideais.estagio.model.Feitos;
 
 @Service
@@ -19,7 +20,8 @@ public class FeitosService implements AbstractService<Feitos>{
 	private EtapaDao eDao;
 	@Autowired
 	private FuncionarioDao fDao;
-
+	@Autowired
+	private EtapaService etapaService;
 	
 	public void persist(Feitos feitos) {
 		ftDao.persist(feitos);
@@ -29,6 +31,7 @@ public class FeitosService implements AbstractService<Feitos>{
 		return ftDao.saveOrUpdate(feitos);
 	}
 
+	
 	public List<Feitos> list() {
 		return ftDao.list();
 	}
@@ -46,4 +49,24 @@ public class FeitosService implements AbstractService<Feitos>{
 		return ftDao.buscarFuncionario(id);
 	}
 
+	public boolean finalizarEtapa(Long id) {
+		
+		Feitos feitos = findbyId(id);
+		Long idProximaEtapa = feitos.getEtapa().getId() + 1;
+		Etapa etapa = etapaService.findbyId(idProximaEtapa);
+		feitos.setEtapa(etapa);
+		if(feitos.getEtapa().getNome().equals("Concluida")){
+			return false;
+		}
+			System.out.println(feitos.getId());
+			System.out.println("========== " + feitos.getEtapa().getNome() + " " + feitos.getEtapa().getBeneficio().getNome());
+		try{
+			return ftDao.saveOrUpdate(feitos);
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return false;
+		
+	}
+	
 }

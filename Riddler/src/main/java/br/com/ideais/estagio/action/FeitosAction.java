@@ -75,6 +75,16 @@ public class FeitosAction implements CRUDAction {
 		feitosService.saveOrUpdate(getFeitos());
 		return SUCCESS;
 	}
+	
+	public String finalizarEtapa(){
+		try{
+			feitosService.finalizarEtapa(getFeitosFromRequest());
+			return SUCCESS;
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return ERROR;
+	}
 
 	public String update() {		
 		return SUCCESS;
