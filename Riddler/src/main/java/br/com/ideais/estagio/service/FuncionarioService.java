@@ -26,7 +26,7 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 	
 	private List<Etapa> etapasPendentes;
 
-	private HashMap<String, List<Feitos>> mapa = new HashMap<String, List<Feitos>>();
+	
 	
 	public void persist(Funcionario funcionario){
 		fDao.persist(funcionario);
@@ -75,7 +75,7 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 	
 	public HashMap<String, List<Feitos>> editarTarefas(Long id){
 		Funcionario	 funcionario = findbyId(id);
-	
+		HashMap<String, List<Feitos>> mapa = new HashMap<String, List<Feitos>>();
 		for (Feitos feitos : funcionario.getFeitos()) {
 			   String nomeBeneficio = feitos.getEtapa().getBeneficio().getNome();
 			   if (!mapa.containsKey(nomeBeneficio)) {

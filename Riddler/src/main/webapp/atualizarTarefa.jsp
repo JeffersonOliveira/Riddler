@@ -36,28 +36,38 @@
 		&nbsp;
 		<div align="center">
 
-			<form action="cadastrarFuncionario" method="post">
-
 				<input type="hidden" value="${feitos.funcionario.id}"
 					name="funcionario.id" readonly="readonly" />
 
-				<table border="0">
-					<tr>
-						<td align="center"><h2>${funcionario.nome}</h2></td>
-					</tr>
-
+				<div align="left"><h2>${funcionario.nome}</h2></td></div>
+				<div align="center">
+				<table class="table table-striped">
+					<tbody>
 					<c:forEach var="mapas" items="${mapa}">
 						<tr>
-							<td>Benefício: ${mapas.key}
-								<div>
+							<td align="left"><b>${mapas.key}</b> </td>
 									<c:forEach var="item" items="${mapas.value}">
- 										<td>Etapa:  ${item.etapa.nome}</td>
+ 							<td>		<b>Etapa Atual:&nbsp;&nbsp;&nbsp;  ${item.etapa.nome}</b></td>
 									</c:forEach>
-								</div>
+							<td> <button class="btn btn-small btn-success">
+									<a href="finalizarEtapa?id=${funcionario.id}" ><font color="white">Avançar Etapa</font></a>
+								 </button>
+							</td>
+							<td> <textarea rows="5">
+									<c:forEach var="item" items="${mapas.value}">
+ 										${item.observacao}
+									</c:forEach>
+								</textarea>&nbsp;&nbsp;&nbsp;&nbsp;
+								<button class="btn btn-small btn-success">
+									<a href="editarFuncionario?id=${funcionario.id}" ><font color="white">Salvar Observação</font></a>
+								 </button>
+							</td>	 
+							
+						</tr>
 					</c:forEach>
-
+					</tbody>
 				</table>
-			</form>
+				</div>
 
 		</div>
 

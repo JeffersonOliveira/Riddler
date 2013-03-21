@@ -31,7 +31,7 @@
 			<form action="cadastrarBeneficios" method="post">
 				<div>
 					${erro} Nome <input type="text" id="beneficio" name="beneficio.nome">
-					Prazo <input type="number" id="prazo" name="beneficio.prazo" />
+					Prazo <input type="number" min="0" id="prazo" name="beneficio.prazo" />
 				</div>
 				<div class="control-group  " id="rendered">
 

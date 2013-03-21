@@ -25,8 +25,6 @@ public class Feitos implements Serializable {
 	
 	private String observacao;
 	
-	private Date prazo;
-
 	@ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_funcionario")
 	private Funcionario funcionario;
@@ -43,13 +41,7 @@ public class Feitos implements Serializable {
 		this.observacao = observacao;
 	}
 
-	public Date getPrazo() {
-		return prazo;
-	}
 
-	public void setPrazo(Date prazo) {
-		this.prazo = prazo;
-	}
 
 	public Funcionario getFuncionario() {
 		return funcionario;
