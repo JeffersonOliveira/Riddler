@@ -34,9 +34,11 @@
 						<th>Data de Admissão</th>
 				</thead>
 				<tbody>
-				
-				       	 <input type="text" id="bProv" value="" name="funcionario.nome" onclick="filtroP()"/> 
-				       	 <button id="bProv" onclick="filtroP()">filtrar</button>	
+					<form action="listarFuncionarios">
+						<input type="text" id="bProv" value="" name="funcionario.nome" onclick="filtroP()"/> 
+				       	<button id="bProv" onclick="filtroP()">filtrar</button>
+					</form>
+				       	 	
  						<c:forEach  var="funcionario" items="${funcionarios}"> 
 		                  <tr> 
 		                   <td>${funcionario.nome}</td>

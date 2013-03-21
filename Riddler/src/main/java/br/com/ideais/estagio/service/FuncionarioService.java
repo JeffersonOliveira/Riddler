@@ -87,6 +87,10 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 		return mapa;
 	}
 
+	public List<Funcionario> findFuncionariosLike(String nome) {
+		return fDao.findFuncionariosLike(nome);
+	}
+
 	
 }
 

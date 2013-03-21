@@ -105,7 +105,12 @@ public class FuncionarioAction implements CRUDAction {
 	}
 
 	public String list() {
-		funcionarios = funcionarioService.list();
+		System.out.println(" -------------------------------------------___> entrei " + funcionario.getNome());
+		if(funcionario.getNome() == null)
+			funcionarios = funcionarioService.list();
+		else
+			funcionarios = funcionarioService.findFuncionariosLike(funcionario.getNome());
+		
 		return SUCCESS;
 	}
 
