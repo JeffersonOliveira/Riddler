@@ -52,12 +52,12 @@ public class FeitosService implements AbstractService<Feitos>{
 	public boolean finalizarEtapa(Long id) {
 		
 		Feitos feitos = findbyId(id);
-		Long idProximaEtapa = feitos.getEtapa().getId() + 1;
-		Etapa etapa = etapaService.findbyId(idProximaEtapa);
-		feitos.setEtapa(etapa);
 		if(feitos.getEtapa().getNome().equals("Concluida")){
 			return false;
 		}
+		Long idProximaEtapa = feitos.getEtapa().getId() + 1;
+		Etapa etapa = etapaService.findbyId(idProximaEtapa);
+		feitos.setEtapa(etapa);
 			System.out.println(feitos.getId());
 			System.out.println("========== " + feitos.getEtapa().getNome() + " " + feitos.getEtapa().getBeneficio().getNome());
 		
