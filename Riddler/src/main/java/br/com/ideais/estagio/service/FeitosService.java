@@ -35,8 +35,8 @@ public class FeitosService implements AbstractService<Feitos> {
 		return ftDao.list();
 	}
 
-	public boolean delete(Feitos feitos) {
-		return ftDao.delete(feitos);
+	public boolean delete(Long id) {
+		return ftDao.delete(id);
 	}
 
 	public Feitos findbyId(Long id) {

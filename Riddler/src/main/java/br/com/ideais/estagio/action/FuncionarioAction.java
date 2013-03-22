@@ -103,13 +103,12 @@ public class FuncionarioAction implements CRUDAction {
 	}
 
 	public String delete() {
-		try {
-			funcionarioService.delete(funcionario);
+		
+		if(funcionarioService.delete(getFuncionarioFromRequest()))
 			return SUCCESS;
-		} catch (Exception e) {
-
+		else
 			return ERROR;
-		}
+
 	}
 
 //	public String delete() {

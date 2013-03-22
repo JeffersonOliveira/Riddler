@@ -51,7 +51,7 @@ public class BeneficioAction implements CRUDAction {
 	}
 
 	public String delete() {
-		if (beneficioService.delete(getBeneficio()))
+		if (beneficioService.delete(getBeneficioFromRequest()))
 			return SUCCESS;
 		return ERROR;
 	}

@@ -29,7 +29,7 @@ public class Feitos implements Serializable {
 	@JoinColumn(name = "id_funcionario")
 	private Funcionario funcionario;
 	
-	@ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "id_etapa")
 	private Etapa etapa;
 
