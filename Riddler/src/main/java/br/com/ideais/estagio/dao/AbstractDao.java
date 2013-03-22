@@ -20,6 +20,7 @@ public abstract class AbstractDao<T> {
 
 	public boolean delete(Long id) {
 		try{
+			hibernateTemplate.flush();
 			hibernateTemplate.delete(id);
 			return true;
 		}catch (Exception e) {

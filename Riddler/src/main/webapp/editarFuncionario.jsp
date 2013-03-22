@@ -46,8 +46,8 @@
 					Data de Admissão:
 					<fmt:formatDate
 						value="${funcionario.dataDeAdmissao}"
-						type="date" pattern="dd-MM-yyyy" var="theFormattedDate" />
-					<input type="text" value="${theFormattedDate}"  />
+						type="date" pattern="dd/MM/yyyy" var="theFormattedDate" />
+					<input type="text" id="datepicker" value="${theFormattedDate}"  />
 
 				</h4>
 
@@ -64,9 +64,11 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#datepicker").datepicker();
-		$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
-
+		$("#datepicker").datepicker({
+		"dateFormat": "dd/mm/yy",
+		"constrainInput": true
+		});
+''
 		$("#anim").change(function() {
 			$("#datepicker").datepicker("option", "showAnim", $(this).val());
 		});

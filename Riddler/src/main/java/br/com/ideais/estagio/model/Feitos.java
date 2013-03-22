@@ -25,7 +25,7 @@ public class Feitos implements Serializable {
 	
 	private String observacao;
 	
-	@ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "id_funcionario")
 	private Funcionario funcionario;
 	
