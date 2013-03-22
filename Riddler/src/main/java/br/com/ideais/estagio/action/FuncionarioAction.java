@@ -84,7 +84,7 @@ public class FuncionarioAction implements CRUDAction {
 	
 	public String listarTarefasPendentes() {
 		try {
-			mapaPendente = funcionarioService.listarTarefasPendentes();
+			setMapaPendente(funcionarioService.listarTarefasPendentes());
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -181,6 +181,14 @@ public class FuncionarioAction implements CRUDAction {
 
 	public void setMapa(HashMap<String, List<Feitos>> mapa) {
 		this.mapa = mapa;
+	}
+
+	public HashMap<String, Collection<Feitos>> getMapaPendente() {
+		return mapaPendente;
+	}
+
+	public void setMapaPendente(HashMap<String, Collection<Feitos>> mapaPendente) {
+		this.mapaPendente = mapaPendente;
 	}
 	
 	
