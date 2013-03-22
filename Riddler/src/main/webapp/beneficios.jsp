@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Riddler - Lista de Beneficios</title>
+<title>Riddler - Lista de Tarefas</title>
 
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="css/cadastroBeneficio.css" rel="stylesheet">
@@ -25,13 +25,13 @@
 		<jsp:include page="header.jsp" />
 
 		<div class="masthead" align="center">
-			<h1 class="muted">Benefícios</h1>
+			<h1 class="muted">Tarefas</h1>
 		</div>
 		<hr />
 
-		<table class="table table-striped" border="1">
+		<table class="table table-striped">
 			<thead align="center">
-					<th>Beneficio</th>
+					<th>Tarefa</th>
 					<th>Prazo</th>
 					<th></th>
 					<th></th>
@@ -44,19 +44,19 @@
 						<td>${beneficio.nome}</td>
 						<td>${beneficio.prazo}</td>
 						<td><button class="btn btn-small btn-success" value="Editar">
-								<a href="editarBeneficio?id=${beneficio.id}"><font
-									color="white">Editar Beneficio</font></a>
+								<a href="buscarBeneficio?id=${beneficio.id}"><font
+									color="white">Editar Tarefa</font></a>
 							</button></td>
 						<td>
 							<button class="btn btn-small btn-success">
-								<a href="listarEtapas?id=${beneficio.id}"><font
-									color="white">Verificar Etapas</font></a>
+								<a href="listarEtapas?id=${beneficio.id}">
+								<font color="white">Verificar Etapas</font></a>
 							</button>
 						</td>
 						<td>
 							<button class="btn btn-small btn-danger">
-								<a href="deletarBeneficios?id=${beneficio.id}"><font
-									color="white">Deletar Beneficio</font></a>
+								<a href="deletarBeneficios?id=${beneficio.id}">
+								<font color="white">Deletar Tarefa</font></a>
 							</button>
 						</td>
 					<tr>

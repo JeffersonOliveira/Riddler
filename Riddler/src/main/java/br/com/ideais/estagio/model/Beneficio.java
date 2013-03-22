@@ -32,8 +32,7 @@ public class Beneficio implements Serializable {
 	private List<Etapa> etapas;
 
 	public Etapa getPrimeiraEtapa() {
-		TreeSet<Etapa> etapasOrdenadas = new TreeSet<Etapa>(
-				new EtapaComparator());
+		TreeSet<Etapa> etapasOrdenadas = new TreeSet<Etapa>(new EtapaComparator());
 		etapasOrdenadas.addAll(etapas);
 		return etapasOrdenadas.first();
 	}
@@ -57,9 +56,9 @@ public class Beneficio implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public void setPrazo(Integer prazo) {
-		this.prazo = prazo;
+	
+	public void setPrazo(String prazo) {
+		this.prazo = Integer.parseInt(prazo);
 	}
 
 	public void setEtapas(List<Etapa> etapas) {

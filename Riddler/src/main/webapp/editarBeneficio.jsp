@@ -1,10 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<html>
 <head>
-<title>Riddler - Editar Benefício</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Riddler - Editar Tarefa</title>
 
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="css/cadastroBeneficio.css" rel="stylesheet">
@@ -24,37 +27,52 @@
 		<jsp:include page="header.jsp" />
 
 		<div class="masthead" align="center">
-			<h1 class="muted">Editar Benefício</h1>
+			<h1 class="muted">Editar Tarefa</h1>
 		</div>
 		<hr />
 		<div class="form">
-			<form action="cadastrarBeneficios" method="post">
+			<form action="editarBeneficio?id=${beneficio.id}" method="post">
 				<div>
-					${erro}
-					Nome <input type="text" id="beneficio" name="beneficio.nome" value="${beneficio.name}">
+				<input type="hidden" id="beneficio" name="beneficio.id"
+						value="${beneficio.id}" />
+					<p>${erro}</p>
+					Nome <input type="text" id="beneficio" name="beneficio.nome"
+						value="${beneficio.nome}" />
+					Prazo <input type="text" id="prazo"
+						name="beneficio.prazo" value="${beneficio.prazo}" />
 				</div>
+				<div>
+					<c:forEach var="etapa" items="${beneficio.etapas}">
+						<p>Etapa
+							${etapa.nome}
+<!-- 						<input class="etapaName" type="text" id="inputEtapa" -->
+<%-- 							name="beneficio.etapas[${etapa.ordem}].nome" value="${etapa.nome}"></p> --%>
+<%-- 						<input type="hidden" id="ordem" class="ordem" name="beneficio.etapas[${etapa.ordem}].ordem" value="1" /> --%>
+						<c:set var="indice" value="${etapa.ordem}" />
+					</c:forEach>
+				</div>
+
 				<div class="control-group  " id="rendered">
 
 					<div class="clone count">
-						<label class="control-label" for="inputEtapa">Etapa ${lenght(beneficio.etapas)}:</label> <input
-							class="etapaName" type="text" id="inputEtapa"
-							name="beneficio.etapas[0].nome" placeholder="Nome da etapa">
+						<label class="control-label" for="inputEtapa">Etapa</label>
+							<input class="etapaName" type="text" id="inputEtapa"
+							name="beneficio.etapas[${etapa.ordem}].nome" placeholder="Nome da etapa">
 						<input type="hidden" id="ordem" class="ordem"
-							name="beneficio.etapas[0].ordem" value="1" /> <i
+							name="beneficio.etapas[${etapa.ordem}].ordem" value="${etapa.ordem}" /> <i
 							class="icon-minus-sign" id="remove" onclick="remover(this)"></i>
 						<br />
 					</div>
-
 
 				</div>
 
 				<div class="concluida">
 					<input type="hidden" class="etapaFinal" id="inputFinal"
-						name="beneficio.etapas[1].nome" value="Concluida"> <input
+						name="beneficio.etapas[${etapa.ordem}].nome" value="Concluida"> <input
 						type="hidden" id="ordem" class="ordem"
-						name="beneficio.etapas[1].ordem" value="2" />
+						name="beneficio.etapas[${etapa.ordem}].ordem" value="${etapa.ordem}" />
 				</div>
-
+				
 				<i class="icon-plus-sign" id="add"></i>
 				<input type="submit" class="btn btn-success" value="Cadastrar">
 			</form>
@@ -68,27 +86,29 @@
 
 	<script type="text/javascript">
 		$(function() {
-			
+
 			$("#add").click(
 					function() {
 						var clone = $(".clone").clone();
 						$(clone).removeClass("clone");
-						var etapaCount = $(".count").length + 1;
+						var etapaCount = ${indice} + $(".count").length + 1;
 						var name = "beneficio.etapas[" + (etapaCount - 1)
 								+ "].nome";
 						var order = "beneficio.etapas[" + (etapaCount - 1)
 								+ "].ordem";
-						$(clone).find('label')
-								.text('Etapa ' + etapaCount + ':');
 						$(clone).find('input.etapaName').val('').attr("name",
 								name);
 						$(clone).find('input.ordem').val(etapaCount).attr(
 								"name", order);
-						
-						var nameConcluida = "beneficio.etapas[" + (etapaCount) + "].nome";
-						var ordemConcluida = "beneficio.etapas[" + (etapaCount) + "].ordem";
-						$(".concluida").find('input.etapaFinal').attr("name", nameConcluida);
-						$(".concluida").find('input.ordem').val(etapaCount+1).attr("name", ordemConcluida);
+
+						var nameConcluida = "beneficio.etapas[" + (etapaCount)
+								+ "].nome";
+						var ordemConcluida = "beneficio.etapas[" + (etapaCount)
+								+ "].ordem";
+						$(".concluida").find('input.etapaFinal').attr("name",
+								nameConcluida);
+						$(".concluida").find('input.ordem').val(etapaCount + 1)
+								.attr("name", ordemConcluida);
 
 						$("#rendered").append(clone);
 

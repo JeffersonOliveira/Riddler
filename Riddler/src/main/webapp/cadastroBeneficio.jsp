@@ -30,19 +30,18 @@
 		<div class="form">
 			<form action="cadastrarBeneficios" method="post">
 				<div>
-					${erro} Nome <input type="text" id="beneficio" name="beneficio.nome">
+					<p>${erro}</p>
+					Nome <input type="text" id="beneficio" name="beneficio.nome">
 					Prazo <input type="number" min="0" id="prazo" name="beneficio.prazo" />
 				</div>
 				<div class="control-group  " id="rendered">
 
 					<div class="clone count">
-						<label class="control-label" for="inputEtapa">Etapa 1:</label>
+						<label class="control-label" for="inputEtapa">Etapa:</label>
 						<input class="etapaName" type="text" id="inputEtapa"
 							name="beneficio.etapas[0].nome" placeholder="Nome da etapa">
 						<input type="hidden" id="ordem" class="ordem"
-							name="beneficio.etapas[0].ordem" value="1" /> <i
-							class="icon-minus-sign" id="remove" onclick="remover(this)"></i>
-						<br />
+							name="beneficio.etapas[0].ordem" value="1" />
 					</div>
 
 
@@ -67,33 +66,45 @@
 	<jsp:include page="footer.jsp"></jsp:include>
 
 	<script type="text/javascript">
-		$(function() {
+	
+		function removerEtapa(div){
+			var pai = $(div).parent();
+			pai.remove();
+		}
+		
+			
+			
 			
 			$("#add").click(
-					function() {
-						var clone = $(".clone").clone();
-						$(clone).removeClass("clone");
-						var etapaCount = $(".count").length + 1;
-						var name = "beneficio.etapas[" + (etapaCount - 1)
-								+ "].nome";
-						var order = "beneficio.etapas[" + (etapaCount - 1)
-								+ "].ordem";
-						$(clone).find('label')
-								.text('Etapa ' + etapaCount + ':');
-						$(clone).find('input.etapaName').val('').attr("name",
-								name);
-						$(clone).find('input.ordem').val(etapaCount).attr(
-								"name", order);
-						
-						var nameConcluida = "beneficio.etapas[" + (etapaCount) + "].nome";
-						var ordemConcluida = "beneficio.etapas[" + (etapaCount) + "].ordem";
-						$(".concluida").find('input.etapaFinal').attr("name", nameConcluida);
-						$(".concluida").find('input.ordem').val(etapaCount+1).attr("name", ordemConcluida);
+				function() {
+					var clone = $(".clone").clone();
+					$(clone).removeClass("clone");
+					var etapaCount = $(".count").length + 1;
+					var name = "beneficio.etapas[" + (etapaCount - 1)
+							+ "].nome";
+					var order = "beneficio.etapas[" + (etapaCount - 1)
+							+ "].ordem";
+					$(clone).find('label')
+							.text('Etapa: ');
+					$(clone).find('input.etapaName').val('').attr("name",
+							name);
+					$(clone).find('input.ordem').val(etapaCount).attr(
+							"name", order);
+					
+					var nameConcluida = "beneficio.etapas[" + (etapaCount) + "].nome";
+					var ordemConcluida = "beneficio.etapas[" + (etapaCount) + "].ordem";
+					$(".concluida").find('input.etapaFinal').attr("name", nameConcluida);
+					$(".concluida").find('input.ordem').val(etapaCount+1).attr("name", ordemConcluida);
+					
+					$('<i/>',{
+						class:"icon-minus-sign",
+						onclick:"removerEtapa(this)"
+					}).appendTo(clone);
+					
+					$("#rendered").append(clone);
 
-						$("#rendered").append(clone);
-
-					});
-		});		
+			});
+	
 	</script>
 
 </body>
