@@ -47,7 +47,7 @@ public class EtapaAction implements CRUDAction {
 	}
 	
 	public String delete() {
-		if (etapaService.delete(etapa)) {
+		if (etapaService.delete(getEtapaFromRequest())) {
 			return SUCCESS;
 		}
 		return ERROR;

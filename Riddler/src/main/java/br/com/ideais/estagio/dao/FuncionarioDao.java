@@ -41,10 +41,12 @@ public class FuncionarioDao extends AbstractDao<Funcionario> {
 		return hibernateTemplate.findByCriteria(criteria);
 	}
 	
-	public boolean delete(Funcionario funcionario) {
+	public boolean delete(Long id) {
+		
+		Funcionario funcionario = findById(id);
 		try {
 			for (Feitos feitos : funcionario.getFeitos()) {
-				hibernateTemplate.delete(feitos.getEtapa());
+//				hibernateTemplate.delete(feitos.getEtapa());
 				hibernateTemplate.delete(feitos);
 				
 			}

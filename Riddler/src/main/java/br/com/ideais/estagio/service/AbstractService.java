@@ -4,7 +4,7 @@ import java.util.List;
 
 public  interface AbstractService<T> {
 
-	public boolean delete(T t);
+	public boolean delete(Long id);
 
 	public T findbyId(Long id);
 

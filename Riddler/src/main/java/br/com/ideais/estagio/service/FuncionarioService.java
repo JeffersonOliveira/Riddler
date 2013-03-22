@@ -64,8 +64,8 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 		return fDao.findById(id);
 	}
 
-	public boolean delete(Funcionario funcionario) {
-		return fDao.delete(funcionario);
+	public boolean delete(Long id) {
+		return fDao.delete(id);
 	}
 
 	public void setfDao(FuncionarioDao fDao) {
@@ -106,5 +106,6 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 		}
 		return mapaPendente;
 	}
+
 
 }

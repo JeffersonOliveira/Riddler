@@ -19,8 +19,8 @@ public class FeitosAction implements CRUDAction {
 	private FeitosService feitosService;
 	private Feitos feitos;
 	private List<Feitos> list_feitos;
-    private List<Feitos> feitosPendentes;
     private Funcionario funcionario;
+    private FuncionarioAction funcionarioAction;
     
 	public String execute() throws Exception {
 		return SUCCESS;
@@ -107,7 +107,7 @@ public class FeitosAction implements CRUDAction {
 	}
 
 	public String delete() {
-		if(feitosService.delete(getFeitos()))
+		if(feitosService.delete(getFeitosFromRequest()))
 			return SUCCESS;
 		return ERROR;
 	}
@@ -122,7 +122,7 @@ public class FeitosAction implements CRUDAction {
 	}
 	
 	public String buscarFuncionario(){
-		feitosPendentes = feitosService.buscarFuncionario(getFuncionario().getId());
+		feitosService.buscarFuncionario(getFuncionario().getId());
 		return SUCCESS;
 	}
 }

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import br.com.ideais.estagio.dao.BeneficioDao;
 import br.com.ideais.estagio.dao.EtapaDao;
 import br.com.ideais.estagio.model.Beneficio;
-import br.com.ideais.estagio.model.Etapa;
 
 @Service
 public class BeneficioService implements AbstractService<Beneficio> {
@@ -30,12 +29,12 @@ public class BeneficioService implements AbstractService<Beneficio> {
 		return bDao.list();
 	}
 
-	public boolean delete(Beneficio beneficio) {
-		return bDao.delete(beneficio);
-	}
-
 	public Beneficio findbyId(Long id) {
 		return bDao.findById(id);
+	}
+
+	public boolean delete(Long id) {
+		return bDao.delete(id);
 	}
 
 }
