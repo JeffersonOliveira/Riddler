@@ -47,7 +47,13 @@ public class BeneficioAction implements CRUDAction {
 	}
 
 	public String update() {
-		return SUCCESS;
+		try {
+			beneficioService.saveOrUpdate(beneficio);
+			return SUCCESS;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return ERROR;
 	}
 
 	public String delete() {
@@ -59,6 +65,12 @@ public class BeneficioAction implements CRUDAction {
 	public String list() {
 		beneficios = beneficioService.list();
 		return SUCCESS;
+	}
+	
+	public String buscarBeneficio(){
+		if(beneficio!=null)
+			return SUCCESS;
+		return ERROR;
 	}
 
 	private Long getBeneficioFromRequest() {
