@@ -32,8 +32,8 @@ public class EtapaService implements AbstractService<Etapa>{
 		return etapaDao.findById(id);
 	}
 	
-	public boolean delete(Etapa etapa){
-		return etapaDao.delete(etapa);
+	public boolean delete(Long id){
+		return etapaDao.delete(id);
 	}
 
 }

@@ -18,9 +18,9 @@ public abstract class AbstractDao<T> {
 		return hibernateTemplate.loadAll(getPersistentClass());
 	}
 
-	public boolean delete(T t) {
+	public boolean delete(Long id) {
 		try{
-			hibernateTemplate.delete(t);
+			hibernateTemplate.delete(id);
 			return true;
 		}catch (Exception e) {
 			return false;
