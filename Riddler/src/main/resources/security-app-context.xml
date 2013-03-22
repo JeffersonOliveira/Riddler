@@ -6,30 +6,30 @@
                    http://www.springframework.org/schema/beans/spring-beans.xsd
                    http://www.springframework.org/schema/security
                    http://www.springframework.org/schema/security/spring-security.xsd">
- 
+
 
 	<http use-expressions="true">
-		<intercept-url pattern="/home.jsp" access="isAuthenticated()" />
-		<intercept-url pattern="/cadastroFuncionario.jsp" access="isAuthenticated()" />
-		<intercept-url pattern="/cadastroBeneficio.jsp" access="isAuthenticated()" />
+		<intercept-url pattern="/atualizarTarefa.jsp" access="isAuthenticated()" />
 		<intercept-url pattern="/beneficios.jsp" access="isAuthenticated()" />
+		<intercept-url pattern="/cadastroBeneficio.jsp" access="isAuthenticated()" />
+		<intercept-url pattern="/cadastroFuncionario.jsp"
+			access="isAuthenticated()" />
+		<intercept-url pattern="/editarBeneficio.jsp" access="isAuthenticated()" />
 		<intercept-url pattern="/editarFuncionario.jsp" access="isAuthenticated()" />
 		<intercept-url pattern="/funcionarios.jsp" access="isAuthenticated()" />
+		<intercept-url pattern="/home.jsp" access="isAuthenticated()" />
 		<intercept-url pattern="/tarefasPendentes.jsp" access="isAuthenticated()" />
-		
-		<form-login
-			login-page="/index.jsp"
-			authentication-failure-url="/index.jsp"
-			default-target-url="/home.jsp"
-			/>
-			
+
+		<form-login login-page="/index.jsp"
+			authentication-failure-url="/index.jsp" default-target-url="/home.jsp" />
+
 		<logout logout-success-url="/index.jsp" />
 	</http>
 
 	<authentication-manager>
 		<authentication-provider>
 			<user-service>
-				<user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN"/>
+				<user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
 			</user-service>
 		</authentication-provider>
 	</authentication-manager>
