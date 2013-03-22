@@ -60,36 +60,14 @@
 								<input type="hidden" id="ordem" class="ordem" name="etapas[${status.index}].ordem" value="${etapa.ordem}" />
 							</p>
 						</div>
-						 
-						
-						
+
 						<c:set var="indice" value="${status.index}" />
 					</c:forEach>
 				</div>
-
-<!-- 				<div class="control-group  " id="rendered"> -->
-
-<!-- 					<div class="clone count" style="display:none"> -->
-<!-- 						<label class="control-label" for="inputEtapa">Etapa</label> -->
-<%-- 							<input class="etapaName" type="text" id="inputEtapa" name="beneficio.etapas[${indice + 1}].nome" placeholder="Nome da etapa"> --%>
-<%-- 						<input type="hidden" id="ordem" class="ordem" name="beneficio.etapas[${indice + 1}].ordem" value="${indice + 1}" /> <i class="icon-minus-sign" id="remove" onclick="removerEtapa(this)"></i> --%>
-<!-- 						<br /> -->
-<!-- 					</div> -->
-
-<!-- 				</div> -->
-
-<!-- 				<div class="concluida"> -->
-<%-- 					<input type="hidden" class="etapaFinal" id="inputFinal" name="beneficio.etapas[${etapa.ordem}].nome" value="Concluida"> --%>
-<%-- 					<input type="hidden" id="ordem" class="ordem" name="beneficio.etapas[${etapa.ordem}].ordem" value="${etapa.ordem}" /> --%>
-<!-- 				</div> -->
-				
 				<i class="icon-plus-sign" id="add"></i>
 				<input type="submit" class="btn btn-success" value="Cadastrar">
 			</form>
 		</div>
-
-
-
 	</div>
 
 	<jsp:include page="footer.jsp"></jsp:include>

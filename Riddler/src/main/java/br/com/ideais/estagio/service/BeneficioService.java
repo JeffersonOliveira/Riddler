@@ -22,7 +22,6 @@ public class BeneficioService implements AbstractService<Beneficio> {
 	}
 
 	public boolean saveOrUpdate(Beneficio beneficio) {
-		System.out.println("-----------entrei aqui " + beneficio.getEtapas());
 		return bDao.saveOrUpdate(beneficio);
 	}
 

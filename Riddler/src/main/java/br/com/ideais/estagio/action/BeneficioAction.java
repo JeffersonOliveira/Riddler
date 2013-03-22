@@ -51,11 +51,7 @@ public class BeneficioAction implements CRUDAction {
 
 	public String update() {
 		try {
-			System.out.println("Heeeeeeeeeeeey " + beneficio.getEtapas());
 			beneficio.setEtapas(etapas);
-			for(Etapa etapa: beneficio.getEtapas()){
-				System.out.println("----------------"+ etapa.getNome());
-			}
 			beneficioService.saveOrUpdate(beneficio);
 			return SUCCESS;
 		} catch (Exception e) {

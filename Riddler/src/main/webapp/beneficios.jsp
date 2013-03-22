@@ -64,7 +64,7 @@
 								<button class="btn btn-small btn-danger">
 								<font color="white">Deletar Tarefa</font>
 								</button></a>
-							
+
 						</td>
 					<tr>
 						<th>Etapas:</th>
