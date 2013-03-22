@@ -36,19 +36,26 @@
 		&nbsp;
 		<div align="center">
 
-				<input type="hidden" value="${feitos.funcionario.id}"
-					name="funcionario.id" readonly="readonly" />
-					
-				<input type="hidden" value="${feitos.id}"
-					name="feitos.id" readonly="readonly" />
+			<input type="hidden" value="${feitos.funcionario.id}"
+				name="funcionario.id" readonly="readonly" /> <input type="hidden"
+				value="${feitos.id}" name="feitos.id" readonly="readonly" />
 
-				<div align="left"><h2>${funcionario.nome}</h2></td></div>
-				<div align="center">
+			<div align="left">
+				<h2>${funcionario.nome}</h2>
+				</td>
+			</div>
+			<div align="center">
 				<table class="table table-striped">
+					<thead>
+						<th>Benefício</th>
+						<th>Etapa</th>
+						<th> </th>
+						<th>Observação</th>
+					</thead>
 					<tbody>
-					<c:forEach var="mapas" items="${mapa}">
-						<tr>
-							<td align="left"><b>${mapas.key}</b> </td>
+						<c:forEach var="mapas" items="${mapa}">
+							<tr>
+								<td align="left"><b>${mapas.key}</b></td>
 								<c:forEach var="item" items="${mapas.value}">
 									<td><b>${item.etapa.nome}</b></td>
 									<td>
@@ -58,21 +65,28 @@
 										</button>
 									</td>
 								</c:forEach>
-								<td> <textarea rows="5">
-									<c:forEach var="item" items="${mapas.value}">
- 										${item.observacao}
-									</c:forEach>
-								</textarea>&nbsp;&nbsp;&nbsp;&nbsp;
-								<button class="btn btn-small btn-success">
-									<a href="editarFuncionario?id=${funcionario.id}" ><font color="white">Salvar Observação</font></a>
-								 </button>
-							</td>	 
-							
-						</tr>
-					</c:forEach>
+
+								<td><c:forEach var="feitos" items="${mapas.value}">
+										<form action="adicionarObservacao" method="post">
+										<input type="hidden" value="${feitos.id}" name="feitos.id"/>
+											
+<!-- 											<input type="text" id="observacao" name="feitos.observacao"> -->
+											<textarea rows="5" id="observacao" name="feitos.observacao" value="${feito.observacao}">
+ 												${feitos.observacao}
+											</textarea>
+											
+											&nbsp;&nbsp;&nbsp;&nbsp;
+										<input type="submit" class="btn btn-small btn-success">
+												<font color="white">Salvar Observação</font>
+										</input>
+										</form>
+									</c:forEach></td>
+
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
-				</div>
+			</div>
 
 		</div>
 

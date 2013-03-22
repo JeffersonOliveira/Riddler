@@ -38,6 +38,11 @@ public class FeitosAction implements CRUDAction {
 	public Feitos getFeitos() {
 		return feitos;
 	}
+	
+	public void setFeitos(Feitos feitos) {
+		this.feitos = feitos;
+	}
+
 
 	public Funcionario getFuncionario() {
 		return funcionario;
@@ -79,6 +84,17 @@ public class FeitosAction implements CRUDAction {
 	public String finalizarEtapa(){
 		try{
 			feitosService.finalizarEtapa(getFeitosFromRequest());
+			return SUCCESS;
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return ERROR;
+	}
+	
+	public String adicionarObservacao(){
+		System.out.println("=================-------------" + getFeitos().getObservacao());
+		try{
+			feitosService.adicionarObservacao(getFeitos());
 			return SUCCESS;
 		}catch(Exception e){
 			System.out.println(e);

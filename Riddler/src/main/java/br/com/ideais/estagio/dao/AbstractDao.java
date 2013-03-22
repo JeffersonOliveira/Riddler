@@ -29,8 +29,8 @@ public abstract class AbstractDao<T> {
 
 	public boolean saveOrUpdate(T t) {
 		try{
-			hibernateTemplate.saveOrUpdate(t);
 			hibernateTemplate.flush();
+			hibernateTemplate.saveOrUpdate(t);
 			return true;
 		}catch (Exception e) {
 			System.out.println("----------------------_> " + e.getMessage());

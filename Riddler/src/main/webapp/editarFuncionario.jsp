@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -38,18 +39,21 @@
 		<div class="form">
 			<form action="editarFuncionario" method="post">
 				<h4>
-
-					Nome: <input type="text" id="usuario" name="funcionario.nome" value="${funcionario.nome}">
+					Nome: <input type="text" id="usuario" name="funcionario.nome"
+						value="${funcionario.nome}">
 				</h4>
 				<h4>
-					Data de Admissão: <input type="text" id="datepicker"
-						name="funcionario.dataDeAdmissao" value="${funcionario.dataDeAdmissao}" />
+					Data de Admissão:
+					<fmt:formatDate
+						value="${funcionario.dataDeAdmissao}"
+						type="date" pattern="dd-MM-yyyy" var="theFormattedDate" />
+					<input type="text" value="${theFormattedDate}"  />
+
 				</h4>
 
 				<input type="submit" class="btn btn-success" value="Alterar Dados">
 			</form>
 		</div>
-
 
 
 
