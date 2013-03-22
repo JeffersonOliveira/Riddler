@@ -110,7 +110,6 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 		return mapaPendente;
 	}
 
-
 	public HashMap<String, Collection<Feitos>> listarTarefasUrgentes() {
 
 		HashMap<String, Collection<Feitos>> mapaUrgente = new HashMap<String, Collection<Feitos>>();
@@ -118,7 +117,7 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 		for (Feitos feitos : feitosDao.listarTarefasPendentes()) {
 			String funcionario = feitos.getFuncionario().getNome();
 
-			if (!mapaUrgente.containsKey(funcionario) && alarmeDao.dataAlarme() ) {
+			if (!mapaUrgente.containsKey(funcionario) && alarmeDao.dataAlarme()) {
 
 				mapaUrgente.put(funcionario, new LinkedList<Feitos>());
 			}
@@ -126,6 +125,17 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 
 		}
 		return mapaUrgente;
+	}
+
+	public void atualizar(Long idFuncionario, Funcionario funcionario) {
+
+		Funcionario funcionarioBanco = findbyId(idFuncionario);
+		funcionarioBanco.setFeitos(funcionario.getFeitos());
+		funcionarioBanco.setDataDeAdmissao(funcionario.getDataDeAdmissao());
+		funcionarioBanco.setNome(funcionario.getNome());
+		
+		fDao.saveOrUpdate(funcionarioBanco);
+
 	}
 
 }

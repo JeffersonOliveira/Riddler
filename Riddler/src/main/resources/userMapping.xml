@@ -23,6 +23,12 @@
 			<result name="error">/cadastroFuncionario.jsp</result>
 		</action>
 
+		<action name="atualizarFuncionario" class="br.com.ideais.estagio.action.FuncionarioAction"
+			method="atualizar">
+			<result name="success" type="redirect">listarFuncionarios</result>
+			<result name="error">/cadastroFuncionario.jsp</result>
+		</action>
+
 		<action name="deletarFuncionario" class="br.com.ideais.estagio.action.FuncionarioAction"
 			method="delete">
 			<result name="success" type="redirect">listarFuncionarios</result>
@@ -30,7 +36,7 @@
 		</action>
 
 		<action name="editarFuncionario" class="br.com.ideais.estagio.action.FuncionarioAction"
-			method="update">
+			method="editarTarefas">
 			<result name="success">/editarFuncionario.jsp</result>
 		</action>
 
@@ -44,12 +50,12 @@
 			method="listarTarefasPendentes">
 			<result name="success">tarefasPendentes.jsp</result>
 		</action>
-		
+
 		<action name="listarTarefasUrgentes" class="br.com.ideais.estagio.action.FuncionarioAction"
 			method="listarTarefasUrgentes">
 			<result name="success">home.jsp</result>
 		</action>
-		
+
 		<action name="terefasPendentes" class="br.com.ideais.estagio.action.FuncionarioAction"
 			method="editarTarefas">
 			<result name="success">atualizarTarefa.jsp</result>
@@ -69,7 +75,7 @@
 		</action>
 
 		<!-- Beneficio -->
-		
+
 		<action name="buscarBeneficio" class="br.com.ideais.estagio.action.BeneficioAction"
 			method="buscarBeneficio">
 			<result name="success">/editarBeneficio.jsp</result>
@@ -79,6 +85,12 @@
 			method="list">
 			<result name="success">/beneficios.jsp</result>
 		</action>
+
+		<action name="listarBeneficiosFuncionario" class="br.com.ideais.estagio.action.BeneficioAction"
+			method="list">
+			<result name="success">/editarFuncionario.jsp</result>
+		</action>
+
 
 		<action name="funcionarioBeneficios" class="br.com.ideais.estagio.action.BeneficioAction"
 			method="list">

@@ -71,6 +71,15 @@ public class FuncionarioAction implements CRUDAction {
 			return ERROR;
 		}
 	}
+	
+	public String atualizar() {
+		try{
+			funcionarioService.atualizar(getFuncionarioFromRequest(), funcionario);
+			return SUCCESS;
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return ERROR;	}
 
 	public String editarTarefas() {
 		System.out.println(getFuncionarioFromRequest());

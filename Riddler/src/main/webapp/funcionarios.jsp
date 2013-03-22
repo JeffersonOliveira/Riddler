@@ -48,7 +48,7 @@
 							<td><fmt:formatDate pattern="dd/MM/yyyy"
 									value="${funcionario.dataDeAdmissao}" /></td>
 							<td><button class="btn btn-small btn-success" value="Editar">
-									<a href="editarFuncionario?id=${funcionario.id}"><font
+									<a href="listarBeneficiosFuncionario?id=${funcionario.id}"><font
 										color="white">Editar Funcionario</font></a>
 								</button></td>
 							<td>
