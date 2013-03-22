@@ -52,6 +52,10 @@ public class Beneficio implements Serializable {
 	public List<Etapa> getEtapas() {
 		return etapas;
 	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public void setNome(String nome) {
 		this.nome = nome;

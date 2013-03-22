@@ -64,4 +64,8 @@ public class Etapa implements Serializable {
 		return id;
 	}
 	
+	public void setid(Long id) {
+		this.id = id;
+	}
+	
 }

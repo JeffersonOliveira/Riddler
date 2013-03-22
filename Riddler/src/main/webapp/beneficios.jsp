@@ -43,21 +43,28 @@
 					<tr>
 						<td>${beneficio.nome}</td>
 						<td>${beneficio.prazo}</td>
-						<td><button class="btn btn-small btn-success" value="Editar">
-								<a href="buscarBeneficio?id=${beneficio.id}"><font
-									color="white">Editar Tarefa</font></a>
-							</button></td>
 						<td>
-							<button class="btn btn-small btn-success">
+							<a href="buscarBeneficio?id=${beneficio.id}">
+								<font color="white">
+									<button class="btn btn-small btn-success" value="Editar">Editar Tarefa</button>
+								</font>
+							</a>
+							</td>
+						<td>
+							
 								<a href="listarEtapas?id=${beneficio.id}">
-								<font color="white">Verificar Etapas</font></a>
-							</button>
+								<button class="btn btn-small btn-success">
+								<font color="white">Verificar Etapas</font>
+								</button></a>
+							
 						</td>
 						<td>
-							<button class="btn btn-small btn-danger">
+							
 								<a href="deletarBeneficios?id=${beneficio.id}">
-								<font color="white">Deletar Tarefa</font></a>
-							</button>
+								<button class="btn btn-small btn-danger">
+								<font color="white">Deletar Tarefa</font>
+								</button></a>
+							
 						</td>
 					<tr>
 						<th>Etapas:</th>

@@ -8,6 +8,7 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.ideais.estagio.model.Beneficio;
+import br.com.ideais.estagio.model.Etapa;
 import br.com.ideais.estagio.service.BeneficioService;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -16,8 +17,10 @@ public class BeneficioAction implements CRUDAction {
 
 	@Autowired
 	private BeneficioService beneficioService;
+	
 	private Beneficio beneficio;
 	private List<Beneficio> beneficios;
+	private List<Etapa> etapas;
 
 	public String execute() throws Exception {
 		return SUCCESS;
@@ -48,6 +51,11 @@ public class BeneficioAction implements CRUDAction {
 
 	public String update() {
 		try {
+			System.out.println("Heeeeeeeeeeeey " + beneficio.getEtapas());
+			beneficio.setEtapas(etapas);
+			for(Etapa etapa: beneficio.getEtapas()){
+				System.out.println("----------------"+ etapa.getNome());
+			}
 			beneficioService.saveOrUpdate(beneficio);
 			return SUCCESS;
 		} catch (Exception e) {
@@ -90,6 +98,10 @@ public class BeneficioAction implements CRUDAction {
 	public void setBeneficios(List<Beneficio> beneficios) {
 		this.beneficios = beneficios;
 	}
+	
+	public void setEtapas(List<Etapa> etapas ) {
+		this.etapas = etapas;
+	}
 
 	public void setBeneficioService(BeneficioService beneficioService) {
 		this.beneficioService = beneficioService;
@@ -101,6 +113,10 @@ public class BeneficioAction implements CRUDAction {
 
 	public List<Beneficio> getBeneficios() {
 		return beneficios;
+	}
+	
+	public List<Etapa> getEtapas() {
+		return etapas;
 	}
 
 	public BeneficioService getBeneficioService() {
