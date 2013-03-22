@@ -17,23 +17,29 @@
 
 		<h2 align="center">Todas as tarefas</h2>
 
-
-		<!-- 				<th>Beneficio</th> -->
-		<!-- 				<th>Etapa</th> -->
-		<!-- 			</thead> -->
 		<c:forEach var="mapa" items="${mapaPendente}">
 			<table align="center">
 				<thead align="center">
-					<th align="center"><b>${mapa.key}</b></th>
-					<br>
+					<h3 align="center">
+						<b>${mapa.key}</b>
+					</h3>
+					<h4>
+					</h4>
 				</thead>
 			</table>
 
-			<table class="table table-striped">
+			<table align="center" class="table table-striped">
 				<c:forEach var="item" items="${mapa.value}">
-					<th>${item.etapa.beneficio.nome}</th>
-					<td><b>${item.etapa.nome}</b></td>
+			<input type="hidden" value="${item.funcionario.id}"
+				name="funcionario.id" readonly="readonly" />
 
+
+					<td><b>${item.etapa.beneficio.nome}</b> - Status: <font color="red">${item.etapa.nome}</font></td>
+
+					<td><button class="btn btn-small btn-success">
+							<a href="terefasPendentes?id=${item.funcionario.id}"><font
+								color="white">Verificar</font></a>
+						</button></td>
 				</c:forEach>
 				</c:forEach>
 				</tbody>
