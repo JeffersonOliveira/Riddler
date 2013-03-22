@@ -89,12 +89,22 @@ public class FuncionarioAction implements CRUDAction {
 		}
 		return ERROR;
 	}
-	
+
 	public String delete() {
-		if(funcionarioService.delete(funcionario))
+		try {
+			funcionarioService.delete(funcionario);
 			return SUCCESS;
-		return ERROR;
+		} catch (Exception e) {
+
+			return ERROR;
+		}
 	}
+
+//	public String delete() {
+//		if(funcionarioService.delete(funcionario))
+//			return SUCCESS;
+//		return ERROR;
+//	}
 
 	
 	public String create() {

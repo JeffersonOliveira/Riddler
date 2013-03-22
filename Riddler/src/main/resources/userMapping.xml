@@ -26,7 +26,7 @@
 		<action name="deletarFuncionario" class="br.com.ideais.estagio.action.FuncionarioAction"
 			method="delete">
 			<result name="success" type="redirect">listarFuncionarios</result>
-<!-- 			<result name="error">/funcionarios.jsp</result> -->
+			<result name="error">funcionarios.jsp</result>
 		</action>
 
 		<action name="editarFuncionario" class="br.com.ideais.estagio.action.FuncionarioAction"

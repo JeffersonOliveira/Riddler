@@ -2,7 +2,6 @@ package br.com.ideais.estagio.dao;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.ideais.estagio.model.Feitos;
 import br.com.ideais.estagio.model.Funcionario;
 
 @Service
@@ -41,5 +41,22 @@ public class FuncionarioDao extends AbstractDao<Funcionario> {
 		return hibernateTemplate.findByCriteria(criteria);
 	}
 	
-	
+	public boolean delete(Funcionario funcionario) {
+		try {
+			for (Feitos feitos : funcionario.getFeitos()) {
+				hibernateTemplate.delete(feitos.getEtapa());
+				hibernateTemplate.delete(feitos);
+				
+			}
+			hibernateTemplate.delete(funcionario);
+			return true;
+		} catch (Exception e) {
+			System.out.println("--------------------------------");
+			
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			
+		}
+		return false;
+	}
 }
