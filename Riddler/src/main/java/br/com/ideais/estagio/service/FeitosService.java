@@ -64,11 +64,13 @@ public class FeitosService implements AbstractService<Feitos> {
 
 	}
 
-	public boolean adicionarObservacao(Long id, Feitos feitoView){
-
-		Feitos feitos = findbyId(id);
+	public boolean adicionarObservacao(Feitos feitoView){
+		System.out.println("=================" + feitoView.getObservacao());
+		Feitos feitos = findbyId(feitoView.getId());
 		
 		feitos.setObservacao(feitoView.getObservacao());
+		System.out.println("=================********************" + feitos.getObservacao());
+		System.out.println("=================********************" + feitos.getFuncionario().getNome());
 		return ftDao.saveOrUpdate(feitos);
 
 	}

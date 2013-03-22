@@ -43,6 +43,10 @@ public class Feitos implements Serializable {
 
 
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public Funcionario getFuncionario() {
 		return funcionario;
 	}
