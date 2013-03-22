@@ -37,7 +37,7 @@ public class FuncionarioDao extends AbstractDao<Funcionario> {
 	
 	public List<Funcionario> findFuncionariosLike(String value){
 		DetachedCriteria criteria = DetachedCriteria.forClass(Funcionario.class);
-		criteria.add(Restrictions.like("nome", value));
+		criteria.add(Restrictions.like("nome", "%"+value+"%"));
 		return hibernateTemplate.findByCriteria(criteria);
 	}
 	
@@ -46,9 +46,7 @@ public class FuncionarioDao extends AbstractDao<Funcionario> {
 		Funcionario funcionario = findById(id);
 		try {
 			for (Feitos feitos : funcionario.getFeitos()) {
-//				hibernateTemplate.delete(feitos.getEtapa());
 				hibernateTemplate.delete(feitos);
-				
 			}
 			hibernateTemplate.delete(funcionario);
 			return true;

@@ -2,7 +2,7 @@ package br.com.ideais.estagio.service;
 
 import java.util.List;
 
-public interface AbstractService<T> {
+public  interface AbstractService<T> {
 
 	public boolean delete(Long id);
 
