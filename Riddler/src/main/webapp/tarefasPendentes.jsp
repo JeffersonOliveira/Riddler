@@ -15,34 +15,39 @@
 
 		<jsp:include page="header.jsp" />
 
-		<h2>Todas as tarefas</h2>
+		<h2 align="center">Todas as tarefas</h2>
+
+		<c:forEach var="mapa" items="${mapaPendente}">
+			<table align="center">
+				<thead align="center">
+					<h3 align="center">
+						<b>${mapa.key}</b>
+					</h3>
+					<h4>
+					</h4>
+				</thead>
+			</table>
+
+			<table align="center" class="table table-striped">
+				<c:forEach var="item" items="${mapa.value}">
+			<input type="hidden" value="${item.funcionario.id}"
+				name="funcionario.id" readonly="readonly" />
 
 
-		<table class="table table-striped">
-			<thead align="center">
-				<th>Funcionário</th>
-				<th>Benefício</th>
-				<th>Etapa</th>
-			</thead>
+					<td><b>${item.etapa.beneficio.nome}</b> - Status: <font color="red">${item.etapa.nome}</font></td>
 
-			<tbody>
-				<c:forEach var="mapaPendente" items="${mapaPendente}">
-					<tr align="left">${mapaPendente.key}
-					</tr>
-					<c:forEach var="item" items="${mapaPendente.value}">
-						<tr>
-						<td>${item.etapa.beneficio.nome}</td>
-						<td>${item.etapa.nome}</td>
-						</tr>
-					</c:forEach>
+					<td><button class="btn btn-small btn-success">
+							<a href="terefasPendentes?id=${item.funcionario.id}"><font
+								color="white">Verificar</font></a>
+						</button></td>
 				</c:forEach>
-			</tbody>
-		</table>
+				</c:forEach>
+				</tbody>
+			</table>
 	</div>
 
 
-
-	<td><jsp:include page="footer.jsp"></jsp:include>
-		</div>
+	<jsp:include page="footer.jsp"></jsp:include>
+	</div>
 </body>
 </html>

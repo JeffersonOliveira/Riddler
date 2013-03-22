@@ -32,27 +32,68 @@
 
 		<jsp:include page="header.jsp" />
 
-		<div class="masthead" align="center">
-			<h1 class="muted">Editar Funcionário ${funcionario.nome}</h1>
+
+		<div align="left">
+			<h2>Editar Colaborador</h2>
+			<hr />
+			<h3>${id}</h3>
 		</div>
-		<hr />
 		<div class="form">
-			<form action="editarFuncionario" method="post">
+			<form action="atualizarFuncionario" method="post">
+				${erro}
 				<h4>
-					Nome: <input type="text" id="usuario" name="funcionario.nome"
-						value="${funcionario.nome}">
+					<input type="hidden" value="${id}"
+						name="funcionario.id" readonly="readonly" /> 
+						
+					Nome: <input type="text" id="usuario" name="funcionario.nome" value="${id}">
 				</h4>
 				<h4>
-					Data de Admissão:
-					<fmt:formatDate
-						value="${funcionario.dataDeAdmissao}"
-						type="date" pattern="dd/MM/yyyy" var="theFormattedDate" />
-					<input type="text" id="datepicker" value="${theFormattedDate}"  />
-
+					Data de Admissão: <input type="text" id="datepicker"
+						name="funcionario.dataDeAdmissao" value="${funcionario.dataDeAdmissao}" />
 				</h4>
 
+				<table class="table table-striped">
+					<tbody>
+						<c:forEach var="beneficio" items="${beneficios}" varStatus="count">
+							<label class="checkbox"> <input type="checkbox"
+								name="etapasSelecionadas[${count.index}]"
+								value="${beneficio.primeiraEtapa.id}" /> ${beneficio.nome}
+							</label>
+						</c:forEach>
+					</tbody>
+				</table>
 				<input type="submit" class="btn btn-success" value="Alterar Dados">
 			</form>
+			
+			<!-- 			<form action="atualizarFuncionario" method="post"> -->
+			<!-- 				<h4> -->
+			<!-- 					Nome: <input type="text" id="usuario" name="funcionario.nome" -->
+			<%-- 						value="${funcionario.nome}"> --%>
+			<!-- 				</h4> -->
+			<!-- 				<h4> -->
+			<!-- 					Data de Admissão: -->
+			<%-- 					<fmt:formatDate value="${funcionario.dataDeAdmissao}" type="date" --%>
+			<%-- 						pattern="dd/MM/yyyy" var="theFormattedDate" /> --%>
+			<%-- 					<input type="text" id="datepicker" value="${theFormattedDate}" name="funcionario.dataDeAdmissao" /> --%>
+
+			<!-- 				</h4> -->
+
+			<%-- 				<c:forEach var="mapas" items="${mapa}"> --%>
+			<!-- 					<tr> -->
+			<%-- 						<td><c:forEach var="feitos" items="${mapas.value}" varStatus="count"> --%>
+			<!-- 								<label class="checkbox">  -->
+			<!-- 									<input type="checkbox" -->
+			<%-- 									name="etapasSelecionadas[${count.index}]" --%>
+			<%-- 									value="${feitos.etapa.beneficio.primeiraEtapa.id}" />${mapas.key} --%>
+			<!-- 								</label> -->
+			<%-- 							</c:forEach></td> --%>
+
+			<!-- 					</tr> -->
+			<%-- 				</c:forEach> --%>
+
+
+			<!-- 				<input type="submit" class="btn btn-success" value="Alterar Dados"> -->
+			<!-- 			</form> -->
 		</div>
 
 
@@ -65,10 +106,10 @@
 <script type="text/javascript">
 	$(function() {
 		$("#datepicker").datepicker({
-		"dateFormat": "dd/mm/yy",
-		"constrainInput": true
+			"dateFormat" : "dd/mm/yy",
+			"constrainInput" : true
 		});
-''
+		''
 		$("#anim").change(function() {
 			$("#datepicker").datepicker("option", "showAnim", $(this).val());
 		});

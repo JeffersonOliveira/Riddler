@@ -26,9 +26,9 @@ public class AlarmeDao extends AbstractDao<Alarme> {
 	@Autowired
 	HibernateTemplate hibernateTemplate;
 
-	public void dataAlarme() {
+	public boolean dataAlarme() {
 		
-		List<Alarme> alarmes = new ArrayList<Alarme>();
+		//List<Alarme> alarmes = new ArrayList<Alarme>();
 		Set<Beneficio> beneficios = new TreeSet<Beneficio>();
 		List<Funcionario> funcionarios = new ArrayList<Funcionario>();
 
@@ -64,12 +64,22 @@ public class AlarmeDao extends AbstractDao<Alarme> {
 						.format(dtPrazo));
 
 				if (dtPrazomillis <= dataAtualmillis) {
-					Alarme alarme = new Alarme();
-					alarme.setFuncionario(funcionario);
-					alarme.setBeneficio(beneficio);
-					alarmes.add(alarme);
+					System.out.println(">>>>>>>>>>>>>>>>>>>> verdade dtPrazo "+dtPrazo);
+					return true;
+	
+					
+					
+					
+//					Alarme alarme = new Alarme();
+//					alarme.setFuncionario(funcionario);
+//					alarme.setBeneficio(beneficio);Alarme alarme = new Alarme();
+//					alarme.setFuncionario(funcionario);
+//					alarme.setBeneficio(beneficio);
+//					alarmes.add(alarme);
+//					alarmes.add(alarme);
 				}
 			}
 		}
+		return false;
 	}
 }

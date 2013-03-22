@@ -35,6 +35,8 @@ public class FuncionarioAction implements CRUDAction {
 	private HashMap<String, List<Feitos>> mapa;
 	
 	private HashMap<String, Collection<Feitos>> mapaPendente;
+	
+	private HashMap<String, Collection<Feitos>> mapaUrgente;
 
 	public String execute() throws Exception {
 		return SUCCESS;
@@ -69,6 +71,15 @@ public class FuncionarioAction implements CRUDAction {
 			return ERROR;
 		}
 	}
+	
+	public String atualizar() {
+		try{
+			funcionarioService.atualizar(getFuncionarioFromRequest(), funcionario);
+			return SUCCESS;
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return ERROR;	}
 
 	public String editarTarefas() {
 		System.out.println(getFuncionarioFromRequest());
@@ -85,6 +96,16 @@ public class FuncionarioAction implements CRUDAction {
 	public String listarTarefasPendentes() {
 		try {
 			setMapaPendente(funcionarioService.listarTarefasPendentes());
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
+		}
+	}
+	
+	public String listarTarefasUrgentes() {
+		try {
+			setMapaUrgente(funcionarioService.listarTarefasUrgentes());
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -189,6 +210,13 @@ public class FuncionarioAction implements CRUDAction {
 
 	public void setMapaPendente(HashMap<String, Collection<Feitos>> mapaPendente) {
 		this.mapaPendente = mapaPendente;
+	}
+	
+	public void setMapaUrgente(HashMap<String, Collection<Feitos>> mapaUrgente) {
+		this.mapaUrgente = mapaUrgente;
+	}
+	public HashMap<String, Collection<Feitos>> getMapaUrgente() {
+		return mapaUrgente;
 	}
 	
 	
