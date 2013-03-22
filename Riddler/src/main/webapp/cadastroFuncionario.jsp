@@ -19,9 +19,7 @@
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css" />
 
-
 <jsp:include page="headerCSS.jsp" />
-
 
 </head>
 
@@ -50,9 +48,9 @@
 				<table class="table table-striped">
 					<tbody>
 						<c:forEach var="beneficio" items="${beneficios}" varStatus="count">
-							<label class="checkbox">
-								<input type="checkbox" name="etapasSelecionadas[${count.index}]" value="${beneficio.primeiraEtapa.id}"/>
-									${beneficio.nome}
+							<label class="checkbox"> <input type="checkbox"
+								name="etapasSelecionadas[${count.index}]"
+								value="${beneficio.primeiraEtapa.id}" /> ${beneficio.nome}
 							</label>
 						</c:forEach>
 					</tbody>
@@ -61,21 +59,19 @@
 			</form>
 		</div>
 
-
-
-
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
+	<script type="text/javascript">
+		$(function() {
+			$("#datepicker").datepicker();
+			$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
+
+			$("#anim").change(
+					function() {
+						$("#datepicker").datepicker("option", "showAnim",
+								$(this).val());
+					});
+		});
+	</script>
 </body>
 </html>
-
-<script type="text/javascript">
-	$(function() {
-		$("#datepicker").datepicker();
-		$("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
-
-		$("#anim").change(function() {
-			$("#datepicker").datepicker("option", "showAnim", $(this).val());
-		});
-	});
-</script>

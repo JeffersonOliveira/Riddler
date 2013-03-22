@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.ideais.estagio.model.Beneficio;
-import br.com.ideais.estagio.model.Etapa;
 
 @Service
 @Transactional
@@ -25,6 +24,18 @@ public class BeneficioDao extends AbstractDao<Beneficio> {
 			return true;
 		} catch (Exception e) {
 			System.out.println(e);
+		}
+		return false;
+	}
+	
+	public boolean delete(Long id) {
+		Beneficio beneficio = findById(id);
+		try {
+			hibernateTemplate.delete(beneficio);
+			return true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 		return false;
 	}

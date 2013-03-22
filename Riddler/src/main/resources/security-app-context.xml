@@ -21,7 +21,7 @@
 		<intercept-url pattern="/tarefasPendentes.jsp" access="isAuthenticated()" />
 
 		<form-login login-page="/index.jsp"
-			authentication-failure-url="/index.jsp" default-target-url="/home.jsp" />
+			authentication-failure-url="/index.jsp" default-target-url="listarTarefasUrgentes" />
 
 		<logout logout-success-url="/index.jsp" />
 	</http>
