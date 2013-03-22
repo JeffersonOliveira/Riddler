@@ -60,7 +60,7 @@
 									<td><b>${item.etapa.nome}</b></td>
 									<td>
 										<button class="btn btn-small btn-success">
-											<a href="finalizarEtapa?id=${item.id}"><font
+											<a href="finalizarEtapa?id=${item.id}&idFuncionario=${item.funcionario.id}"><font
 												color="white">Avançar Etapa</font></a>
 										</button>
 									</td>
