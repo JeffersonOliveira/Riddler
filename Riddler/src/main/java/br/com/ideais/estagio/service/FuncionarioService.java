@@ -1,4 +1,5 @@
 package br.com.ideais.estagio.service;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -21,22 +22,21 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 	private FuncionarioDao fDao;
 	@Autowired
 	private FeitosDao feitosDao;
-	
-	private List<Feitos> feitosPendentes = new ArrayList<Feitos>();
-	
-	private List<Etapa> etapasPendentes;
+	@Autowired
+	private EtapaService etapaService;
+	@Autowired
+	private FeitosService feitosService;
 
-	
-	
-	public void persist(Funcionario funcionario){
+	public void persist(Funcionario funcionario) {
 		fDao.persist(funcionario);
 	}
-	
-	public boolean saveOrUpdate(Funcionario funcionario){
+
+	public boolean saveOrUpdate(Funcionario funcionario) {
 		return fDao.saveOrUpdate(funcionario);
 	}
 
-	public boolean saveOrUpdate(Funcionario funcionario, Collection<Etapa> etapasSelecionadas) {
+	public boolean saveOrUpdate(Funcionario funcionario,
+			Collection<Etapa> etapasSelecionadas) {
 		for (Etapa etapa : etapasSelecionadas) {
 			System.out.println(etapa.getId());
 		}
@@ -52,38 +52,37 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 			feitos.add(f);
 		}
 		funcionario.setFeitos(feitos);
-		
-		return fDao.saveOrUpdate(funcionario); 
+
+		return fDao.saveOrUpdate(funcionario);
 	}
 
 	public List<Funcionario> list() {
 		return fDao.list();
 	}
-	
 
 	public Funcionario findbyId(Long id) {
 		return fDao.findById(id);
 	}
-	
-	public boolean delete(Funcionario funcionario){
+
+	public boolean delete(Funcionario funcionario) {
 		return fDao.delete(funcionario);
 	}
 
 	public void setfDao(FuncionarioDao fDao) {
 		this.fDao = fDao;
 	}
-	
-	public HashMap<String, List<Feitos>> editarTarefas(Long id){
-		Funcionario	 funcionario = findbyId(id);
+
+	public HashMap<String, List<Feitos>> editarTarefas(Long id) {
+		Funcionario funcionario = findbyId(id);
 		HashMap<String, List<Feitos>> mapa = new HashMap<String, List<Feitos>>();
 		for (Feitos feitos : funcionario.getFeitos()) {
-			   String nomeBeneficio = feitos.getEtapa().getBeneficio().getNome();
-			   if (!mapa.containsKey(nomeBeneficio)) {
-			      mapa.put(nomeBeneficio, new ArrayList());
-			   }
-			   mapa.get(nomeBeneficio).add(feitos);
+			String nomeBeneficio = feitos.getEtapa().getBeneficio().getNome();
+			if (!mapa.containsKey(nomeBeneficio)) {
+				mapa.put(nomeBeneficio, new ArrayList());
 			}
-		
+			mapa.get(nomeBeneficio).add(feitos);
+		}
+
 		return mapa;
 	}
 
@@ -91,6 +90,21 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 		return fDao.findFuncionariosLike(nome);
 	}
 
-	
-}
+	public HashMap<String, Collection<Feitos>> listarTarefasPendentes() {
 
+		HashMap<String, Collection<Feitos>> mapaPendente = new HashMap<String, Collection<Feitos>>();
+
+		for (Feitos feitos : feitosDao.listarTarefasPendentes()) {
+			String funcionario = feitos.getFuncionario().getNome();
+
+			if (!mapaPendente.containsKey(funcionario)) {
+
+				mapaPendente.put(funcionario, new LinkedList<Feitos>());
+			}
+			mapaPendente.get(funcionario).add(feitos);
+
+		}
+		return mapaPendente;
+	}
+
+}

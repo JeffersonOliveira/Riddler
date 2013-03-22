@@ -33,6 +33,8 @@ public class FuncionarioAction implements CRUDAction {
 	private List<Funcionario> funcionarios;
 
 	private HashMap<String, List<Feitos>> mapa;
+	
+	private HashMap<String, Collection<Feitos>> mapaPendente;
 
 	public String execute() throws Exception {
 		return SUCCESS;
@@ -78,6 +80,16 @@ public class FuncionarioAction implements CRUDAction {
 			System.out.println(e);
 		}
 		return ERROR;
+	}
+	
+	public String listarTarefasPendentes() {
+		try {
+			mapaPendente = funcionarioService.listarTarefasPendentes();
+			return SUCCESS;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ERROR;
+		}
 	}
 
 	public String update() {
@@ -171,5 +183,7 @@ public class FuncionarioAction implements CRUDAction {
 	public void setMapa(HashMap<String, List<Feitos>> mapa) {
 		this.mapa = mapa;
 	}
+	
+	
 
 }
