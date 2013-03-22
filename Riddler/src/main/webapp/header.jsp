@@ -9,7 +9,8 @@
 							<li class="active" ><a href="home.jsp">Tarefas
 									Urgentes</a></li>
 							<li><a href="funcionarioBeneficios">Cadastro Funcionário</a></li>
-							<li><a href="cadastroBeneficio.jsp">Cadastro Benefício</a></li>
+							<li><a href="cadastroBeneficio.jsp">Cadastrar Tarefa</a></li>
+							<li><a href="listarBeneficios">Tarefas</a></li>
 							<li><a href="listarTarefasPendentes">Tarefas Pendentes</a></li>
 							<li><a href="listarFuncionarios">Funcionários </a></li>
 						
