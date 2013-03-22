@@ -64,6 +64,11 @@
 		</action>
 
 		<!-- Beneficio -->
+		
+		<action name="buscarBeneficio" class="br.com.ideais.estagio.action.BeneficioAction"
+			method="buscarBeneficio">
+			<result name="success">/editarBeneficio.jsp</result>
+		</action>
 
 		<action name="listarBeneficios" class="br.com.ideais.estagio.action.BeneficioAction"
 			method="list">
@@ -89,7 +94,7 @@
 
 		<action name="editarBeneficio" class="br.com.ideais.estagio.action.BeneficioAction"
 			method="update">
-			<result name="success">/editarBeneficio.jsp</result>
+			<result name="success" type="redirect">listarBeneficios</result>
 		</action>
 
 		<!-- Usuario -->
