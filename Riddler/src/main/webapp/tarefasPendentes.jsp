@@ -15,34 +15,33 @@
 
 		<jsp:include page="header.jsp" />
 
-		<h2>Todas as tarefas</h2>
+		<h2 align="center">Todas as tarefas</h2>
 
 
-		<table class="table table-striped">
-			<thead align="center">
-				<th>Funcionário</th>
-				<th>Benefício</th>
-				<th>Etapa</th>
-			</thead>
+		<!-- 				<th>Beneficio</th> -->
+		<!-- 				<th>Etapa</th> -->
+		<!-- 			</thead> -->
+		<c:forEach var="mapa" items="${mapaPendente}">
+			<table align="center">
+				<thead align="center">
+					<th align="center"><b>${mapa.key}</b></th>
+					<br>
+				</thead>
+			</table>
 
-			<tbody>
-				<c:forEach var="mapaPendente" items="${mapaPendente}">
-					<tr align="left">${mapaPendente.key}
-					</tr>
-					<c:forEach var="item" items="${mapaPendente.value}">
-						<tr>
-						<td>${item.etapa.beneficio.nome}</td>
-						<td>${item.etapa.nome}</td>
-						</tr>
-					</c:forEach>
+			<table class="table table-striped">
+				<c:forEach var="item" items="${mapa.value}">
+					<th>${item.etapa.beneficio.nome}</th>
+					<td><b>${item.etapa.nome}</b></td>
+
 				</c:forEach>
-			</tbody>
-		</table>
+				</c:forEach>
+				</tbody>
+			</table>
 	</div>
 
 
-
-	<td><jsp:include page="footer.jsp"></jsp:include>
-		</div>
+	<jsp:include page="footer.jsp"></jsp:include>
+	</div>
 </body>
 </html>
