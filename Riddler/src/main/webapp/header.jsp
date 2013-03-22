@@ -1,7 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="masthead">
 
-			<h3 class="muted" align="center">- Perfil RH</h3>&nbsp;
+			<h3 class="muted" align="center">
+			   <img src="http://ebmedia.eventbrite.com/s3-build/images/52296/15613824009/1/logo.png" width="80px;" height="80px;"/>
+				<font color="#000088">Riddler</font>
+			</h3>&nbsp;
 			<div class="navbar">
 				<div class="tabbable">
 					<div class="container">
