@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.ideais.estagio.dao.AlarmeDao;
 import br.com.ideais.estagio.dao.FeitosDao;
 import br.com.ideais.estagio.dao.FuncionarioDao;
 import br.com.ideais.estagio.model.Etapa;
@@ -22,6 +23,8 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 	private FuncionarioDao fDao;
 	@Autowired
 	private FeitosDao feitosDao;
+	@Autowired
+	private AlarmeDao alarmeDao;
 	@Autowired
 	private EtapaService etapaService;
 	@Autowired
@@ -107,5 +110,22 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 		return mapaPendente;
 	}
 
+
+	public HashMap<String, Collection<Feitos>> listarTarefasUrgentes() {
+
+		HashMap<String, Collection<Feitos>> mapaUrgente = new HashMap<String, Collection<Feitos>>();
+
+		for (Feitos feitos : feitosDao.listarTarefasPendentes()) {
+			String funcionario = feitos.getFuncionario().getNome();
+
+			if (!mapaUrgente.containsKey(funcionario) && alarmeDao.dataAlarme() ) {
+
+				mapaUrgente.put(funcionario, new LinkedList<Feitos>());
+			}
+			mapaUrgente.get(funcionario).add(feitos);
+
+		}
+		return mapaUrgente;
+	}
 
 }
