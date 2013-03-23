@@ -94,10 +94,15 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 	}
 
 	public HashMap<String, Collection<Feitos>> listarTarefasPendentes() {
+		Collection<Feitos> tarefasPendentes = feitosDao.listarTarefasPendentes();
 
+		return mapearTarefasPorFuncionario(tarefasPendentes);
+	}
+
+	private HashMap<String, Collection<Feitos>> mapearTarefasPorFuncionario(
+			Collection<Feitos> listarTarefasPendentes) {
 		HashMap<String, Collection<Feitos>> mapaPendente = new HashMap<String, Collection<Feitos>>();
-
-		for (Feitos feitos : feitosDao.listarTarefasPendentes()) {
+		for (Feitos feitos : listarTarefasPendentes) {
 			String funcionario = feitos.getFuncionario().getNome();
 
 			if (!mapaPendente.containsKey(funcionario)) {
@@ -110,32 +115,10 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 		return mapaPendente;
 	}
 
+
 	public HashMap<String, Collection<Feitos>> listarTarefasUrgentes() {
-
-		HashMap<String, Collection<Feitos>> mapaUrgente = new HashMap<String, Collection<Feitos>>();
-
-		for (Feitos feitos : feitosDao.listarTarefasPendentes()) {
-			String funcionario = feitos.getFuncionario().getNome();
-
-			if (!mapaUrgente.containsKey(funcionario) && alarmeDao.dataAlarme()) {
-
-				mapaUrgente.put(funcionario, new LinkedList<Feitos>());
-			}
-			mapaUrgente.get(funcionario).add(feitos);
-
-		}
-		return mapaUrgente;
-	}
-
-	public void atualizar(Long idFuncionario, Funcionario funcionario) {
-
-		Funcionario funcionarioBanco = findbyId(idFuncionario);
-		funcionarioBanco.setFeitos(funcionario.getFeitos());
-		funcionarioBanco.setDataDeAdmissao(funcionario.getDataDeAdmissao());
-		funcionarioBanco.setNome(funcionario.getNome());
-		
-		fDao.saveOrUpdate(funcionarioBanco);
-
+		Collection<Feitos> tarefasUrgentes = feitosDao.listarTarefasUrgentes();
+		return mapearTarefasPorFuncionario(tarefasUrgentes);
 	}
 
 }

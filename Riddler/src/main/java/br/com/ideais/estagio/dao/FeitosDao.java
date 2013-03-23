@@ -51,5 +51,21 @@ public class FeitosDao extends AbstractDao<Feitos>{
 		});
 	}
 
+	@SuppressWarnings("unchecked")
+	public Collection<Feitos> listarTarefasUrgentes() {
+		return hibernateTemplate.executeFind( new HibernateCallback<Collection<Feitos>>() {
+			public Collection<Feitos> doInHibernate(Session session) throws HibernateException, SQLException {
+				Query query = session.createQuery(
+					"from Feitos feitos " +
+					"where" +
+					"	feitos.etapa.nome != 'Concluida' " +
+					"	and feitos.funcionario.dataDeAdmissao + feitos.etapa.beneficio.prazo < current_timestamp() + 5 " +
+					"order by feitos.funcionario.nome, feitos.etapa.beneficio.nome, feitos.etapa.nome"
+				);
+				return query.list();
+			}
+		});
+	}
+
 }
 	

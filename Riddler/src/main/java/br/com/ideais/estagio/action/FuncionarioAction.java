@@ -72,14 +72,14 @@ public class FuncionarioAction implements CRUDAction {
 		}
 	}
 	
-	public String atualizar() {
-		try{
-			funcionarioService.atualizar(getFuncionarioFromRequest(), funcionario);
-			return SUCCESS;
-		}catch(Exception e){
-			System.out.println(e);
-		}
-		return ERROR;	}
+//	public String atualizar() {
+//		try{
+//			funcionarioService.atualizar(getFuncionarioFromRequest(), funcionario);
+//			return SUCCESS;
+//		}catch(Exception e){
+//			System.out.println(e);
+//		}
+//		return ERROR;	}
 
 	public String editarTarefas() {
 		System.out.println(getFuncionarioFromRequest());
@@ -105,7 +105,7 @@ public class FuncionarioAction implements CRUDAction {
 	
 	public String listarTarefasUrgentes() {
 		try {
-			setMapaUrgente(funcionarioService.listarTarefasUrgentes());
+			setMapaPendente(funcionarioService.listarTarefasUrgentes());
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
