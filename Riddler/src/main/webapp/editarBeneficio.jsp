@@ -68,9 +68,9 @@
 				<input type="submit" class="btn btn-success" value="Cadastrar">
 			</form>
 		</div>
+	<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 
-	<jsp:include page="footer.jsp"></jsp:include>
 
 	<script type="text/javascript">
 	

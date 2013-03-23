@@ -9,7 +9,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.ideais.estagio.dao.AlarmeDao;
 import br.com.ideais.estagio.dao.FeitosDao;
 import br.com.ideais.estagio.dao.FuncionarioDao;
 import br.com.ideais.estagio.model.Etapa;
@@ -23,8 +22,7 @@ public class FuncionarioService implements AbstractService<Funcionario> {
 	private FuncionarioDao fDao;
 	@Autowired
 	private FeitosDao feitosDao;
-	@Autowired
-	private AlarmeDao alarmeDao;
+	
 	@Autowired
 	private EtapaService etapaService;
 	@Autowired

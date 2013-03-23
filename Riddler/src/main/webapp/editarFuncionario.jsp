@@ -32,24 +32,25 @@
 
 		<jsp:include page="header.jsp" />
 
-
+		<div class="masthead" align="center">
+			<h1 class="muted">Editar Funcionario</h1>
+		</div>
+		<hr />
 		<div align="left">
-			<h2>Editar Colaborador</h2>
-			<hr />
 			<h3>${id}</h3>
 		</div>
 		<div class="form">
 			<form action="atualizarFuncionario" method="post">
 				${erro}
 				<h4>
-					<input type="hidden" value="${id}"
-						name="funcionario.id" readonly="readonly" /> 
-						
-					Nome: <input type="text" id="usuario" name="funcionario.nome" value="${id}">
+					<input type="hidden" value="${id}" name="funcionario.id"
+						readonly="readonly" /> Nome: <input type="text" id="usuario"
+						name="funcionario.nome" value="${id}">
 				</h4>
 				<h4>
 					Data de Admissão: <input type="text" id="datepicker"
-						name="funcionario.dataDeAdmissao" value="${funcionario.dataDeAdmissao}" />
+						name="funcionario.dataDeAdmissao"
+						value="${funcionario.dataDeAdmissao}" />
 				</h4>
 
 				<table class="table table-striped">
@@ -64,7 +65,7 @@
 				</table>
 				<input type="submit" class="btn btn-success" value="Alterar Dados">
 			</form>
-			
+
 			<!-- 			<form action="atualizarFuncionario" method="post"> -->
 			<!-- 				<h4> -->
 			<!-- 					Nome: <input type="text" id="usuario" name="funcionario.nome" -->

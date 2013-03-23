@@ -24,8 +24,8 @@
 
 		<jsp:include page="header.jsp" />
 
-		<div class="masthead" align="center">
-			<h1 class="muted">Tarefas</h1>
+	<div class="masthead" align="center">
+			<h1 class="muted">Tarefas Criadas</h1>
 		</div>
 		<hr />
 
@@ -77,6 +77,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 </body>
 </html>

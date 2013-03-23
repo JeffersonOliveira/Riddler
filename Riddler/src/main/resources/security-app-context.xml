@@ -19,9 +19,34 @@
 		<intercept-url pattern="/funcionarios.jsp" access="isAuthenticated()" />
 		<intercept-url pattern="/home.jsp" access="isAuthenticated()" />
 		<intercept-url pattern="/tarefasPendentes.jsp" access="isAuthenticated()" />
+		<intercept-url pattern="/listarFuncionarios" access="isAuthenticated()" />
+		<intercept-url pattern="/cadastrarFuncionario" access="isAuthenticated()" />
+		<intercept-url pattern="/deletarFuncionario" access="isAuthenticated()" />
+		<intercept-url pattern="/atualizarFuncionario" access="isAuthenticated()" />
+		<intercept-url pattern="/editarTarefas" access="isAuthenticated()" />
+		<intercept-url pattern="/listarTarefasUrgentes" access="isAuthenticated()" />
+		<intercept-url pattern="/terefasPendentes" access="isAuthenticated()" />
+		<intercept-url pattern="/finalizarEtapa" access="isAuthenticated()" />
+		<intercept-url pattern="/adicionarObservacao" access="isAuthenticated()" />
+		<intercept-url pattern="/buscarBeneficio" access="isAuthenticated()" />
+		<intercept-url pattern="/listarBeneficios" access="isAuthenticated()" />
+		<intercept-url pattern="/listarBeneficiosFuncionario" access="isAuthenticated()" />
+		<intercept-url pattern="/cadastrarBeneficios" access="isAuthenticated()" />
+		<intercept-url pattern="/deletarBeneficios" access="isAuthenticated()" />
+		<intercept-url pattern="/editarBeneficio" access="isAuthenticated()" />
+		<intercept-url pattern="/listarEtapas" access="isAuthenticated()" />
+		<intercept-url pattern="/cadastrarEtapas" access="isAuthenticated()" />
+		<intercept-url pattern="/deletarEtapas" access="isAuthenticated()" />
+		<intercept-url pattern="/editarEtapas" access="isAuthenticated()" />
+		<intercept-url pattern="/buscarFuncionario" access="isAuthenticated()" />
+		<intercept-url pattern="/listarFeitos" access="isAuthenticated()" />
+		<intercept-url pattern="/cadastrarFeitos" access="isAuthenticated()" />
+		<intercept-url pattern="/deletarFeitos" access="isAuthenticated()" />
+		
+		
 
 		<form-login login-page="/index.jsp"
-			authentication-failure-url="/index.jsp" default-target-url="/home.jsp" />
+			authentication-failure-url="/index.jsp" default-target-url="/listarTarefasUrgentes" />
 
 		<logout logout-success-url="/index.jsp" />
 	</http>

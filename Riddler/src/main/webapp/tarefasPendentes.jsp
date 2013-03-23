@@ -15,12 +15,15 @@
 
 		<jsp:include page="header.jsp" />
 
-		<h2 align="center">Todas as tarefas</h2>
+			<div class="masthead" align="center">
+			<h1 class="muted">Tarefas Criadas</h1>
+		</div>
+		<hr />
 
 		<c:forEach var="mapa" items="${mapaPendente}">
 			<table align="center">
 				<thead align="center">
-					<h3 align="center">
+					<h3 align="left">
 						<b>${mapa.key}</b>
 					</h3>
 					<h4>
@@ -44,10 +47,10 @@
 				</c:forEach>
 				</tbody>
 			</table>
+	<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 
 
-	<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 </body>
 </html>

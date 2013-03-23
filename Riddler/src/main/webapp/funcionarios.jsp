@@ -19,10 +19,12 @@
 
 		<jsp:include page="header.jsp"></jsp:include>
 
-		&nbsp;
+
+			<div class="masthead" align="center">
+				<h1 class="muted">Colaboradores Cadastrados</h1>
+			</div>
+			<hr />
 		<div class="jumbotron">
-			<h1 align="center">Funcionários</h1>
-			&nbsp;
 			<table class="table table-striped">
 				<thead align="center">
 					<tr>
@@ -34,11 +36,10 @@
 				<tbody>
 					<form action="listarFuncionarios" class="form-search">
 						<div class="input-append">
-							<input class="span2" id="bProv" type="text" value="" name="funcionario.nome"
-							onclick="filtroP()" />
+							<input class="span2" id="bProv" type="text" value=""
+								name="funcionario.nome" onclick="filtroP()" />
 							<button class="btn btn-success" id="bProv" onclick="filtroP()">
-								Procurar
-							</button>
+								Procurar</button>
 						</div>
 					</form>
 
@@ -46,11 +47,12 @@
 						<tr>
 							<td>${funcionario.nome}</td>
 							<td><fmt:formatDate pattern="dd/MM/yyyy"
-									value="${funcionario.dataDeAdmissao}" /></td>
-							<td><button class="btn btn-small btn-success" value="Editar">
-									<a href="listarBeneficiosFuncionario?id=${funcionario.id}"><font
-										color="white">Editar Funcionario</font></a>
-								</button></td>
+									value="${funcionario.dataDeAdmissao}" />
+							</td>
+<!-- 							<td><button class="btn btn-small btn-success" value="Editar"> -->
+<%-- 									<a href="listarBeneficiosFuncionario?id=${funcionario.id}"><font --%>
+<!-- 										color="white">Editar Funcionario</font></a> -->
+<!-- 								</button></td> -->
 							<td>
 								<button class="btn btn-small btn-success">
 									<a href="terefasPendentes?id=${funcionario.id}"><font
@@ -70,8 +72,6 @@
 				</tbody>
 			</table>
 		</div>
-
-		<hr color="green">
 
 		<jsp:include page="footer.jsp"></jsp:include>
 

@@ -53,7 +53,7 @@
 
 		<action name="listarTarefasUrgentes" class="br.com.ideais.estagio.action.FuncionarioAction"
 			method="listarTarefasUrgentes">
-			<result name="success">tarefasPendentes.jsp</result>
+			<result name="success">home.jsp</result>
 		</action>
 
 		<action name="terefasPendentes" class="br.com.ideais.estagio.action.FuncionarioAction"

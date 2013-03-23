@@ -9,13 +9,13 @@
 				<div class="tabbable">
 					<div class="container">
 						<ul class="nav">
-							<li class="active" ><a href="listarTarefasUrgentes">Tarefas
+							<li><a href="listarTarefasUrgentes">Tarefas
 									Urgentes</a></li>
-							<li><a href="funcionarioBeneficios">Cadastro Funcionário</a></li>
-							<li><a href="cadastroBeneficio.jsp">Cadastrar Tarefa</a></li>
-							<li><a href="listarBeneficios">Tarefas</a></li>
 							<li><a href="listarTarefasPendentes">Tarefas Pendentes</a></li>
-							<li><a href="listarFuncionarios">Funcionários </a></li>
+							<li><a href="funcionarioBeneficios">Cadastro Colaborador</a></li>
+							<li><a href="listarFuncionarios">Colaboradores Cadastrados</a></li>
+							<li><a href="cadastroBeneficio.jsp">Cadastrar Tarefa</a></li>
+							<li><a href="listarBeneficios">Tarefas Criadas</a></li>
 							
 						
 							<li><a href="<c:url value="j_spring_security_logout" />" >Logout </a></li>
