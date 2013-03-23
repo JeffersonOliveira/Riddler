@@ -37,7 +37,7 @@ public class BeneficioAction implements CRUDAction {
 	}
 
 	public String save() {
-		if (beneficio.getNome().equals("") || beneficio.getPrazo().equals("") || beneficio.getEtapas().size()==0) {
+		if (beneficio.getNome().equals("") || beneficio.getPrazo().equals("")) {
 			erroCampoVazio();
 			return ERROR;
 		}

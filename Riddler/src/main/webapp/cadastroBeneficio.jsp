@@ -30,7 +30,7 @@
 		<div class="form">
 			<form action="cadastrarBeneficios" method="post">
 				<div>
-					<p>${erro}</p>
+					<p class="alert-error">${erro}</p>
 					Nome <input type="text" id="beneficio" name="beneficio.nome">
 					Prazo <input type="number" min="0" id="prazo" name="beneficio.prazo" />
 				</div>
