@@ -96,7 +96,9 @@ public class FuncionarioAction implements CRUDAction {
 	
 	public String listarTarefasUrgentes() {
 		try {
+			System.out.println("NO tryyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy, antes do mapa");
 			setMapaUrgente(funcionarioService.listarTarefasUrgentes());
+			System.out.println("NO tryyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy, depois do mapa");
 			return SUCCESS;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -205,6 +207,7 @@ public class FuncionarioAction implements CRUDAction {
 	
 	public void setMapaUrgente(HashMap<String, Collection<Feitos>> mapaUrgente) {
 		this.mapaUrgente = mapaUrgente;
+		System.out.println("aqui!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 	}
 	public HashMap<String, Collection<Feitos>> getMapaUrgente() {
 		return mapaUrgente;

@@ -26,7 +26,7 @@ public class AlarmeDao extends AbstractDao<Alarme> {
 	@Autowired
 	HibernateTemplate hibernateTemplate;
 
-	public boolean dataAlarme() {
+	public boolean dataAlarme(){
 		
 		//List<Alarme> alarmes = new ArrayList<Alarme>();
 		Set<Beneficio> beneficios = new TreeSet<Beneficio>();
@@ -35,22 +35,21 @@ public class AlarmeDao extends AbstractDao<Alarme> {
 		Date dataAtual = new Date();
 		String formatoAtual = "dd/MM/yyyy";
 		SimpleDateFormat dataAtualFormatada = new SimpleDateFormat(formatoAtual);
-		int dataAtualmillis = Integer.parseInt(dataAtualFormatada
-				.format(dataAtual));
+		long dataAtualmillis = dataAtual.getTime();
 
 		for (Funcionario funcionario : funcionarios) {
-
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>aqui now funnnnn");
 			for (Feitos feito : funcionario.getFeitos()) {
 				beneficios.add(feito.getEtapa().getBeneficio());
 			}
 
 			for (Beneficio beneficio : beneficios) {
-				{
-					Date admissao = funcionario.getDataDeAdmissao();
-					Calendar prazo = GregorianCalendar.getInstance();
-					prazo.setTime( admissao );
-					prazo.add(Calendar.DAY_OF_MONTH, beneficio.getPrazo() - 5);
-				}
+//				{	
+//					Date admissao = funcionario.getDataDeAdmissao();
+//					Calendar prazo = GregorianCalendar.getInstance();
+//					prazo.setTime( admissao );
+//					prazo.add(Calendar.DAY_OF_MONTH, beneficio.getPrazo() - 5);
+//				}
 
 				// ...
 				Date dtPrazo = funcionario.getDataDeAdmissao();
@@ -60,26 +59,14 @@ public class AlarmeDao extends AbstractDao<Alarme> {
 				String formatoPrazo = "dd/MM/yyyy";
 				SimpleDateFormat dataPrazoFormatada = new SimpleDateFormat(
 						formatoPrazo);
-				int dtPrazomillis = Integer.parseInt(dataPrazoFormatada
-						.format(dtPrazo));
+				long dtPrazomillis = dtPrazo.getTime();
 
 				if (dtPrazomillis <= dataAtualmillis) {
 					System.out.println(">>>>>>>>>>>>>>>>>>>> verdade dtPrazo "+dtPrazo);
 					return true;
-	
-					
-					
-					
-//					Alarme alarme = new Alarme();
-//					alarme.setFuncionario(funcionario);
-//					alarme.setBeneficio(beneficio);Alarme alarme = new Alarme();
-//					alarme.setFuncionario(funcionario);
-//					alarme.setBeneficio(beneficio);
-//					alarmes.add(alarme);
-//					alarmes.add(alarme);
-				}
 			}
 		}
-		return false;
 	}
+		return false;
+}
 }
