@@ -45,7 +45,7 @@ public class AlarmeDao extends AbstractDao<Alarme> {
 			}
 
 			for (Beneficio beneficio : beneficios) {
-				{
+				{ 
 					Date admissao = funcionario.getDataDeAdmissao();
 					Calendar prazo = GregorianCalendar.getInstance();
 					prazo.setTime( admissao );
