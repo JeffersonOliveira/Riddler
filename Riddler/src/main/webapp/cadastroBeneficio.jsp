@@ -66,15 +66,15 @@
 	<jsp:include page="footer.jsp"></jsp:include>
 
 	<script type="text/javascript">
-	
+
 		function removerEtapa(div){
 			var pai = $(div).parent();
 			pai.remove();
 		}
-		
-			
-			
-			
+
+
+
+
 			$("#add").click(
 				function() {
 					var clone = $(".clone").clone();
@@ -90,21 +90,21 @@
 							name);
 					$(clone).find('input.ordem').val(etapaCount).attr(
 							"name", order);
-					
+
 					var nameConcluida = "beneficio.etapas[" + (etapaCount) + "].nome";
 					var ordemConcluida = "beneficio.etapas[" + (etapaCount) + "].ordem";
 					$(".concluida").find('input.etapaFinal').attr("name", nameConcluida);
 					$(".concluida").find('input.ordem').val(etapaCount+1).attr("name", ordemConcluida);
-					
+
 					$('<i/>',{
 						class:"icon-minus-sign",
 						onclick:"removerEtapa(this)"
 					}).appendTo(clone);
-					
+
 					$("#rendered").append(clone);
 
 			});
-	
+
 	</script>
 
 </body>

@@ -52,6 +52,7 @@ public class FeitosService implements AbstractService<Feitos> {
 		Feitos feitos = findbyId(id);
 		if (feitos.getEtapa().getNome().equals("Concluida")) {
 			return false;
+
 		}
 		Long idProximaEtapa = feitos.getEtapa().getId() + 1;
 		Etapa etapa = etapaService.findbyId(idProximaEtapa);
